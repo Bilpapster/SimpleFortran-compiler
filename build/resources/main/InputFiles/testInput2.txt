@@ -1,0 +1,7 @@
+int papster = 100 -- this is a comment
+$ this is a comment this is a comment
+int tasos = 1
+papster
+tasos
+1 + 9
+tasos * papster + papster + 9 $ comment
