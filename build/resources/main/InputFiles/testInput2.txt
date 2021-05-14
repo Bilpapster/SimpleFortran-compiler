@@ -1,4 +1,4 @@
-int papster = 100 -- this is a comment
+int papster = 100 $ this is a comment
 $ this is a comment this is a comment
 int tasos = 1
 papster

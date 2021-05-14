@@ -19,6 +19,7 @@ public class Variable implements Expression{
 
     @Override
     public int evaluate() {
-        return ExpressionProcessor.getValueOfVariable(this.name);
+        return SymbolTable.getValueOfVariable(this.name);
+//        return ExpressionProcessor.getValueOfVariable(this.name);
     }
 }

@@ -30,21 +30,23 @@ Model/DataType.java
  Model.DataType
 Model/Multiplication.java
  Model.Multiplication
-Compiler/Compiler.java
- Compiler.Compiler
+Model/Number.java
+ Model.Number
 Model/Subtraction.java
  Model.Subtraction
 Model/Program.java
  Model.Program
-Converters/AntlrToExpression.java
- Converters.AntlrToExpression
-Model/Division.java
- Model.Division
-Model/ExpressionProcessor.java
- Model.ExpressionProcessor
 Model/ErrorType.java
  Model.ErrorType
+Model/Division.java
+ Model.Division
+Compiler/Compiler.java
+ Compiler.Compiler
+Converters/AntlrToExpression.java
+ Converters.AntlrToExpression
+Model/ExpressionProcessor.java
+ Model.ExpressionProcessor
 Model/Variable.java
  Model.Variable
-Model/Number.java
- Model.Number
+Model/SymbolTable.java
+ Model.SymbolTable
