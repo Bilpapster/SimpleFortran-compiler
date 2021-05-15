@@ -2,8 +2,8 @@ Listeners/CustomErrorListener.java
  Listeners.CustomErrorListener
 Model/Addition.java
  Model.Addition
-Converters/AntlrToProgram.java
- Converters.AntlrToProgram
+Model/Variable.java
+ Model.Variable
 Model/BinaryOperation.java
  Model.BinaryOperation
 BaseClasses/SimpleFortranLexer.java
@@ -40,14 +40,16 @@ Model/SymbolTable.java
  Model.SymbolTable
 Model/Division.java
  Model.Division
-Compiler/Compiler.java
- Compiler.Compiler
-Model/Variable.java
- Model.Variable
-Model/ExpressionProcessor.java
- Model.ExpressionProcessor
-Converters/AntlrToExpression.java
- Converters.AntlrToExpression
 Model/ErrorType.java
  Model.ErrorType
  Model.ErrorType$1
+Model/ExpressionProcessor.java
+ Model.ExpressionProcessor
+Converters/AntlrToProgram.java
+ Converters.AntlrToProgram
+Listeners/SemanticErrorsManager.java
+ Listeners.SemanticErrorsManager
+Compiler/Compiler.java
+ Compiler.Compiler
+Converters/AntlrToExpression.java
+ Converters.AntlrToExpression

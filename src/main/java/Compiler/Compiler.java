@@ -5,6 +5,7 @@ import BaseClasses.SimpleFortranLexer;
 import BaseClasses.SimpleFortranParser;
 import Converters.AntlrToProgram;
 import Listeners.CustomErrorListener;
+import Listeners.SemanticErrorsHandler;
 import Model.ExpressionProcessor;
 import Model.Program;
 import org.antlr.v4.runtime.CharStream;
@@ -22,8 +23,6 @@ public class Compiler {
         }
 
         float number = Float.parseFloat("+123.0000000000");
-//        number /= 100;
-//        number *= 100;
         System.out.println(number);
 
         SimpleFortranParser parser = getParser(args[0]);
@@ -35,8 +34,8 @@ public class Compiler {
             return;
         }
 
-        if (programVisitor.hasSemanticErrors()) {
-            programVisitor.printSemanticErrors();
+        if (SemanticErrorsHandler.hasErrors()) {
+            SemanticErrorsHandler.printErrors();
             return;
         }
 

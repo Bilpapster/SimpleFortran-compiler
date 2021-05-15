@@ -1,9 +1,9 @@
 package Converters;
 
 import java.util.Map;
-import java.util.List;
 import java.util.HashMap;
 
+import Listeners.SemanticErrorsHandler;
 import Model.*;
 import Model.Number;
 import BaseClasses.SimpleFortranParser;
@@ -12,11 +12,6 @@ import BaseClasses.SimpleFortranBaseVisitor;
 
 public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
     private final Map<String, Integer> declaredVariables = new HashMap<>();
-    private final List<String> semanticErrors;
-
-    public AntlrToExpression(List<String> semanticErrors) {
-        this.semanticErrors = semanticErrors;
-    }
 
     @Override
     public Expression visitMultiplication(SimpleFortranParser.MultiplicationContext ctx) {
@@ -37,7 +32,8 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
     public Expression visitDeclaration(SimpleFortranParser.DeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         if (declaredVariables.containsKey(variableName)) {
-            semanticErrors.add(ErrorType.getErrorDescription(ctx.IDENTIFIER(), ErrorType.VARIABLE_REDECLARED));
+            SemanticErrorsHandler.addError(ErrorType.getErrorDescription(ctx.IDENTIFIER(),
+                                           ErrorType.VARIABLE_REDECLARED));
         } else {
             declaredVariables.put(variableName, Integer.parseInt(ctx.NUMBER().getText()));
         }
@@ -49,7 +45,8 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
         String variableName = ctx.IDENTIFIER().getText();
 
         if (!declaredVariables.containsKey(variableName)) {
-            semanticErrors.add(ErrorType.getErrorDescription(ctx.IDENTIFIER(), ErrorType.VARIABLE_UNDECLARED));
+            SemanticErrorsHandler.addError(ErrorType.getErrorDescription(ctx.IDENTIFIER(),
+                                           ErrorType.VARIABLE_UNDECLARED));
         }
         return new Variable(variableName);
     }
