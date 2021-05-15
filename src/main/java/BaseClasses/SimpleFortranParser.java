@@ -17,8 +17,8 @@ public class SimpleFortranParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, INT_TYPE=4, IDENTIFIER=5, NUMBER=6, WHITESPACE=7, 
-		ONE_LINE_COMMENT=8;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, INT_TYPE=6, IDENTIFIER=7, NUMBER=8, 
+		WHITESPACE=9, ONE_LINE_COMMENT=10;
 	public static final int
 		RULE_program = 0, RULE_variableDeclaration = 1, RULE_expression = 2;
 	private static String[] makeRuleNames() {
@@ -30,14 +30,14 @@ public class SimpleFortranParser extends Parser {
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'='", "'*'", "'+'"
+			null, "'='", "'*'", "'/'", "'+'", "'-'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, null, null, null, "INT_TYPE", "IDENTIFIER", "NUMBER", "WHITESPACE", 
-			"ONE_LINE_COMMENT"
+			null, null, null, null, null, null, "INT_TYPE", "IDENTIFIER", "NUMBER", 
+			"WHITESPACE", "ONE_LINE_COMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -229,34 +229,6 @@ public class SimpleFortranParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
-	public static class MultiplicationContext extends ExpressionContext {
-		public List<ExpressionContext> expression() {
-			return getRuleContexts(ExpressionContext.class);
-		}
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class,i);
-		}
-		public MultiplicationContext(ExpressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleFortranVisitor ) return ((SimpleFortranVisitor<? extends T>)visitor).visitMultiplication(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class AdditionContext extends ExpressionContext {
-		public List<ExpressionContext> expression() {
-			return getRuleContexts(ExpressionContext.class);
-		}
-		public ExpressionContext expression(int i) {
-			return getRuleContext(ExpressionContext.class,i);
-		}
-		public AdditionContext(ExpressionContext ctx) { copyFrom(ctx); }
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleFortranVisitor ) return ((SimpleFortranVisitor<? extends T>)visitor).visitAddition(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 	public static class VariableContext extends ExpressionContext {
 		public TerminalNode IDENTIFIER() { return getToken(SimpleFortranParser.IDENTIFIER, 0); }
 		public VariableContext(ExpressionContext ctx) { copyFrom(ctx); }
@@ -275,6 +247,34 @@ public class SimpleFortranParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
+	public static class AdditionOrSubtractionContext extends ExpressionContext {
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
+		}
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
+		}
+		public AdditionOrSubtractionContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleFortranVisitor ) return ((SimpleFortranVisitor<? extends T>)visitor).visitAdditionOrSubtraction(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class MultiplicationOrDivisionContext extends ExpressionContext {
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
+		}
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
+		}
+		public MultiplicationOrDivisionContext(ExpressionContext ctx) { copyFrom(ctx); }
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof SimpleFortranVisitor ) return ((SimpleFortranVisitor<? extends T>)visitor).visitMultiplicationOrDivision(this);
+			else return visitor.visitChildren(this);
+		}
+	}
 
 	public final ExpressionContext expression() throws RecognitionException {
 		return expression(0);
@@ -287,6 +287,7 @@ public class SimpleFortranParser extends Parser {
 		ExpressionContext _prevctx = _localctx;
 		int _startState = 4;
 		enterRecursionRule(_localctx, 4, RULE_expression, _p);
+		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
@@ -330,24 +331,40 @@ public class SimpleFortranParser extends Parser {
 					switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 					case 1:
 						{
-						_localctx = new MultiplicationContext(new ExpressionContext(_parentctx, _parentState));
+						_localctx = new MultiplicationOrDivisionContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(24);
 						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
 						setState(25);
-						match(T__1);
+						_la = _input.LA(1);
+						if ( !(_la==T__1 || _la==T__2) ) {
+						_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
 						setState(26);
 						expression(5);
 						}
 						break;
 					case 2:
 						{
-						_localctx = new AdditionContext(new ExpressionContext(_parentctx, _parentState));
+						_localctx = new AdditionOrSubtractionContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(27);
 						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
 						setState(28);
-						match(T__2);
+						_la = _input.LA(1);
+						if ( !(_la==T__3 || _la==T__4) ) {
+						_errHandler.recoverInline(this);
+						}
+						else {
+							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+							_errHandler.reportMatch(this);
+							consume();
+						}
 						setState(29);
 						expression(4);
 						}
@@ -390,17 +407,17 @@ public class SimpleFortranParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\n&\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f&\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\3\2\3\2\6\2\13\n\2\r\2\16\2\f\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3"+
 		"\4\3\4\3\4\5\4\31\n\4\3\4\3\4\3\4\3\4\3\4\3\4\7\4!\n\4\f\4\16\4$\13\4"+
-		"\3\4\2\3\6\5\2\4\6\2\2\2\'\2\n\3\2\2\2\4\20\3\2\2\2\6\30\3\2\2\2\b\13"+
-		"\5\4\3\2\t\13\5\6\4\2\n\b\3\2\2\2\n\t\3\2\2\2\13\f\3\2\2\2\f\n\3\2\2\2"+
-		"\f\r\3\2\2\2\r\16\3\2\2\2\16\17\7\2\2\3\17\3\3\2\2\2\20\21\7\6\2\2\21"+
-		"\22\7\7\2\2\22\23\7\3\2\2\23\24\7\b\2\2\24\5\3\2\2\2\25\26\b\4\1\2\26"+
-		"\31\7\7\2\2\27\31\7\b\2\2\30\25\3\2\2\2\30\27\3\2\2\2\31\"\3\2\2\2\32"+
-		"\33\f\6\2\2\33\34\7\4\2\2\34!\5\6\4\7\35\36\f\5\2\2\36\37\7\5\2\2\37!"+
-		"\5\6\4\6 \32\3\2\2\2 \35\3\2\2\2!$\3\2\2\2\" \3\2\2\2\"#\3\2\2\2#\7\3"+
-		"\2\2\2$\"\3\2\2\2\7\n\f\30 \"";
+		"\3\4\2\3\6\5\2\4\6\2\4\3\2\4\5\3\2\6\7\2\'\2\n\3\2\2\2\4\20\3\2\2\2\6"+
+		"\30\3\2\2\2\b\13\5\4\3\2\t\13\5\6\4\2\n\b\3\2\2\2\n\t\3\2\2\2\13\f\3\2"+
+		"\2\2\f\n\3\2\2\2\f\r\3\2\2\2\r\16\3\2\2\2\16\17\7\2\2\3\17\3\3\2\2\2\20"+
+		"\21\7\b\2\2\21\22\7\t\2\2\22\23\7\3\2\2\23\24\7\n\2\2\24\5\3\2\2\2\25"+
+		"\26\b\4\1\2\26\31\7\t\2\2\27\31\7\n\2\2\30\25\3\2\2\2\30\27\3\2\2\2\31"+
+		"\"\3\2\2\2\32\33\f\6\2\2\33\34\t\2\2\2\34!\5\6\4\7\35\36\f\5\2\2\36\37"+
+		"\t\3\2\2\37!\5\6\4\6 \32\3\2\2\2 \35\3\2\2\2!$\3\2\2\2\" \3\2\2\2\"#\3"+
+		"\2\2\2#\7\3\2\2\2$\"\3\2\2\2\7\n\f\30 \"";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

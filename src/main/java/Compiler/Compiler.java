@@ -1,17 +1,16 @@
 package Compiler;
 
+import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 import BaseClasses.SimpleFortranLexer;
-
 import BaseClasses.SimpleFortranParser;
 import Converters.AntlrToProgram;
 import Listeners.CustomErrorListener;
 import Listeners.SemanticErrorsHandler;
 import Model.ExpressionProcessor;
 import Model.Program;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.io.IOException;
 

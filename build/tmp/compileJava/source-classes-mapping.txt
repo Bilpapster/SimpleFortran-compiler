@@ -2,8 +2,8 @@ Listeners/CustomErrorListener.java
  Listeners.CustomErrorListener
 Model/Addition.java
  Model.Addition
-Model/Variable.java
- Model.Variable
+Converters/AntlrToProgram.java
+ Converters.AntlrToProgram
 Model/BinaryOperation.java
  Model.BinaryOperation
 BaseClasses/SimpleFortranLexer.java
@@ -12,14 +12,16 @@ Model/VariableDeclaration.java
  Model.VariableDeclaration
 Model/Expression.java
  Model.Expression
+Listeners/SemanticErrorsHandler.java
+ Listeners.SemanticErrorsHandler
 BaseClasses/SimpleFortranBaseVisitor.java
  BaseClasses.SimpleFortranBaseVisitor
 BaseClasses/SimpleFortranParser.java
  BaseClasses.SimpleFortranParser
- BaseClasses.SimpleFortranParser$AdditionContext
+ BaseClasses.SimpleFortranParser$AdditionOrSubtractionContext
  BaseClasses.SimpleFortranParser$DeclarationContext
  BaseClasses.SimpleFortranParser$ExpressionContext
- BaseClasses.SimpleFortranParser$MultiplicationContext
+ BaseClasses.SimpleFortranParser$MultiplicationOrDivisionContext
  BaseClasses.SimpleFortranParser$NumberContext
  BaseClasses.SimpleFortranParser$ProgramContext
  BaseClasses.SimpleFortranParser$VariableContext
@@ -30,26 +32,24 @@ Model/DataType.java
  Model.DataType
 Model/Multiplication.java
  Model.Multiplication
-Model/Number.java
- Model.Number
+Compiler/Compiler.java
+ Compiler.Compiler
 Model/Subtraction.java
  Model.Subtraction
 Model/Program.java
  Model.Program
-Model/SymbolTable.java
- Model.SymbolTable
+Converters/AntlrToExpression.java
+ Converters.AntlrToExpression
 Model/Division.java
  Model.Division
+Model/ExpressionProcessor.java
+ Model.ExpressionProcessor
 Model/ErrorType.java
  Model.ErrorType
  Model.ErrorType$1
-Model/ExpressionProcessor.java
- Model.ExpressionProcessor
-Converters/AntlrToProgram.java
- Converters.AntlrToProgram
-Listeners/SemanticErrorsManager.java
- Listeners.SemanticErrorsManager
-Compiler/Compiler.java
- Compiler.Compiler
-Converters/AntlrToExpression.java
- Converters.AntlrToExpression
+Model/Variable.java
+ Model.Variable
+Model/Number.java
+ Model.Number
+Model/SymbolTable.java
+ Model.SymbolTable

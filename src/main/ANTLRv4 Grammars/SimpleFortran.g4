@@ -10,8 +10,8 @@ program                : (variableDeclaration | expression)+ EOF
 variableDeclaration    : INT_TYPE IDENTIFIER '=' NUMBER          # Declaration
                        ;
 
-expression             : expression '*' expression               # Multiplication
-                       | expression '+' expression               # Addition
+expression             : expression ('*' | '/') expression       # MultiplicationOrDivision
+                       | expression ('+' | '-') expression       # AdditionOrSubtraction
                        | IDENTIFIER                              # Variable
                        | NUMBER                                  # Number
                        ;

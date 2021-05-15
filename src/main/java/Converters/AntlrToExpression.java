@@ -13,14 +13,41 @@ import BaseClasses.SimpleFortranBaseVisitor;
 public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
     private final Map<String, Integer> declaredVariables = new HashMap<>();
 
+
+
     @Override
-    public Expression visitMultiplication(SimpleFortranParser.MultiplicationContext ctx) {
+    public Expression visitMultiplicationOrDivision(SimpleFortranParser.MultiplicationOrDivisionContext ctx) {
+        if (ctx.getChild(1).getText().equals(Character.toString('*'))) {
+            return visitMultiplication(ctx);
+        } else {
+            return visitDivision(ctx);
+        }
+    }
+
+    public Expression visitMultiplication(SimpleFortranParser.MultiplicationOrDivisionContext ctx) {
         return new Multiplication(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
     }
 
+    public Expression visitDivision(SimpleFortranParser.MultiplicationOrDivisionContext ctx) {
+        return new Division(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
+    }
+
+
     @Override
-    public Expression visitAddition(SimpleFortranParser.AdditionContext ctx) {
-        return new Addition(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
+    public Expression visitAdditionOrSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx) {
+        if (ctx.getChild(1).getText().equals(Character.toString('+'))) {
+            return visitAddition(ctx);
+        } else {
+            return visitSubtraction(ctx);
+        }
+    }
+
+    public Expression visitAddition(SimpleFortranParser.AdditionOrSubtractionContext ctx) {
+        return new Multiplication(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
+    }
+
+    public Expression visitSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx) {
+        return new Multiplication(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
     }
 
     @Override

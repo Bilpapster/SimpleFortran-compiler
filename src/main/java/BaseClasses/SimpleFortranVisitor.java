@@ -24,20 +24,6 @@ public interface SimpleFortranVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDeclaration(SimpleFortranParser.DeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code Multiplication}
-	 * labeled alternative in {@link SimpleFortranParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMultiplication(SimpleFortranParser.MultiplicationContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code Addition}
-	 * labeled alternative in {@link SimpleFortranParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAddition(SimpleFortranParser.AdditionContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code Variable}
 	 * labeled alternative in {@link SimpleFortranParser#expression}.
 	 * @param ctx the parse tree
@@ -51,4 +37,18 @@ public interface SimpleFortranVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNumber(SimpleFortranParser.NumberContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AdditionOrSubtraction}
+	 * labeled alternative in {@link SimpleFortranParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAdditionOrSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MultiplicationOrDivision}
+	 * labeled alternative in {@link SimpleFortranParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplicationOrDivision(SimpleFortranParser.MultiplicationOrDivisionContext ctx);
 }
