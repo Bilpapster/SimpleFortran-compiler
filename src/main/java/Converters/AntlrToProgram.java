@@ -27,7 +27,7 @@ public class AntlrToProgram extends SimpleFortranBaseVisitor<Program> {
     public void printSemanticErrors() {
         System.out.println("list of semantic errors:");
         for (String semanticError : semanticErrors) {
-            System.out.println(semanticError);
+            System.err.println(semanticError);
         }
     }
 }

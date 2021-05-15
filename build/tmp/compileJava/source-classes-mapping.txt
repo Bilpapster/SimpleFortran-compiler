@@ -36,17 +36,18 @@ Model/Subtraction.java
  Model.Subtraction
 Model/Program.java
  Model.Program
-Model/ErrorType.java
- Model.ErrorType
+Model/SymbolTable.java
+ Model.SymbolTable
 Model/Division.java
  Model.Division
 Compiler/Compiler.java
  Compiler.Compiler
-Converters/AntlrToExpression.java
- Converters.AntlrToExpression
-Model/ExpressionProcessor.java
- Model.ExpressionProcessor
 Model/Variable.java
  Model.Variable
-Model/SymbolTable.java
- Model.SymbolTable
+Model/ExpressionProcessor.java
+ Model.ExpressionProcessor
+Converters/AntlrToExpression.java
+ Converters.AntlrToExpression
+Model/ErrorType.java
+ Model.ErrorType
+ Model.ErrorType$1

@@ -6,10 +6,7 @@ import java.util.List;
 import java.util.HashMap;
 
 public class ExpressionProcessor {
-    private List<Expression> expressions;
-//    private static Map<String, Integer> values = new HashMap<>();
-    // symbol table for storing the values of variables
-
+    private final List<Expression> expressions;
 
     public ExpressionProcessor(List<Expression> expressions) {
         this.expressions = expressions;
@@ -22,17 +19,9 @@ public class ExpressionProcessor {
             if (expression instanceof VariableDeclaration) {
                 VariableDeclaration declaration = (VariableDeclaration) expression;
                 SymbolTable.putVariable(declaration.toString(), declaration.evaluate());
-//                values.put(declaration.toString(), declaration.evaluate());
             }
             evaluations.add(expression.toString() + " = " + expression.evaluate());
         }
         return evaluations;
     }
-
-//    public static int getValueOfVariable(String variableName) {
-//        if (values.containsKey(variableName)) {
-//            return values.get(variableName);
-//        }
-//        return 0;
-//    }
 }

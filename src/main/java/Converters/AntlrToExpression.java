@@ -3,7 +3,6 @@ package Converters;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
-import org.antlr.v4.runtime.Token;
 
 import Model.*;
 import Model.Number;
@@ -38,11 +37,7 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
     public Expression visitDeclaration(SimpleFortranParser.DeclarationContext ctx) {
         String variableName = ctx.IDENTIFIER().getText();
         if (declaredVariables.containsKey(variableName)) {
-            Token identifierToken = ctx.IDENTIFIER().getSymbol();
-            int line = identifierToken.getLine();
-            int column = identifierToken.getCharPositionInLine();
-            semanticErrors.add("Error (variable redefinition): Variable \"" + variableName
-                    + "\" has been already declared (line: " + line + ", column: " + column + ")");
+            semanticErrors.add(ErrorType.getErrorDescription(ctx.IDENTIFIER(), ErrorType.VARIABLE_REDECLARED));
         } else {
             declaredVariables.put(variableName, Integer.parseInt(ctx.NUMBER().getText()));
         }
@@ -54,11 +49,7 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
         String variableName = ctx.IDENTIFIER().getText();
 
         if (!declaredVariables.containsKey(variableName)) {
-            Token identifierToken = ctx.IDENTIFIER().getSymbol();
-            int line = identifierToken.getLine();
-            int column = identifierToken.getCharPositionInLine();
-            semanticErrors.add("Error (undeclared variable): Variable \"" + variableName
-                    + "\" is used but never declared or initialized (line: " + line + ", column: " + column + ")");
+            semanticErrors.add(ErrorType.getErrorDescription(ctx.IDENTIFIER(), ErrorType.VARIABLE_UNDECLARED));
         }
         return new Variable(variableName);
     }
