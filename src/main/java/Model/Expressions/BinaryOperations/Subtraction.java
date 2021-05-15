@@ -1,4 +1,6 @@
-package Model;
+package Model.Expressions.BinaryOperations;
+
+import Model.Expressions.Expression;
 
 public class Subtraction extends BinaryOperation{
     public Subtraction(Expression left, Expression right) {

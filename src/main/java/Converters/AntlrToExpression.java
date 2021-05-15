@@ -3,17 +3,22 @@ package Converters;
 import java.util.Map;
 import java.util.HashMap;
 
-import Listeners.SemanticErrorsHandler;
-import Model.*;
-import Model.Number;
+import ErrorHandling.ErrorType;
+import ErrorHandling.SemanticErrorsHandler;
+import Model.Declarations.VariableDeclaration;
+import Model.Expressions.*;
 import BaseClasses.SimpleFortranParser;
 import BaseClasses.SimpleFortranBaseVisitor;
+import Model.Expressions.BinaryOperations.Addition;
+import Model.Expressions.BinaryOperations.Division;
+import Model.Expressions.BinaryOperations.Multiplication;
+import Model.Expressions.BinaryOperations.Subtraction;
+import Model.Expressions.UnaryOperations.Number;
+import Model.Expressions.UnaryOperations.Variable;
 
 
 public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
     private final Map<String, Integer> declaredVariables = new HashMap<>();
-
-
 
     @Override
     public Expression visitMultiplicationOrDivision(SimpleFortranParser.MultiplicationOrDivisionContext ctx) {
@@ -32,7 +37,6 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
         return new Division(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
     }
 
-
     @Override
     public Expression visitAdditionOrSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx) {
         if (ctx.getChild(1).getText().equals(Character.toString('+'))) {
@@ -43,11 +47,11 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
     }
 
     public Expression visitAddition(SimpleFortranParser.AdditionOrSubtractionContext ctx) {
-        return new Multiplication(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
+        return new Addition(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
     }
 
     public Expression visitSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx) {
-        return new Multiplication(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
+        return new Subtraction(visit(ctx.getChild(0)), visit(ctx.getChild(2)));
     }
 
     @Override
@@ -60,7 +64,7 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
         String variableName = ctx.IDENTIFIER().getText();
         if (declaredVariables.containsKey(variableName)) {
             SemanticErrorsHandler.addError(ErrorType.getErrorDescription(ctx.IDENTIFIER(),
-                                           ErrorType.VARIABLE_REDECLARED));
+                    ErrorType.VARIABLE_REDECLARED));
         } else {
             declaredVariables.put(variableName, Integer.parseInt(ctx.NUMBER().getText()));
         }
@@ -73,7 +77,7 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
 
         if (!declaredVariables.containsKey(variableName)) {
             SemanticErrorsHandler.addError(ErrorType.getErrorDescription(ctx.IDENTIFIER(),
-                                           ErrorType.VARIABLE_UNDECLARED));
+                    ErrorType.VARIABLE_UNDECLARED));
         }
         return new Variable(variableName);
     }

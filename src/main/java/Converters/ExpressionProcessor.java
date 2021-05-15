@@ -1,9 +1,11 @@
-package Model;
+package Converters;
+
+import Model.Declarations.VariableDeclaration;
+import Model.Expressions.Expression;
+import Model.SymbolTable;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.List;
-import java.util.HashMap;
 
 public class ExpressionProcessor {
     private final List<Expression> expressions;

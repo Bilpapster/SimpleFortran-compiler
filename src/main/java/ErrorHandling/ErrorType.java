@@ -1,4 +1,4 @@
-package Model;
+package ErrorHandling;
 
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.TerminalNode;

@@ -1,6 +1,8 @@
-package Model;
+package Model.Expressions.UnaryOperations;
 
-public class Number implements Expression{
+import Model.Expressions.Expression;
+
+public class Number implements Expression {
     private int value;
 
     public Number(int value) {

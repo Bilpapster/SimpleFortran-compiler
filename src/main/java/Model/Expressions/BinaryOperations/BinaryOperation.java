@@ -1,6 +1,8 @@
-package Model;
+package Model.Expressions.BinaryOperations;
 
-public abstract class BinaryOperation implements Expression{
+import Model.Expressions.Expression;
+
+public abstract class BinaryOperation implements Expression {
     protected Expression left;
     protected Expression right;
     protected char operand;

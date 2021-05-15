@@ -1,4 +1,6 @@
-package Model;
+package Model.Expressions.BinaryOperations;
+
+import Model.Expressions.Expression;
 
 public class Division extends BinaryOperation{
     public Division(Expression left, Expression right) {

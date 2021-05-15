@@ -1,6 +1,10 @@
-package Model;
+package Model.Expressions.UnaryOperations;
 
-public class Variable implements Expression{
+import Model.DataType;
+import Model.Expressions.Expression;
+import Model.SymbolTable;
+
+public class Variable implements Expression {
     private String name;
     private DataType dataType;
 
@@ -20,6 +24,5 @@ public class Variable implements Expression{
     @Override
     public int evaluate() {
         return SymbolTable.getValueOfVariable(this.name);
-//        return ExpressionProcessor.getValueOfVariable(this.name);
     }
 }

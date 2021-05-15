@@ -1,11 +1,11 @@
-package Listeners;
+package ErrorHandling;
 
 import org.antlr.v4.runtime.*;
 
 import java.util.Collections;
 import java.util.List;
 
-public class CustomErrorListener extends BaseErrorListener {
+public class SyntaxErrorListener extends BaseErrorListener {
     private static boolean syntaxErrors = false;
 
     @Override

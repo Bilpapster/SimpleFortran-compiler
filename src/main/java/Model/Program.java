@@ -1,5 +1,7 @@
 package Model;
 
+import Model.Expressions.Expression;
+
 import java.util.List;
 import java.util.ArrayList;
 

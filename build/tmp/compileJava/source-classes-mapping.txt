@@ -1,9 +1,9 @@
-Listeners/CustomErrorListener.java
- Listeners.CustomErrorListener
+Model/SymbolTable.java
+ Model.SymbolTable
 Model/Addition.java
  Model.Addition
-Converters/AntlrToProgram.java
- Converters.AntlrToProgram
+Model/ExpressionProcessor.java
+ Model.ExpressionProcessor
 Model/BinaryOperation.java
  Model.BinaryOperation
 BaseClasses/SimpleFortranLexer.java
@@ -12,10 +12,22 @@ Model/VariableDeclaration.java
  Model.VariableDeclaration
 Model/Expression.java
  Model.Expression
-Listeners/SemanticErrorsHandler.java
- Listeners.SemanticErrorsHandler
+Model/Number.java
+ Model.Number
+Model/Program.java
+ Model.Program
+Model/Variable.java
+ Model.Variable
 BaseClasses/SimpleFortranBaseVisitor.java
  BaseClasses.SimpleFortranBaseVisitor
+Model/DataType.java
+ Model.DataType
+Model/Multiplication.java
+ Model.Multiplication
+Model/Division.java
+ Model.Division
+Model/Subtraction.java
+ Model.Subtraction
 BaseClasses/SimpleFortranParser.java
  BaseClasses.SimpleFortranParser
  BaseClasses.SimpleFortranParser$AdditionOrSubtractionContext
@@ -26,30 +38,18 @@ BaseClasses/SimpleFortranParser.java
  BaseClasses.SimpleFortranParser$ProgramContext
  BaseClasses.SimpleFortranParser$VariableContext
  BaseClasses.SimpleFortranParser$VariableDeclarationContext
+ErrorHandling/SemanticErrorsHandler.java
+ ErrorHandling.SemanticErrorsHandler
 BaseClasses/SimpleFortranVisitor.java
  BaseClasses.SimpleFortranVisitor
-Model/DataType.java
- Model.DataType
-Model/Multiplication.java
- Model.Multiplication
+ErrorHandling/SyntaxErrorListener.java
+ ErrorHandling.SyntaxErrorListener
 Compiler/Compiler.java
  Compiler.Compiler
-Model/Subtraction.java
- Model.Subtraction
-Model/Program.java
- Model.Program
+ErrorHandling/ErrorType.java
+ ErrorHandling.ErrorType
+ ErrorHandling.ErrorType$1
+Converters/AntlrToProgram.java
+ Converters.AntlrToProgram
 Converters/AntlrToExpression.java
  Converters.AntlrToExpression
-Model/Division.java
- Model.Division
-Model/ExpressionProcessor.java
- Model.ExpressionProcessor
-Model/ErrorType.java
- Model.ErrorType
- Model.ErrorType$1
-Model/Variable.java
- Model.Variable
-Model/Number.java
- Model.Number
-Model/SymbolTable.java
- Model.SymbolTable

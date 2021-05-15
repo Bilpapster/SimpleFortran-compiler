@@ -1,6 +1,9 @@
-package Model;
+package Model.Declarations;
 
-public class VariableDeclaration implements Expression{
+import Model.DataType;
+import Model.Expressions.Expression;
+
+public class VariableDeclaration implements Expression {
     private String name;
     private DataType dataType;
     private int value;

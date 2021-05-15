@@ -7,9 +7,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import BaseClasses.SimpleFortranLexer;
 import BaseClasses.SimpleFortranParser;
 import Converters.AntlrToProgram;
-import Listeners.CustomErrorListener;
-import Listeners.SemanticErrorsHandler;
-import Model.ExpressionProcessor;
+import ErrorHandling.SyntaxErrorListener;
+import ErrorHandling.SemanticErrorsHandler;
+import Converters.ExpressionProcessor;
 import Model.Program;
 
 import java.io.IOException;
@@ -29,7 +29,7 @@ public class Compiler {
         AntlrToProgram programVisitor = new AntlrToProgram();
         Program program = programVisitor.visit(antlrAST);
 
-        if (CustomErrorListener.hasSyntaxErrors()) {
+        if (SyntaxErrorListener.hasSyntaxErrors()) {
             return;
         }
 
@@ -52,7 +52,7 @@ public class Compiler {
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             parser = new SimpleFortranParser(tokens);
             parser.removeErrorListeners();
-            parser.addErrorListener(new CustomErrorListener());
+            parser.addErrorListener(new SyntaxErrorListener());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,4 +1,6 @@
-package Model;
+package Model.Expressions.BinaryOperations;
+
+import Model.Expressions.Expression;
 
 public class Addition extends BinaryOperation{
     public Addition(Expression left, Expression right) {
