@@ -21,7 +21,7 @@ public class Compiler {
             return;
         }
 
-        float number = Float.parseFloat("+123.0000000000");
+        float number = Float.parseFloat("123.456E-3");
         System.out.println(number);
 
         SimpleFortranParser parser = getParser(args[0]);

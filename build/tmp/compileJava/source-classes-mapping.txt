@@ -1,55 +1,71 @@
-Model/SymbolTable.java
- Model.SymbolTable
-Model/Addition.java
- Model.Addition
-Model/ExpressionProcessor.java
- Model.ExpressionProcessor
-Model/BinaryOperation.java
- Model.BinaryOperation
+Model/Expressions/Expression.java
+ Model.Expressions.Expression
+Converters/AntlrToProgram.java
+ Converters.AntlrToProgram
+Model/Expressions/BinaryOperations/Addition.java
+ Model.Expressions.BinaryOperations.Addition
+Model/Expressions/UnaryOperations/Variable.java
+ Model.Expressions.UnaryOperations.Variable
+Model/Expressions/BinaryOperations/Division.java
+ Model.Expressions.BinaryOperations.Division
 BaseClasses/SimpleFortranLexer.java
  BaseClasses.SimpleFortranLexer
-Model/VariableDeclaration.java
- Model.VariableDeclaration
-Model/Expression.java
- Model.Expression
-Model/Number.java
- Model.Number
-Model/Program.java
- Model.Program
-Model/Variable.java
- Model.Variable
 BaseClasses/SimpleFortranBaseVisitor.java
  BaseClasses.SimpleFortranBaseVisitor
-Model/DataType.java
- Model.DataType
-Model/Multiplication.java
- Model.Multiplication
-Model/Division.java
- Model.Division
-Model/Subtraction.java
- Model.Subtraction
 BaseClasses/SimpleFortranParser.java
  BaseClasses.SimpleFortranParser
  BaseClasses.SimpleFortranParser$AdditionOrSubtractionContext
+ BaseClasses.SimpleFortranParser$Bool_keywordContext
  BaseClasses.SimpleFortranParser$DeclarationContext
  BaseClasses.SimpleFortranParser$ExpressionContext
  BaseClasses.SimpleFortranParser$MultiplicationOrDivisionContext
  BaseClasses.SimpleFortranParser$NumberContext
  BaseClasses.SimpleFortranParser$ProgramContext
+ BaseClasses.SimpleFortranParser$TypeContext
  BaseClasses.SimpleFortranParser$VariableContext
  BaseClasses.SimpleFortranParser$VariableDeclarationContext
-ErrorHandling/SemanticErrorsHandler.java
- ErrorHandling.SemanticErrorsHandler
-BaseClasses/SimpleFortranVisitor.java
- BaseClasses.SimpleFortranVisitor
-ErrorHandling/SyntaxErrorListener.java
- ErrorHandling.SyntaxErrorListener
-Compiler/Compiler.java
- Compiler.Compiler
 ErrorHandling/ErrorType.java
  ErrorHandling.ErrorType
  ErrorHandling.ErrorType$1
-Converters/AntlrToProgram.java
- Converters.AntlrToProgram
+ErrorHandling/SemanticErrorsHandler.java
+ ErrorHandling.SemanticErrorsHandler
+Model/Expressions/BinaryOperations/Subtraction.java
+ Model.Expressions.BinaryOperations.Subtraction
+BaseClasses/SimpleFortranVisitor.java
+ BaseClasses.SimpleFortranVisitor
+Model/Expressions/UnaryOperations/Number.java
+ Model.Expressions.UnaryOperations.Number
+Model/DataType.java
+ Model.DataType
+Model/Declarations/VariableDeclaration.java
+ Model.Declarations.VariableDeclaration
+Model/SymbolTable.java
+ Model.SymbolTable
+Model/Expressions/BinaryOperations/BinaryOperation.java
+ Model.Expressions.BinaryOperations.BinaryOperation
+Model/Program.java
+ Model.Program
 Converters/AntlrToExpression.java
  Converters.AntlrToExpression
+ErrorHandling/SyntaxErrorListener.java
+ ErrorHandling.SyntaxErrorListener
+Model/Expressions/BinaryOperations/Multiplication.java
+ Model.Expressions.BinaryOperations.Multiplication
+Converters/ExpressionProcessor.java
+ Converters.ExpressionProcessor
+Model/Constants/IntegerConstants/HexadecimalIntegerConstant.java
+ Model.Constants.IntegerConstants.HexadecimalIntegerConstant
+Model/Constants/IntegerConstants/IntegerConstant.java
+ Model.Constants.IntegerConstants.IntegerConstant
+Model/Constants/IntegerConstants/DecimalIntegerConstant.java
+ Model.Constants.IntegerConstants.DecimalIntegerConstant
+Model/Constants/RealConstants/RealConstant.java
+ Model.Constants.RealConstants.RealConstant
+Model/Constants/IntegerConstants/BinaryIntegerConstant.java
+ Model.Constants.IntegerConstants.BinaryIntegerConstant
+Model/Constants/IntegerConstants/OctalIntegerConstant.java
+ Model.Constants.IntegerConstants.OctalIntegerConstant
+Model/Constants/Constant.java
+ Model.Constants.Constant
+Compiler/Compiler.java
+ Compiler.Compiler

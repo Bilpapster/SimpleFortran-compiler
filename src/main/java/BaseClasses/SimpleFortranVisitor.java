@@ -24,29 +24,41 @@ public interface SimpleFortranVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDeclaration(SimpleFortranParser.DeclarationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SimpleFortranParser#bool_keyword}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBool_keyword(SimpleFortranParser.Bool_keywordContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SimpleFortranParser#type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitType(SimpleFortranParser.TypeContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code Variable}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortranParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariable(SimpleFortranParser.VariableContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Number}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortranParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitNumber(SimpleFortranParser.NumberContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code AdditionOrSubtraction}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortranParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAdditionOrSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MultiplicationOrDivision}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortranParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
