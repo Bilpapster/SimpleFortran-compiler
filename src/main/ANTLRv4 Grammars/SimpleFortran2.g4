@@ -37,7 +37,6 @@ dims                    : dims COMMA dim
                         | dim
                         ;
 
-//dim                     : ICONST | IDENTIFIER
 dim                     : INTEGER_DEC_CONSTANT
                         | INTEGER_HEX_CONSTANT
                         | INTEGER_OCT_CONSTANT
@@ -71,14 +70,13 @@ value                   : repeat sign constant
                         | constant
                         ;
 
-//repeat                  : ICONST MULOP
 repeat                  : (
                               INTEGER_DEC_CONSTANT
                             | INTEGER_HEX_CONSTANT
                             | INTEGER_OCT_CONSTANT
                             | INTEGER_BIN_CONSTANT
-                          )?
-                          MULOP
+                          ) MULOP
+                          | MULOP
                         ;
 
 sign                    : ADDOP
@@ -90,7 +88,6 @@ constant                : simple_constant
                         | complex_constant
                         ;
 
-//simple_constant         : ICONST | RCONST | LCONST | CCONST | SCONST
 simple_constant         : INTEGER_DEC_CONSTANT
                         | INTEGER_HEX_CONSTANT
                         | INTEGER_OCT_CONSTANT
@@ -99,14 +96,12 @@ simple_constant         : INTEGER_DEC_CONSTANT
                         | FLOAT_HEX_CONSTANT
                         | FLOAT_OCT_CONSTANT
                         | FLOAT_BIN_CONSTANT
-//                        | RCONST
                         | TRUE
                         | FALSE
                         | CCONST
                         | SCONST
                         ;
 
-//complex_constant        : LEFT_PARENTHESIS RCONST COLON sign RCONST RIGHT_PARENTHESIS
 complex_constant        : LEFT_PARENTHESIS (FLOAT_DEC_CONSTANT | FLOAT_HEX_CONSTANT | FLOAT_OCT_CONSTANT | FLOAT_BIN_CONSTANT)
                           COLON sign (FLOAT_DEC_CONSTANT | FLOAT_HEX_CONSTANT | FLOAT_OCT_CONSTANT | FLOAT_BIN_CONSTANT)  RIGHT_PARENTHESIS
                         ;
@@ -119,7 +114,6 @@ labeled_statement       : label statement
                         | statement
                         ;
 
-//label                   : ICONST;
 label                   : INTEGER_DEC_CONSTANT
                         | INTEGER_HEX_CONSTANT
                         | INTEGER_OCT_CONSTANT
@@ -295,13 +289,37 @@ fragment LETTER         : [A-Za-z];
 fragment DIGIT          : [0-9];
 fragment NON_ZERO_DIGIT : [1-9];
 
+COMMA                   : ',';
+LEFT_PARENTHESIS        : '(';
+RIGHT_PARENTHESIS       : ')';
+LBRACK                  : '[';
+RBRACK                  : ']';
+ASSIGN                  : '=';
+COLON                   : ':';
+ADDOP                   : '+';
+SUBOP                   : '-';
+MULOP                   : '*';
+DIVOP                   : '/';
+POWEROP                 : '**';
+
+OROP                    : DOT  O R  DOT;
+ANDOP                   : DOT  A N D  DOT;
+NOTOP                   : DOT  N O T  DOT;
+RELOP                   : DOT  G T  DOT
+                        | DOT  G E  DOT
+                        | DOT  L T  DOT
+                        | DOT  L E  DOT
+                        | DOT  E Q  DOT
+                        | DOT  N E  DOT
+                        ;
+
 INT_TYPE                : I N T;
 FLOAT_TYPE              : F L O A T;
 BOOL_TYPE               : B O O L;
-STRING_TYPE             : S T R I N G;
 TRUE                    : DOT  T R U E  DOT;
 FALSE                   : DOT  F A L S E  DOT;
 
+IF                      : I F;
 FUNCTION                : F U N C T I O N;
 SUBROUTINE              : S U B R O U T I N E;
 END                     : E N D;
@@ -321,7 +339,6 @@ READ                    : R E A D;
 WRITE                   : W R I T E;
 LENGTH                  : L E N G T H;
 NEW                     : N E W;
-IF                      : I F;
 THEN                    : T H E N;
 ELSE                    : E L S E;
 ENDIF                   : E N D I F;
@@ -330,33 +347,10 @@ ENDDO                   : E N D D O;
 STOP                    : S T O P;
 RETURN                  : R E T U R N;
 
-COMMA                   : ',';
-LEFT_PARENTHESIS        : '(';
-RIGHT_PARENTHESIS       : ')';
-LBRACK                  : '[';
-RBRACK                  : ']';
 
-OROP                    : '.OR.';
-ANDOP                   : '.AND.';
-NOTOP                   : '.NOT.';
-RELOP                   : '.GT.'
-                        | '.GE.'
-                        | '.LT.'
-                        | '.LE.'
-                        | '.EQ.'
-                        | '.NE.'
-                        ;
-
-ADDOP                   : '+';
-SUBOP                   : '-';
-MULOP                   : '*';
-DIVOP                   : '/';
-POWEROP                 : '**';
 
 LISTFUNC                : C ((A D*) | (D+)) R;
 
-ASSIGN                  : '=';
-COLON                   : ':';
 
 
 INTEGER_DEC_CONSTANT    : (ZERO | NON_ZERO_DIGIT+ DIGIT*);
@@ -394,7 +388,7 @@ FLOAT_BIN_CONSTANT      : BIN_INDICATOR
 
 CCONST                  : APOSTROPHE ( ~[\\] | BACKSLASH 'v')+  APOSTROPHE;
 
-SCONST                  : QUOTATION_MARK  (~[\r\n])  QUOTATION_MARK; // TODO: REGEX FOR STRING CONSTANT
+SCONST                  : QUOTATION_MARK  (~[(] | '(')*  QUOTATION_MARK;
 
 IDENTIFIER              : (LETTER)+ ((LETTER | DIGIT)* | (UNDERSCORE? ((LETTER | DIGIT)+ UNDERSCORE)*));
 
