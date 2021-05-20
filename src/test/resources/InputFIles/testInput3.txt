@@ -1,0 +1,28 @@
+$ test file with no syntax errors
+integer i,j,k
+complex number
+s = "sh"
+if(i .eq. k) then
+    real x,y,z
+    real number
+    string i,j,k
+    call fibonacci
+else
+    complex variable, papster
+    logical i,j,k
+    integer list number
+    call subroutine2
+endif
+end
+
+subroutine fibonacci(string number(2), logical list number3)
+    $integer number
+    write number
+    return
+end
+
+subroutine fibonacci2(string number(2), logical list number3)
+    $integer number
+    write number
+    return
+end
