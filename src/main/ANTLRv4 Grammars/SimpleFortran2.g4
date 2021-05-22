@@ -8,10 +8,10 @@ program                 : body END subprograms EOF
 body                    : declarations statements
                         ;
 
-declarations            : declarations type variables
-                        | declarations COMMON cblock_list
-                        | declarations DATA vals
-                        |
+declarations            : declarations type variables               # VariableDeclaration
+                        | declarations COMMON cblock_list           # CommonDeclaration
+                        | declarations DATA vals                    # DataDeclaration
+                        |                                           # DeclarationsEndCondition
                         ;
 
 type                    : INTEGER
@@ -22,8 +22,9 @@ type                    : INTEGER
                         | STRING
                         ;
 
-variables               : variables COMMA undefined_variable
-                        | undefined_variable;
+variables               : variables COMMA undefined_variable        # ListOfUndefinedVariables
+                        | undefined_variable                        # UndefinedVariablesEndCondition
+                        ;
 
 undefined_variable      : listspec IDENTIFIER LEFT_PARENTHESIS dims RIGHT_PARENTHESIS
                         | listspec IDENTIFIER
