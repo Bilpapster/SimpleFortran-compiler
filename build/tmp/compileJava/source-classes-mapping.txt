@@ -1,7 +1,7 @@
 Model/Expressions/Expression.java
  Model.Expressions.Expression
-Converters/AntlrToProgram.java
- Converters.AntlrToProgram
+Model/Constants/IntegerConstants/OctalIntegerConstant.java
+ Model.Constants.IntegerConstants.OctalIntegerConstant
 Model/Expressions/BinaryOperations/Addition.java
  Model.Expressions.BinaryOperations.Addition
 Model/Expressions/UnaryOperations/Variable.java
@@ -37,35 +37,41 @@ Model/Expressions/UnaryOperations/Number.java
  Model.Expressions.UnaryOperations.Number
 Model/DataType.java
  Model.DataType
-Model/Declarations/VariableDeclaration.java
- Model.Declarations.VariableDeclaration
+Model/Constants/Constant.java
+ Model.Constants.Constant
 Model/SymbolTable.java
  Model.SymbolTable
 Model/Expressions/BinaryOperations/BinaryOperation.java
  Model.Expressions.BinaryOperations.BinaryOperation
 Model/Program.java
  Model.Program
-Converters/AntlrToExpression.java
- Converters.AntlrToExpression
+Model/Constants/IntegerConstants/BinaryIntegerConstant.java
+ Model.Constants.IntegerConstants.BinaryIntegerConstant
 ErrorHandling/SyntaxErrorListener.java
  ErrorHandling.SyntaxErrorListener
 Model/Expressions/BinaryOperations/Multiplication.java
  Model.Expressions.BinaryOperations.Multiplication
-Converters/ExpressionProcessor.java
- Converters.ExpressionProcessor
+Model/Constants/RealConstants/RealConstant.java
+ Model.Constants.RealConstants.RealConstant
 Model/Constants/IntegerConstants/HexadecimalIntegerConstant.java
  Model.Constants.IntegerConstants.HexadecimalIntegerConstant
 Model/Constants/IntegerConstants/IntegerConstant.java
  Model.Constants.IntegerConstants.IntegerConstant
 Model/Constants/IntegerConstants/DecimalIntegerConstant.java
  Model.Constants.IntegerConstants.DecimalIntegerConstant
-Model/Constants/RealConstants/RealConstant.java
- Model.Constants.RealConstants.RealConstant
-Model/Constants/IntegerConstants/BinaryIntegerConstant.java
- Model.Constants.IntegerConstants.BinaryIntegerConstant
-Model/Constants/IntegerConstants/OctalIntegerConstant.java
- Model.Constants.IntegerConstants.OctalIntegerConstant
-Model/Constants/Constant.java
- Model.Constants.Constant
+Model/Declarations/Declaration.java
+ Model.Declarations.Declaration
+Converters/AntlrToProgram.java
+ Converters.AntlrToProgram
+Model/Declarations/VariableDeclaration.java
+ Model.Declarations.VariableDeclaration
+Converters/ExpressionProcessor.java
+ Converters.ExpressionProcessor
+Model/ASTNode.java
+ Model.ASTNode
+Model/Declarations/VariableDeclarationOld.java
+ Model.Declarations.VariableDeclarationOld
+Converters/AntlrToExpression.java
+ Converters.AntlrToExpression
 Compiler/Compiler.java
  Compiler.Compiler

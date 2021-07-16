@@ -1,6 +1,7 @@
+int papsteringo = 1009 $ int tasoso = 09
 int papster = 100 $ this is a comment
 $ this is a comment this is a comment
-int tasos = 1
+int tasos = 2
 papster
 tasos
 1 + 9

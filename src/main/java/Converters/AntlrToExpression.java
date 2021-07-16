@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 import ErrorHandling.ErrorType;
 import ErrorHandling.SemanticErrorsHandler;
-import Model.Declarations.VariableDeclaration;
+import Model.Declarations.VariableDeclarationOld;
 import Model.Expressions.*;
 import BaseClasses.SimpleFortranParser;
 import BaseClasses.SimpleFortranBaseVisitor;
@@ -68,7 +68,7 @@ public class AntlrToExpression extends SimpleFortranBaseVisitor<Expression> {
         } else {
             declaredVariables.put(variableName, Integer.parseInt(ctx.NUMBER().getText()));
         }
-        return new VariableDeclaration(variableName, Integer.parseInt(ctx.NUMBER().getText()));
+        return new VariableDeclarationOld(variableName, Integer.parseInt(ctx.NUMBER().getText()));
     }
 
     @Override

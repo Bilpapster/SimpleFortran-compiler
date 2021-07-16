@@ -17,12 +17,13 @@ import java.io.IOException;
 public class Compiler {
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.err.println("Usage file name missing! Please pass the file path as argument and try again.");
+            System.err.println("The number of arguments is not the expected. I expect you to give me just one argument:"
+                    + "the input file path");
             return;
         }
 
-        float number = Float.parseFloat("123.456E-3");
-        System.out.println(number);
+//        float number = Float.parseFloat("123.456E-3");
+//        System.out.println(number);
 
         SimpleFortranParser parser = getParser(args[0]);
         ParseTree antlrAST = parser.program();

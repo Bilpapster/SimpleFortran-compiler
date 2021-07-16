@@ -1,6 +1,6 @@
 package Converters;
 
-import Model.Declarations.VariableDeclaration;
+import Model.Declarations.VariableDeclarationOld;
 import Model.Expressions.Expression;
 import Model.SymbolTable;
 
@@ -18,8 +18,8 @@ public class ExpressionProcessor {
         List<String> evaluations = new ArrayList<>();
 
         for (Expression expression : expressions) {
-            if (expression instanceof VariableDeclaration) {
-                VariableDeclaration declaration = (VariableDeclaration) expression;
+            if (expression instanceof VariableDeclarationOld) {
+                VariableDeclarationOld declaration = (VariableDeclarationOld) expression;
                 SymbolTable.putVariable(declaration.toString(), declaration.evaluate());
             }
             evaluations.add(expression.toString() + " = " + expression.evaluate());
