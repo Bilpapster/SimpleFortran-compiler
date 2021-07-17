@@ -147,22 +147,22 @@ expressions             : expressions COMMA expression
                         | expression
                         ;
 
-expression              : expression OROP expression
-                        | expression ANDOP expression
-                        | expression RELOP expression
-                        | expression ADDOP expression
-                        | expression MULOP expression
-                        | expression DIVOP expression
-                        | expression POWEROP expression
-                        | NOTOP expression
-                        | ADDOP expression
-                        | variable
-                        | simple_constant
-                        | LENGTH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS
-                        | NEW LEFT_PARENTHESIS expression RIGHT_PARENTHESIS
-                        | LEFT_PARENTHESIS expression RIGHT_PARENTHESIS
-                        | LEFT_PARENTHESIS expression COLON expression RIGHT_PARENTHESIS
-                        | listexpression
+expression              : expression OROP expression                                        # OrOperation
+                        | expression ANDOP expression                                       # AndOperation
+                        | expression RELOP expression                                       # RelativeOperation
+                        | expression ADDOP expression                                       # AdditionOperation
+                        | expression MULOP expression                                       # MultiplicationOperation
+                        | expression DIVOP expression                                       # DivisionOperation
+                        | expression POWEROP expression                                     # PowerOperation
+                        | NOTOP expression                                                  # NotOperation
+                        | ADDOP expression                                                  # SignedOperation
+                        | variable                                                          # VariableOperation
+                        | simple_constant                                                   # SimpleConstantOperation
+                        | LENGTH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS              # LengthOperation
+                        | NEW LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                 # NewOperation
+                        | LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                     # ParenthesizedOperation
+                        | LEFT_PARENTHESIS expression COLON expression RIGHT_PARENTHESIS    # ColonizedOperation
+                        | listexpression                                                    # ListOperation
                         ;
 
 listexpression          : LBRACK expressions RBRACK

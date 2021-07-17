@@ -1,4 +1,4 @@
 package Model;
 
-public class HeaderFortran {
+public interface HeaderFortran {
 }
