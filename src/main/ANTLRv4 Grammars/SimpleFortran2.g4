@@ -8,67 +8,67 @@ program                 : body END subprograms EOF
 body                    : declarations statements
                         ;
 
-declarations            : declarations type variables               # VariableDeclaration
-                        | declarations COMMON cblock_list           # CommonDeclaration
-                        | declarations DATA vals                    # DataDeclaration
-                        |                                           # DeclarationsEndCondition
+declarations            : declarations type variables                                 # VariableDeclaration
+                        | declarations COMMON cblock_list                             # CommonDeclaration
+                        | declarations DATA vals                                      # DataDeclaration
+                        |                                                             # DeclarationsEndCondition
                         ;
 
-type                    : INTEGER
-                        | REAL
-                        | COMPLEX
-                        | LOGICAL
-                        | CHARACTER
-                        | STRING
+type                    : INTEGER                                                     # IntegerType
+                        | REAL                                                        # RealType
+                        | COMPLEX                                                     # ComplexType
+                        | LOGICAL                                                     # LogicalType
+                        | CHARACTER                                                   # CharacterType
+                        | STRING                                                      # StringType
                         ;
 
-variables               : variables COMMA undefined_variable        # ListOfUndefinedVariables
-                        | undefined_variable                        # UndefinedVariablesEndCondition
+variables               : variables COMMA undefined_variable                          # ListOfUndefinedVariables
+                        | undefined_variable                                          # UndefinedVariablesEndCondition
                         ;
 
-undefined_variable      : listspec IDENTIFIER LEFT_PARENTHESIS dims RIGHT_PARENTHESIS
-                        | listspec IDENTIFIER
+undefined_variable      : listspec IDENTIFIER LEFT_PARENTHESIS dims RIGHT_PARENTHESIS # ListUndefinedVariable
+                        | listspec IDENTIFIER                                         # NormalUndefinedVariable
                         ;
 
-listspec                : LIST
-                        |
+listspec                : LIST                                                        # ListKeyword
+                        |                                                             # EmptyListKeyword
                         ;
 
-dims                    : dims COMMA dim
-                        | dim
+dims                    : dims COMMA dim                                              # ListOfDimensions
+                        | dim                                                         # DimensionsEndCondition
                         ;
 
-dim                     : INTEGER_DEC_CONSTANT
-                        | INTEGER_HEX_CONSTANT
-                        | INTEGER_OCT_CONSTANT
-                        | INTEGER_BIN_CONSTANT
-                        | IDENTIFIER
+dim                     : INTEGER_DEC_CONSTANT                                        # IntegerDecimalDimension
+                        | INTEGER_HEX_CONSTANT                                        # IntegerHexadecimalDimension
+                        | INTEGER_OCT_CONSTANT                                        # IntegerOctalDimension
+                        | INTEGER_BIN_CONSTANT                                        # IntegerBinaryDimension
+                        | IDENTIFIER                                                  # IdentifierDimension
                         ;
 
-cblock_list             : cblock_list cblock
-                        | cblock
+cblock_list             : cblock_list cblock                                          # ListOfCBlocks
+                        | cblock                                                      # CBlockEndCondition
                         ;
 
 cblock                  : DIVOP IDENTIFIER DIVOP identifier_list
                         ;
 
-identifier_list         : identifier_list COMMA IDENTIFIER
-                        | IDENTIFIER
+identifier_list         : identifier_list COMMA IDENTIFIER                            # ListOfIdentifiers
+                        | IDENTIFIER                                                  # IdentifierListEndCondition
                         ;
 
-vals                    : vals COMMA IDENTIFIER value_list
-                        | IDENTIFIER value_list
+vals                    : vals COMMA IDENTIFIER value_list                            # ListOfDataValuesList
+                        | IDENTIFIER value_list                                       # DataValueListEndCondition
                         ;
 
 value_list              : DIVOP values DIVOP;
 
-values                  : values COMMA value
-                        | value
+values                  : values COMMA value                                          # ListOfDataValues
+                        | value                                                       # DataValueEndCondition
                         ;
 
-value                   : repeat sign constant
-                        | ADDOP constant
-                        | constant
+value                   : repeat sign constant                                        # RepeatValue
+                        | ADDOP constant                                              # SignedValueConstant
+                        | constant                                                    # NormalValueConstant
                         ;
 
 repeat                  : (
@@ -76,169 +76,169 @@ repeat                  : (
                             | INTEGER_HEX_CONSTANT
                             | INTEGER_OCT_CONSTANT
                             | INTEGER_BIN_CONSTANT
-                          ) MULOP
-                          | MULOP
+                          ) MULOP                                                     # IntegerConstantRepeat
+                          | MULOP                                                     # NoConstantRepeat
                         ;
 
-sign                    : ADDOP
-                        | SUBOP
-                        |
+sign                    : ADDOP                                                       # PlusSign
+                        | SUBOP                                                       # MinusSign
+                        |                                                             # NoSign
                         ;
 
-constant                : simple_constant
-                        | complex_constant
+constant                : simple_constant                                             # SimpleConstant
+                        | complex_constant                                            # ComplexConstant
                         ;
 
-simple_constant         : INTEGER_DEC_CONSTANT
-                        | INTEGER_HEX_CONSTANT
-                        | INTEGER_OCT_CONSTANT
-                        | INTEGER_BIN_CONSTANT
-                        | FLOAT_DEC_CONSTANT
-                        | FLOAT_HEX_CONSTANT
-                        | FLOAT_OCT_CONSTANT
-                        | FLOAT_BIN_CONSTANT
-                        | TRUE
-                        | FALSE
-                        | CCONST
-                        | SCONST
+simple_constant         : INTEGER_DEC_CONSTANT                                        # IntegerDecimalConstant
+                        | INTEGER_HEX_CONSTANT                                        # IntegerHexadecimalConstant
+                        | INTEGER_OCT_CONSTANT                                        # IntegerOctalConstant
+                        | INTEGER_BIN_CONSTANT                                        # IntegerBinaryConstant
+                        | FLOAT_DEC_CONSTANT                                          # FloatDecimalConstant
+                        | FLOAT_HEX_CONSTANT                                          # FloatHexadecimalConstant
+                        | FLOAT_OCT_CONSTANT                                          # FloatOctalConstant
+                        | FLOAT_BIN_CONSTANT                                          # FloatBinaryConstant
+                        | TRUE                                                        # TrueKeywordConstant
+                        | FALSE                                                       # FalseKeywordConstant
+                        | CCONST                                                      # CharacterConstant
+                        | SCONST                                                      # StringConstant
                         ;
 
 complex_constant        : LEFT_PARENTHESIS (FLOAT_DEC_CONSTANT | FLOAT_HEX_CONSTANT | FLOAT_OCT_CONSTANT | FLOAT_BIN_CONSTANT)
                           COLON sign (FLOAT_DEC_CONSTANT | FLOAT_HEX_CONSTANT | FLOAT_OCT_CONSTANT | FLOAT_BIN_CONSTANT)  RIGHT_PARENTHESIS
                         ;
 
-statements              : statements labeled_statement
-                        | labeled_statement
+statements              : statements labeled_statement                                 # ListOfLabeledStatements
+                        | labeled_statement                                            # LabeledStatementEndCondition
                         ;
 
-labeled_statement       : label statement
-                        | statement
+labeled_statement       : label statement                                              # LabeledStatement
+                        | statement                                                    # NoLabeledStatement
                         ;
 
-label                   : INTEGER_DEC_CONSTANT
-                        | INTEGER_HEX_CONSTANT
-                        | INTEGER_OCT_CONSTANT
-                        | INTEGER_BIN_CONSTANT
+label                   : INTEGER_DEC_CONSTANT                                         # IntegerDecimalLabel
+                        | INTEGER_HEX_CONSTANT                                         # IntegerHexadecimalLabel
+                        | INTEGER_OCT_CONSTANT                                         # IntegerOctalLabel
+                        | INTEGER_BIN_CONSTANT                                         # IntegerBinaryLabel
                         ;
 
-statement               : simple_statement
-                        | compound_statement
+statement               : simple_statement                                             # SimpleStatement
+                        | compound_statement                                           # CompoundStatement
                         ;
 
-simple_statement        : assignment
-                        | goto_statement
-                        | if_statement
-                        | subroutine_call
-                        | io_statement
-                        | CONTINUE
-                        | RETURN
-                        | STOP
+simple_statement        : assignment                                                   # AssignmentStatement
+                        | goto_statement                                               # GoToStatement
+                        | if_statement                                                 # IfStatement
+                        | subroutine_call                                              # SubroutineStatement
+                        | io_statement                                                 # IOStatement
+                        | CONTINUE                                                     # ContinueStatement
+                        | RETURN                                                       # ReturnStatement
+                        | STOP                                                         # StopStatement
                         ;
 
 assignment              : variable ASSIGN expression
                         ;
 
-variable                : IDENTIFIER LEFT_PARENTHESIS expressions RIGHT_PARENTHESIS
-                        | LISTFUNC LEFT_PARENTHESIS expression RIGHT_PARENTHESIS
-                        | IDENTIFIER
+variable                : IDENTIFIER LEFT_PARENTHESIS expressions RIGHT_PARENTHESIS     # ListVariable
+                        | LISTFUNC LEFT_PARENTHESIS expression RIGHT_PARENTHESIS        # ListFunctionVariable
+                        | IDENTIFIER                                                    # IdentifierVariable
                         ;
 
-expressions             : expressions COMMA expression
-                        | expression
+expressions             : expressions COMMA expression                                    # ListOfExpressions
+                        | expression                                                      # ExpressionEndCondition
                         ;
 
-expression              : expression OROP expression                                        # OrOperation
-                        | expression ANDOP expression                                       # AndOperation
-                        | expression RELOP expression                                       # RelativeOperation
-                        | expression ADDOP expression                                       # AdditionOperation
-                        | expression MULOP expression                                       # MultiplicationOperation
-                        | expression DIVOP expression                                       # DivisionOperation
-                        | expression POWEROP expression                                     # PowerOperation
-                        | NOTOP expression                                                  # NotOperation
-                        | ADDOP expression                                                  # SignedOperation
-                        | variable                                                          # VariableOperation
-                        | simple_constant                                                   # SimpleConstantOperation
-                        | LENGTH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS              # LengthOperation
-                        | NEW LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                 # NewOperation
-                        | LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                     # ParenthesizedOperation
-                        | LEFT_PARENTHESIS expression COLON expression RIGHT_PARENTHESIS    # ColonizedOperation
-                        | listexpression                                                    # ListOperation
+expression              : expression OROP expression                                      # OrOperation
+                        | expression ANDOP expression                                     # AndOperation
+                        | expression RELOP expression                                     # RelativeOperation
+                        | expression ADDOP expression                                     # AdditionOperation
+                        | expression MULOP expression                                     # MultiplicationOperation
+                        | expression DIVOP expression                                     # DivisionOperation
+                        | expression POWEROP expression                                   # PowerOperation
+                        | NOTOP expression                                                # NotOperation
+                        | ADDOP expression                                                # SignedOperation
+                        | variable                                                        # VariableOperation
+                        | simple_constant                                                 # SimpleConstantOperation
+                        | LENGTH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS            # LengthOperation
+                        | NEW LEFT_PARENTHESIS expression RIGHT_PARENTHESIS               # NewOperation
+                        | LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                   # ParenthesizedOperation
+                        | LEFT_PARENTHESIS expression COLON expression RIGHT_PARENTHESIS  # ColonizedOperation
+                        | listexpression                                                  # ListOperation
                         ;
 
-listexpression          : LBRACK expressions RBRACK
-                        | LBRACK RBRACK
+listexpression          : LBRACK expressions RBRACK                                       # ListExpression
+                        | LBRACK RBRACK                                                   # ListExpressionEndCondition
                         ;
 
-goto_statement          : GOTO label
-                        | GOTO IDENTIFIER COMMA LEFT_PARENTHESIS labels RIGHT_PARENTHESIS
+goto_statement          : GOTO label                                                      # NormalGoToStatement
+                        | GOTO IDENTIFIER COMMA LEFT_PARENTHESIS labels RIGHT_PARENTHESIS # MultipleGoToStatement
                         ;
 
-labels                  : labels COMMA label
-                        | label
+labels                  : labels COMMA label                                              # ListOfLabels
+                        | label                                                           # LabelEndCondition
                         ;
 
-if_statement            : IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS label COMMA label COMMA label
-                        | IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS simple_statement
+if_statement            : IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS label COMMA label COMMA label # LogicalIfStatement
+                        | IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS simple_statement              # ArithmeticIfStatement
                         ;
 
 subroutine_call         : CALL variable
                         ;
 
-io_statement            : READ read_list
-                        | WRITE write_list
+io_statement            : READ read_list                                                    # ReadStatement
+                        | WRITE write_list                                                  # WriteStatement
                         ;
 
-read_list               : read_list COMMA read_item
-                        | read_item
+read_list               : read_list COMMA read_item                                         # ListOfReadItems
+                        | read_item                                                         # ReadItemEndCondition
                         ;
 
-read_item               : variable
-                        | LEFT_PARENTHESIS read_list COMMA IDENTIFIER ASSIGN iter_space RIGHT_PARENTHESIS
+read_item               : variable                                                                          # VariableReadItem
+                        | LEFT_PARENTHESIS read_list COMMA IDENTIFIER ASSIGN iter_space RIGHT_PARENTHESIS   # ImplicitLoopReadItem
                         ;
 
 iter_space              : expression COMMA expression step
                         ;
 
-step                    : COMMA expression
-                        |
+step                    : COMMA expression                                                   # NormalStep
+                        |                                                                    # EmptyStep
                         ;
 
-write_list              : write_list COMMA write_item
-                        | write_item
+write_list              : write_list COMMA write_item                                        # ListOfWriteItems
+                        | write_item                                                         # WriteItemEndCondition
                         ;
 
-write_item              : expression
-                        | LEFT_PARENTHESIS write_list COMMA IDENTIFIER ASSIGN iter_space RIGHT_PARENTHESIS
+write_item              : expression                                                                        # VariableWriteItem
+                        | LEFT_PARENTHESIS write_list COMMA IDENTIFIER ASSIGN iter_space RIGHT_PARENTHESIS  # ImplicitLoopWriteItem
                         ;
 
-compound_statement      : branch_statement
-                        | loop_statement
+compound_statement      : branch_statement                                                    # BranchStatement
+                        | loop_statement                                                      # LoopStatement
                         ;
 
 branch_statement        : IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS THEN body tail
                         ;
 
-tail                    : ELSE body ENDIF
-                        | ENDIF
+tail                    : ELSE body ENDIF                                                     # ElseTail
+                        | ENDIF                                                               # NoTail
                         ;
 
 loop_statement          : DO IDENTIFIER ASSIGN iter_space body ENDDO
                         ;
 
-subprograms             : subprograms subprogram
-                        |
+subprograms             : subprograms subprogram                                               # ListOfSubprograms
+                        |                                                                      # SubprogramEndCondition
                         ;
 
 subprogram              : header body END
                         ;
 
-header                  : type listspec FUNCTION IDENTIFIER LEFT_PARENTHESIS formal_parameters RIGHT_PARENTHESIS
-                        | SUBROUTINE IDENTIFIER LEFT_PARENTHESIS formal_parameters RIGHT_PARENTHESIS
-                        | SUBROUTINE IDENTIFIER
+header                  : type listspec FUNCTION IDENTIFIER LEFT_PARENTHESIS formal_parameters RIGHT_PARENTHESIS    # NormalFunctionHeader
+                        | SUBROUTINE IDENTIFIER LEFT_PARENTHESIS formal_parameters RIGHT_PARENTHESIS                # ListSubroutineHeader
+                        | SUBROUTINE IDENTIFIER                                                                     # NormalSubroutineHeader
                         ;
 
-formal_parameters       : type variables COMMA formal_parameters
-                        | type variables
+formal_parameters       : type variables COMMA formal_parameters                                # ListOfFormalParameters
+                        | type variables                                                        # FormalParametersEndCondition
                         ;
 
 

@@ -73,5 +73,171 @@ Model/Declarations/VariableDeclarationOld.java
  Model.Declarations.VariableDeclarationOld
 Converters/AntlrToExpression.java
  Converters.AntlrToExpression
+Model/VariableWriteItemFortran.java
+ Model.VariableWriteItemFortran
+Model/ImplicitLoopWriteItemFortran.java
+ Model.ImplicitLoopWriteItemFortran
+Model/OrOperationFortran.java
+ Model.OrOperationFortran
+Model/AndOperationFortran.java
+ Model.AndOperationFortran
+Model/ConstantFortran.java
+ Model.ConstantFortran
+Model/CharacterConstantFortran.java
+ Model.CharacterConstantFortran
+Model/LoopStatementFortran.java
+ Model.LoopStatementFortran
+Model/CompoundStatementFortran.java
+ Model.CompoundStatementFortran
+Model/NormalStatementFortran.java
+ Model.NormalStatementFortran
+Model/LengthOperationFortran.java
+ Model.LengthOperationFortran
+Model/NumberEncodingFortran.java
+ Model.NumberEncodingFortran
+Model/HeaderFortran.java
+ Model.HeaderFortran
+Model/SimpleStatementFortran.java
+ Model.SimpleStatementFortran
+Model/MultiplicationOperationFortran.java
+ Model.MultiplicationOperationFortran
+Model/UnaryOperationFortran.java
+ Model.UnaryOperationFortran
+Model/IntegerConstantFortran.java
+ Model.IntegerConstantFortran
+Model/LogicalConstantFortran.java
+ Model.LogicalConstantFortran
+Model/SubroutineHeaderFortran.java
+ Model.SubroutineHeaderFortran
 Compiler/Compiler.java
  Compiler.Compiler
+Model/BinaryOperationFortran.java
+ Model.BinaryOperationFortran
+Model/ExpressionFortran.java
+ Model.ExpressionFortran
+Model/ColonizedOperationFortran.java
+ Model.ColonizedOperationFortran
+Model/SubprogramFortran.java
+ Model.SubprogramFortran
+Model/WriteListFortran.java
+ Model.WriteListFortran
+Model/WriteStatementFortran.java
+ Model.WriteStatementFortran
+Model/IOStatementFortran.java
+ Model.IOStatementFortran
+Converters/Fortran/AntlrToDataType.java
+ Converters.Fortran.AntlrToDataType
+Model/ArithmeticConstantFortran.java
+ Model.ArithmeticConstantFortran
+Model/VariableReadItem.java
+ Model.VariableReadItem
+Model/ImplicitLoopReadItemFortran.java
+ Model.ImplicitLoopReadItemFortran
+Model/IfStatementFortran.java
+ Model.IfStatementFortran
+Model/VariableFortran.java
+ Model.VariableFortran
+Model/VariableOperationFortran.java
+ Model.VariableOperationFortran
+Model/StatementFortran.java
+ Model.StatementFortran
+Model/DimensionFortran.java
+ Model.DimensionFortran
+Model/BranchStatementFortran.java
+ Model.BranchStatementFortran
+Model/NormalFunctionHeaderFortran.java
+ Model.NormalFunctionHeaderFortran
+Model/ListUndefinedVariableFortran.java
+ Model.ListUndefinedVariableFortran
+Model/NormalGoToStatementFortran.java
+ Model.NormalGoToStatementFortran
+Model/VariableDeclarationFortran.java
+ Model.VariableDeclarationFortran
+Model/DataDeclarationFortran.java
+ Model.DataDeclarationFortran
+Model/ListOperationFortran.java
+ Model.ListOperationFortran
+Model/WriteItemFortran.java
+ Model.WriteItemFortran
+Model/SimpleConstantFortran.java
+ Model.SimpleConstantFortran
+Model/DeclarationFortran.java
+ Model.DeclarationFortran
+Model/ListFunctionHeaderFortran.java
+ Model.ListFunctionHeaderFortran
+Model/RelativeOperationFortran.java
+ Model.RelativeOperationFortran
+Model/ComplexConstantFortran.java
+ Model.ComplexConstantFortran
+Model/ValueFortran.java
+ Model.ValueFortran
+Model/RepeatValueFortran.java
+ Model.RepeatValueFortran
+Model/SignedOperationFortran.java
+ Model.SignedOperationFortran
+Model/LogicalIfStatementFortran.java
+ Model.LogicalIfStatementFortran
+Model/AdditionOperationFortran.java
+ Model.AdditionOperationFortran
+Model/ReadItemFortran.java
+ Model.ReadItemFortran
+Model/MultipleGoToStatementFortran.java
+ Model.MultipleGoToStatementFortran
+Model/SubroutineCallStatementFortran.java
+ Model.SubroutineCallStatementFortran
+Model/StatementInterfaceFortran.java
+ Model.StatementInterfaceFortran
+Model/ReadStatementFortran.java
+ Model.ReadStatementFortran
+Model/IterationSpaceFortran.java
+ Model.IterationSpaceFortran
+Model/StringConstantFortran.java
+ Model.StringConstantFortran
+Model/ProgramFortran.java
+ Model.ProgramFortran
+Model/DataTypeFortran.java
+ Model.DataTypeFortran
+Model/AssignmentStatementFortran.java
+ Model.AssignmentStatementFortran
+Model/GoToStatementFortran.java
+ Model.GoToStatementFortran
+Model/FormalParameterFortran.java
+ Model.FormalParameterFortran
+Model/UndefinedVariableFortran.java
+ Model.UndefinedVariableFortran
+Model/LabeledStatementFortran.java
+ Model.LabeledStatementFortran
+Model/NotOperationFortran.java
+ Model.NotOperationFortran
+Model/SimpleConstantOperationFortran.java
+ Model.SimpleConstantOperationFortran
+Model/DivisionOperationFortran.java
+ Model.DivisionOperationFortran
+Model/AbstractUndefinedVariableFortran.java
+ Model.AbstractUndefinedVariableFortran
+Model/DataValueFortran.java
+ Model.DataValueFortran
+Model/TailFortran.java
+ Model.TailFortran
+Model/ReadListFortran.java
+ Model.ReadListFortran
+Model/NormalUndefinedVariableFortran.java
+ Model.NormalUndefinedVariableFortran
+Model/ArithmeticIfStatementFortran.java
+ Model.ArithmeticIfStatementFortran
+Model/PowerOperationFortran.java
+ Model.PowerOperationFortran
+Model/BodyFortran.java
+ Model.BodyFortran
+Model/NormalValueFortran.java
+ Model.NormalValueFortran
+Model/CommonDeclarationFortran.java
+ Model.CommonDeclarationFortran
+Model/NewOperationFortran.java
+ Model.NewOperationFortran
+Model/RepeatFortran.java
+ Model.RepeatFortran
+Model/CBlockFortran.java
+ Model.CBlockFortran
+Model/FloatConstantFortran.java
+ Model.FloatConstantFortran
