@@ -1,4 +1,9 @@
 package Model;
 
-public interface HeaderFortran {
+public abstract class HeaderFortran {
+    protected String identifier;
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 }
