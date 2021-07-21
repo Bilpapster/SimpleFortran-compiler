@@ -207,7 +207,7 @@ write_list              : write_list COMMA write_item                           
                         | write_item                                                         # WriteItemEndCondition
                         ;
 
-write_item              : expression                                                                        # VariableWriteItem
+write_item              : expression                                                                        # ExpressionWriteItem
                         | LEFT_PARENTHESIS write_list COMMA IDENTIFIER ASSIGN iter_space RIGHT_PARENTHESIS  # ImplicitLoopWriteItem
                         ;
 
