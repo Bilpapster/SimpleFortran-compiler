@@ -24,28 +24,28 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	T visitBody(SimpleFortran2Parser.BodyContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code DataDeclaration}
-	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDataDeclaration(SimpleFortran2Parser.DataDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code DeclarationsEndCondition}
-	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDeclarationsEndCondition(SimpleFortran2Parser.DeclarationsEndConditionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code VariableDeclaration}
-	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariableDeclaration(SimpleFortran2Parser.VariableDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code CommonDeclaration}
-	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -94,14 +94,14 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	T visitStringType(SimpleFortran2Parser.StringTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ListOfUndefinedVariables}
-	 * labeled alternative in {@link SimpleFortran2Parser#variables}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitListOfUndefinedVariables(SimpleFortran2Parser.ListOfUndefinedVariablesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code UndefinedVariablesEndCondition}
-	 * labeled alternative in {@link SimpleFortran2Parser#variables}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -136,14 +136,14 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	T visitEmptyListKeyword(SimpleFortran2Parser.EmptyListKeywordContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ListOfDimensions}
-	 * labeled alternative in {@link SimpleFortran2Parser#dims}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitListOfDimensions(SimpleFortran2Parser.ListOfDimensionsContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code DimensionsEndCondition}
-	 * labeled alternative in {@link SimpleFortran2Parser#dims}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -795,11 +795,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitImplicitLoopReadItem(SimpleFortran2Parser.ImplicitLoopReadItemContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleFortran2Parser#iter_space}.
+	 * Visit a parse tree produced by the {@code IterationSpace}
+	 * labeled alternative in {@link SimpleFortran2Parser#iter_space}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIter_space(SimpleFortran2Parser.Iter_spaceContext ctx);
+	T visitIterationSpace(SimpleFortran2Parser.IterationSpaceContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code NormalStep}
 	 * labeled alternative in {@link SimpleFortran2Parser#step}.
@@ -829,12 +830,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWriteItemEndCondition(SimpleFortran2Parser.WriteItemEndConditionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code VariableWriteItem}
+	 * Visit a parse tree produced by the {@code ExpressionWriteItem}
 	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariableWriteItem(SimpleFortran2Parser.VariableWriteItemContext ctx);
+	T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ImplicitLoopWriteItem}
 	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.

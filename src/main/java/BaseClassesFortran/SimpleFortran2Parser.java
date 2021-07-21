@@ -4102,6 +4102,17 @@ public class SimpleFortran2Parser extends Parser {
 	}
 
 	public static class Iter_spaceContext extends ParserRuleContext {
+		public Iter_spaceContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_iter_space; }
+	 
+		public Iter_spaceContext() { }
+		public void copyFrom(Iter_spaceContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class IterationSpaceContext extends Iter_spaceContext {
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
@@ -4112,13 +4123,10 @@ public class SimpleFortran2Parser extends Parser {
 		public StepContext step() {
 			return getRuleContext(StepContext.class,0);
 		}
-		public Iter_spaceContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_iter_space; }
+		public IterationSpaceContext(Iter_spaceContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitIter_space(this);
+			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitIterationSpace(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4127,6 +4135,7 @@ public class SimpleFortran2Parser extends Parser {
 		Iter_spaceContext _localctx = new Iter_spaceContext(_ctx, getState());
 		enterRule(_localctx, 76, RULE_iter_space);
 		try {
+			_localctx = new IterationSpaceContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(473);
@@ -4347,14 +4356,14 @@ public class SimpleFortran2Parser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class VariableWriteItemContext extends Write_itemContext {
+	public static class ExpressionWriteItemContext extends Write_itemContext {
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public VariableWriteItemContext(Write_itemContext ctx) { copyFrom(ctx); }
+		public ExpressionWriteItemContext(Write_itemContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitVariableWriteItem(this);
+			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitExpressionWriteItem(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -4367,7 +4376,7 @@ public class SimpleFortran2Parser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,36,_ctx) ) {
 			case 1:
-				_localctx = new VariableWriteItemContext(_localctx);
+				_localctx = new ExpressionWriteItemContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(494);

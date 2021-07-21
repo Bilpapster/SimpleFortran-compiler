@@ -196,7 +196,7 @@ read_item               : variable                                              
                         | LEFT_PARENTHESIS read_list COMMA IDENTIFIER ASSIGN iter_space RIGHT_PARENTHESIS   # ImplicitLoopReadItem
                         ;
 
-iter_space              : expression COMMA expression step
+iter_space              : expression COMMA expression step                                   # IterationSpace
                         ;
 
 step                    : COMMA expression                                                   # NormalStep

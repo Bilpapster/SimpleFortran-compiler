@@ -808,7 +808,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIter_space(SimpleFortran2Parser.Iter_spaceContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIterationSpace(SimpleFortran2Parser.IterationSpaceContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -843,7 +843,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVariableWriteItem(SimpleFortran2Parser.VariableWriteItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
