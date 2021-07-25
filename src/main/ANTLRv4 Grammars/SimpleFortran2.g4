@@ -166,7 +166,7 @@ expression              : expression OROP expression                            
                         ;
 
 listexpression          : LBRACK expressions RBRACK                                       # ListExpression
-                        | LBRACK RBRACK                                                   # ListExpressionEndCondition
+                        | LBRACK RBRACK                                                   # EmptyListExpression
                         ;
 
 goto_statement          : GOTO label                                                      # NormalGoToStatement
@@ -181,7 +181,7 @@ if_statement            : IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS label
                         | IF LEFT_PARENTHESIS expression RIGHT_PARENTHESIS simple_statement              # ArithmeticIfStatement
                         ;
 
-subroutine_call         : CALL variable
+subroutine_call         : CALL variable                                                     # SubroutineCall
                         ;
 
 io_statement            : READ read_list                                                    # ReadStatement
