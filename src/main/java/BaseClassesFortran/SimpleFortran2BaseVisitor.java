@@ -444,7 +444,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNoLabeledStatement(SimpleFortran2Parser.NoLabeledStatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNormalStatement123456789(SimpleFortran2Parser.NormalStatement123456789Context ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

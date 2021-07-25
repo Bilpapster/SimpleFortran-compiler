@@ -433,12 +433,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLabeledStatement(SimpleFortran2Parser.LabeledStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code NoLabeledStatement}
+	 * Visit a parse tree produced by the {@code NormalStatement123456789}
 	 * labeled alternative in {@link SimpleFortran2Parser#labeled_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNoLabeledStatement(SimpleFortran2Parser.NoLabeledStatementContext ctx);
+	T visitNormalStatement123456789(SimpleFortran2Parser.NormalStatement123456789Context ctx);
 	/**
 	 * Visit a parse tree produced by the {@code IntegerDecimalLabel}
 	 * labeled alternative in {@link SimpleFortran2Parser#label}.

@@ -2271,14 +2271,14 @@ public class SimpleFortran2Parser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class NoLabeledStatementContext extends Labeled_statementContext {
+	public static class NormalStatement123456789Context extends Labeled_statementContext {
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
 		}
-		public NoLabeledStatementContext(Labeled_statementContext ctx) { copyFrom(ctx); }
+		public NormalStatement123456789Context(Labeled_statementContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitNoLabeledStatement(this);
+			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitNormalStatement123456789(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2314,7 +2314,7 @@ public class SimpleFortran2Parser extends Parser {
 			case RETURN:
 			case LISTFUNC:
 			case IDENTIFIER:
-				_localctx = new NoLabeledStatementContext(_localctx);
+				_localctx = new NormalStatement123456789Context(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(287);

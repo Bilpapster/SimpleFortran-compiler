@@ -112,7 +112,7 @@ statements              : statements labeled_statement                          
                         ;
 
 labeled_statement       : label statement                                              # LabeledStatement
-                        | statement                                                    # NoLabeledStatement
+                        | statement                                                    # NormalStatement
                         ;
 
 label                   : INTEGER_DEC_CONSTANT                                         # IntegerDecimalLabel
