@@ -24,28 +24,28 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	T visitBody(SimpleFortran2Parser.BodyContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code DataDeclaration}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDataDeclaration(SimpleFortran2Parser.DataDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code DeclarationsEndCondition}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDeclarationsEndCondition(SimpleFortran2Parser.DeclarationsEndConditionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code VariableDeclaration}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariableDeclaration(SimpleFortran2Parser.VariableDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code CommonDeclaration}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#declarations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -94,14 +94,14 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	T visitStringType(SimpleFortran2Parser.StringTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ListOfUndefinedVariables}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#variables}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitListOfUndefinedVariables(SimpleFortran2Parser.ListOfUndefinedVariablesContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code UndefinedVariablesEndCondition}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#variables}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -136,14 +136,14 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	T visitEmptyListKeyword(SimpleFortran2Parser.EmptyListKeywordContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ListOfDimensions}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#dims}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitListOfDimensions(SimpleFortran2Parser.ListOfDimensionsContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code DimensionsEndCondition}
-	 * labeled alternative in .
+	 * labeled alternative in {@link SimpleFortran2Parser#dims}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
@@ -698,12 +698,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitListExpression(SimpleFortran2Parser.ListExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ListExpressionEndCondition}
+	 * Visit a parse tree produced by the {@code EmptyListExpression}
 	 * labeled alternative in {@link SimpleFortran2Parser#listexpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListExpressionEndCondition(SimpleFortran2Parser.ListExpressionEndConditionContext ctx);
+	T visitEmptyListExpression(SimpleFortran2Parser.EmptyListExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code NormalGoToStatement}
 	 * labeled alternative in {@link SimpleFortran2Parser#goto_statement}.
@@ -747,11 +747,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArithmeticIfStatement(SimpleFortran2Parser.ArithmeticIfStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SimpleFortran2Parser#subroutine_call}.
+	 * Visit a parse tree produced by the {@code SubroutineCall}
+	 * labeled alternative in {@link SimpleFortran2Parser#subroutine_call}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSubroutine_call(SimpleFortran2Parser.Subroutine_callContext ctx);
+	T visitSubroutineCall(SimpleFortran2Parser.SubroutineCallContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ReadStatement}
 	 * labeled alternative in {@link SimpleFortran2Parser#io_statement}.

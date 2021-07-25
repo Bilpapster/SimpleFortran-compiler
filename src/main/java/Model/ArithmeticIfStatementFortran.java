@@ -2,5 +2,13 @@ package Model;
 
 public class ArithmeticIfStatementFortran extends IfStatementFortran{
     private ExpressionFortran expression;
-    private IntegerConstantFortran label;
+    private SimpleStatementFortran simpleStatement;
+
+    public void setExpression(ExpressionFortran expression) {
+        this.expression = expression;
+    }
+
+    public void setSimpleStatement(SimpleStatementFortran simpleStatement) {
+        this.simpleStatement = simpleStatement;
+    }
 }

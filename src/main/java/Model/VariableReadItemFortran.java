@@ -1,6 +1,6 @@
 package Model;
 
-public class SubroutineCallStatementFortran extends SimpleStatementFortran{
+public class VariableReadItemFortran implements ReadItemFortran{
     private VariableFortran variable;
 
     public void setVariable(VariableFortran variable) {

@@ -710,7 +710,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitListExpressionEndCondition(SimpleFortran2Parser.ListExpressionEndConditionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEmptyListExpression(SimpleFortran2Parser.EmptyListExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -759,7 +759,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSubroutine_call(SimpleFortran2Parser.Subroutine_callContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSubroutineCall(SimpleFortran2Parser.SubroutineCallContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

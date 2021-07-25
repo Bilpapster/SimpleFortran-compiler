@@ -18,7 +18,6 @@ public class AntlrToBranchStatementFortran extends SimpleFortran2BaseVisitor<Bra
         AntlrToTailFortran tailVisitor = new AntlrToTailFortran();
         branchStatement.setTail(tailVisitor.visit(ctx.tail()));
 
-
         return branchStatement;
     }
 }
