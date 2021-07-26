@@ -322,61 +322,19 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitComplexConstant(SimpleFortran2Parser.ComplexConstantContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code IntegerDecimalConstant}
+	 * Visit a parse tree produced by the {@code IntegerSimpleConstant}
 	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIntegerDecimalConstant(SimpleFortran2Parser.IntegerDecimalConstantContext ctx);
+	T visitIntegerSimpleConstant(SimpleFortran2Parser.IntegerSimpleConstantContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code IntegerHexadecimalConstant}
+	 * Visit a parse tree produced by the {@code FloatSimpleConstant}
 	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIntegerHexadecimalConstant(SimpleFortran2Parser.IntegerHexadecimalConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IntegerOctalConstant}
-	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIntegerOctalConstant(SimpleFortran2Parser.IntegerOctalConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IntegerBinaryConstant}
-	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIntegerBinaryConstant(SimpleFortran2Parser.IntegerBinaryConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code FloatDecimalConstant}
-	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFloatDecimalConstant(SimpleFortran2Parser.FloatDecimalConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code FloatHexadecimalConstant}
-	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFloatHexadecimalConstant(SimpleFortran2Parser.FloatHexadecimalConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code FloatOctalConstant}
-	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFloatOctalConstant(SimpleFortran2Parser.FloatOctalConstantContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code FloatBinaryConstant}
-	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFloatBinaryConstant(SimpleFortran2Parser.FloatBinaryConstantContext ctx);
+	T visitFloatSimpleConstant(SimpleFortran2Parser.FloatSimpleConstantContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code TrueKeywordConstant}
 	 * labeled alternative in {@link SimpleFortran2Parser#simple_constant}.
@@ -412,6 +370,34 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitComplex_constant(SimpleFortran2Parser.Complex_constantContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code FloatDecimalConstant}
+	 * labeled alternative in {@link SimpleFortran2Parser#float_constant}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFloatDecimalConstant(SimpleFortran2Parser.FloatDecimalConstantContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FloatHexadecimalConstant}
+	 * labeled alternative in {@link SimpleFortran2Parser#float_constant}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFloatHexadecimalConstant(SimpleFortran2Parser.FloatHexadecimalConstantContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FloatOctalConstant}
+	 * labeled alternative in {@link SimpleFortran2Parser#float_constant}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFloatOctalConstant(SimpleFortran2Parser.FloatOctalConstantContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code FloatBinaryConstant}
+	 * labeled alternative in {@link SimpleFortran2Parser#float_constant}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFloatBinaryConstant(SimpleFortran2Parser.FloatBinaryConstantContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ListOfLabeledStatements}
 	 * labeled alternative in {@link SimpleFortran2Parser#statements}.
 	 * @param ctx the parse tree
@@ -433,12 +419,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLabeledStatement(SimpleFortran2Parser.LabeledStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code NormalStatement123456789}
+	 * Visit a parse tree produced by the {@code NormalStatement}
 	 * labeled alternative in {@link SimpleFortran2Parser#labeled_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNormalStatement123456789(SimpleFortran2Parser.NormalStatement123456789Context ctx);
+	T visitNormalStatement(SimpleFortran2Parser.NormalStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code IntegerDecimalLabel}
 	 * labeled alternative in {@link SimpleFortran2Parser#label}.

@@ -89,22 +89,35 @@ constant                : simple_constant                                       
                         | complex_constant                                            # ComplexConstant
                         ;
 
-simple_constant         : INTEGER_DEC_CONSTANT                                        # IntegerDecimalConstant
-                        | INTEGER_HEX_CONSTANT                                        # IntegerHexadecimalConstant
-                        | INTEGER_OCT_CONSTANT                                        # IntegerOctalConstant
-                        | INTEGER_BIN_CONSTANT                                        # IntegerBinaryConstant
-                        | FLOAT_DEC_CONSTANT                                          # FloatDecimalConstant
-                        | FLOAT_HEX_CONSTANT                                          # FloatHexadecimalConstant
-                        | FLOAT_OCT_CONSTANT                                          # FloatOctalConstant
-                        | FLOAT_BIN_CONSTANT                                          # FloatBinaryConstant
+//simple_constant         : INTEGER_DEC_CONSTANT                                        # IntegerDecimalConstant
+//                        | INTEGER_HEX_CONSTANT                                        # IntegerHexadecimalConstant
+//                        | INTEGER_OCT_CONSTANT                                        # IntegerOctalConstant
+//                        | INTEGER_BIN_CONSTANT                                        # IntegerBinaryConstant
+//                        | FLOAT_DEC_CONSTANT                                          # FloatDecimalConstant
+//                        | FLOAT_HEX_CONSTANT                                          # FloatHexadecimalConstant
+//                        | FLOAT_OCT_CONSTANT                                          # FloatOctalConstant
+//                        | FLOAT_BIN_CONSTANT                                          # FloatBinaryConstant
+//                        | TRUE                                                        # TrueKeywordConstant
+//                        | FALSE                                                       # FalseKeywordConstant
+//                        | CCONST                                                      # CharacterConstant
+//                        | SCONST                                                      # StringConstant
+//                        ;
+
+simple_constant         : label                                                       # IntegerSimpleConstant
+                        | float_constant                                              # FloatSimpleConstant
                         | TRUE                                                        # TrueKeywordConstant
                         | FALSE                                                       # FalseKeywordConstant
                         | CCONST                                                      # CharacterConstant
                         | SCONST                                                      # StringConstant
                         ;
 
-complex_constant        : LEFT_PARENTHESIS (FLOAT_DEC_CONSTANT | FLOAT_HEX_CONSTANT | FLOAT_OCT_CONSTANT | FLOAT_BIN_CONSTANT)
-                          COLON sign (FLOAT_DEC_CONSTANT | FLOAT_HEX_CONSTANT | FLOAT_OCT_CONSTANT | FLOAT_BIN_CONSTANT)  RIGHT_PARENTHESIS
+complex_constant        : LEFT_PARENTHESIS float_constant COLON sign float_constant  RIGHT_PARENTHESIS
+                        ;
+
+float_constant          : FLOAT_DEC_CONSTANT                                           # FloatDecimalConstant
+                        | FLOAT_HEX_CONSTANT                                           # FloatHexadecimalConstant
+                        | FLOAT_OCT_CONSTANT                                           # FloatOctalConstant
+                        | FLOAT_BIN_CONSTANT                                           # FloatBinaryConstant
                         ;
 
 statements              : statements labeled_statement                                 # ListOfLabeledStatements

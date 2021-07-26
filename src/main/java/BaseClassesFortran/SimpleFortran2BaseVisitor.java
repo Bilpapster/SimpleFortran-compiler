@@ -332,56 +332,14 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIntegerDecimalConstant(SimpleFortran2Parser.IntegerDecimalConstantContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIntegerSimpleConstant(SimpleFortran2Parser.IntegerSimpleConstantContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIntegerHexadecimalConstant(SimpleFortran2Parser.IntegerHexadecimalConstantContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIntegerOctalConstant(SimpleFortran2Parser.IntegerOctalConstantContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIntegerBinaryConstant(SimpleFortran2Parser.IntegerBinaryConstantContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitFloatDecimalConstant(SimpleFortran2Parser.FloatDecimalConstantContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitFloatHexadecimalConstant(SimpleFortran2Parser.FloatHexadecimalConstantContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitFloatOctalConstant(SimpleFortran2Parser.FloatOctalConstantContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitFloatBinaryConstant(SimpleFortran2Parser.FloatBinaryConstantContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFloatSimpleConstant(SimpleFortran2Parser.FloatSimpleConstantContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -423,6 +381,34 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitFloatDecimalConstant(SimpleFortran2Parser.FloatDecimalConstantContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFloatHexadecimalConstant(SimpleFortran2Parser.FloatHexadecimalConstantContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFloatOctalConstant(SimpleFortran2Parser.FloatOctalConstantContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFloatBinaryConstant(SimpleFortran2Parser.FloatBinaryConstantContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitListOfLabeledStatements(SimpleFortran2Parser.ListOfLabeledStatementsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -444,7 +430,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNormalStatement123456789(SimpleFortran2Parser.NormalStatement123456789Context ctx) { return visitChildren(ctx); }
+	@Override public T visitNormalStatement(SimpleFortran2Parser.NormalStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
