@@ -1,5 +1,10 @@
 package Model;
 
-public class FloatConstantFortran extends ArithmeticConstantFortran{
+public class FloatConstantFortran extends ArithmeticConstantFortran {
     private float actualValue;
+
+
+    public void setActualValue(float actualValue) {
+        this.actualValue = actualValue;
+    }
 }

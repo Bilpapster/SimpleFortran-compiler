@@ -1,6 +1,18 @@
 package Model;
 
 public class RepeatFortran {
-    private ConstantFortran integerConstant;
-//    TODO: specify a deriving class for the integer constants
+    private IntegerConstantFortran integerConstant;
+    private boolean hasConstant = false;
+
+    public RepeatFortran() {
+    }
+
+    public RepeatFortran(IntegerConstantFortran integerConstant) {
+        this.setIntegerConstant(integerConstant);
+    }
+
+    public void setIntegerConstant(IntegerConstantFortran integerConstant) {
+        this.integerConstant = integerConstant;
+        this.hasConstant = true;
+    }
 }
