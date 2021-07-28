@@ -157,28 +157,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIntegerDecimalDimension(SimpleFortran2Parser.IntegerDecimalDimensionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIntegerHexadecimalDimension(SimpleFortran2Parser.IntegerHexadecimalDimensionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIntegerOctalDimension(SimpleFortran2Parser.IntegerOctalDimensionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIntegerBinaryDimension(SimpleFortran2Parser.IntegerBinaryDimensionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIntegerNumericalDimension(SimpleFortran2Parser.IntegerNumericalDimensionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

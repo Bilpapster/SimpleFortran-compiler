@@ -38,10 +38,7 @@ dims                    : dims COMMA dim                                        
                         | dim                                                         # DimensionsEndCondition
                         ;
 
-dim                     : INTEGER_DEC_CONSTANT                                        # IntegerDecimalDimension
-                        | INTEGER_HEX_CONSTANT                                        # IntegerHexadecimalDimension
-                        | INTEGER_OCT_CONSTANT                                        # IntegerOctalDimension
-                        | INTEGER_BIN_CONSTANT                                        # IntegerBinaryDimension
+dim                     : label                                                       # IntegerNumericalDimension
                         | IDENTIFIER                                                  # IdentifierDimension
                         ;
 
@@ -71,13 +68,8 @@ value                   : repeat sign constant                                  
                         | constant                                                    # NormalValueConstant
                         ;
 
-repeat                  : (
-                              INTEGER_DEC_CONSTANT
-                            | INTEGER_HEX_CONSTANT
-                            | INTEGER_OCT_CONSTANT
-                            | INTEGER_BIN_CONSTANT
-                          ) MULOP                                                     # IntegerConstantRepeat
-                          | MULOP                                                     # NoConstantRepeat
+repeat                  : label MULOP                                                 # IntegerConstantRepeat
+                        | MULOP                                                       # NoConstantRepeat
                         ;
 
 sign                    : ADDOP                                                       # PlusSign
@@ -88,20 +80,6 @@ sign                    : ADDOP                                                 
 constant                : simple_constant                                             # SimpleConstant
                         | complex_constant                                            # ComplexConstant
                         ;
-
-//simple_constant         : INTEGER_DEC_CONSTANT                                        # IntegerDecimalConstant
-//                        | INTEGER_HEX_CONSTANT                                        # IntegerHexadecimalConstant
-//                        | INTEGER_OCT_CONSTANT                                        # IntegerOctalConstant
-//                        | INTEGER_BIN_CONSTANT                                        # IntegerBinaryConstant
-//                        | FLOAT_DEC_CONSTANT                                          # FloatDecimalConstant
-//                        | FLOAT_HEX_CONSTANT                                          # FloatHexadecimalConstant
-//                        | FLOAT_OCT_CONSTANT                                          # FloatOctalConstant
-//                        | FLOAT_BIN_CONSTANT                                          # FloatBinaryConstant
-//                        | TRUE                                                        # TrueKeywordConstant
-//                        | FALSE                                                       # FalseKeywordConstant
-//                        | CCONST                                                      # CharacterConstant
-//                        | SCONST                                                      # StringConstant
-//                        ;
 
 simple_constant         : label                                                       # IntegerSimpleConstant
                         | float_constant                                              # FloatSimpleConstant

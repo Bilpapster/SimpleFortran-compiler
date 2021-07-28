@@ -149,33 +149,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDimensionsEndCondition(SimpleFortran2Parser.DimensionsEndConditionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code IntegerDecimalDimension}
+	 * Visit a parse tree produced by the {@code IntegerNumericalDimension}
 	 * labeled alternative in {@link SimpleFortran2Parser#dim}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIntegerDecimalDimension(SimpleFortran2Parser.IntegerDecimalDimensionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IntegerHexadecimalDimension}
-	 * labeled alternative in {@link SimpleFortran2Parser#dim}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIntegerHexadecimalDimension(SimpleFortran2Parser.IntegerHexadecimalDimensionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IntegerOctalDimension}
-	 * labeled alternative in {@link SimpleFortran2Parser#dim}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIntegerOctalDimension(SimpleFortran2Parser.IntegerOctalDimensionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code IntegerBinaryDimension}
-	 * labeled alternative in {@link SimpleFortran2Parser#dim}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIntegerBinaryDimension(SimpleFortran2Parser.IntegerBinaryDimensionContext ctx);
+	T visitIntegerNumericalDimension(SimpleFortran2Parser.IntegerNumericalDimensionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code IdentifierDimension}
 	 * labeled alternative in {@link SimpleFortran2Parser#dim}.
