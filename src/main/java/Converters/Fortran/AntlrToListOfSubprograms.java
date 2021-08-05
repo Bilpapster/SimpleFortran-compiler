@@ -9,8 +9,8 @@ import java.util.List;
 
 public class AntlrToListOfSubprograms extends SimpleFortran2BaseVisitor<List<SubprogramFortran>> {
 
-    private AntlrToSubprogramFortran subprogramVisitor = new AntlrToSubprogramFortran();
-    private List<SubprogramFortran> subprograms;
+    private final AntlrToSubprogramFortran subprogramVisitor = new AntlrToSubprogramFortran();
+    private final List<SubprogramFortran> subprograms = new ArrayList<>();
 
     @Override
     public List<SubprogramFortran> visitListOfSubprograms(SimpleFortran2Parser.ListOfSubprogramsContext ctx) {
@@ -20,7 +20,6 @@ public class AntlrToListOfSubprograms extends SimpleFortran2BaseVisitor<List<Sub
 
     @Override
     public List<SubprogramFortran> visitSubprogramEndCondition(SimpleFortran2Parser.SubprogramEndConditionContext ctx) {
-        subprograms = new ArrayList<>();
         return subprograms;
     }
 }

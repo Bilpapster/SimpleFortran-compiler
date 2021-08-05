@@ -9,8 +9,8 @@ import java.util.List;
 
 public class AntlrToListOfIntegerConstantsFortran extends SimpleFortran2BaseVisitor<List<IntegerConstantFortran>> {
 
-    private AntlrToIntegerConstantFortran integerConstantVisitor = new AntlrToIntegerConstantFortran();
-    private List<IntegerConstantFortran> labels = new ArrayList<>();
+    private final AntlrToIntegerConstantFortran integerConstantVisitor = new AntlrToIntegerConstantFortran();
+    private final List<IntegerConstantFortran> labels = new ArrayList<>();
 
     @Override
     public List<IntegerConstantFortran> visitListOfLabels(SimpleFortran2Parser.ListOfLabelsContext ctx) {

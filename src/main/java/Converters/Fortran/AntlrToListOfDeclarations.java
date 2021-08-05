@@ -15,10 +15,10 @@ public class AntlrToListOfDeclarations extends SimpleFortran2BaseVisitor<List<De
     public List<DeclarationFortran> visitVariableDeclaration(SimpleFortran2Parser.VariableDeclarationContext ctx) {
         VariableDeclarationFortran undefinedVariableDeclaration = new VariableDeclarationFortran();
 
-        AntlrToDataType dataTypeVisitor = new AntlrToDataType();
+        AntlrToDataTypeFortran dataTypeVisitor = new AntlrToDataTypeFortran();
         undefinedVariableDeclaration.setDataType(dataTypeVisitor.visit(ctx.type()));
 
-        AntlrToListOfUndefinedVariables undefinedVariablesVisitor = new AntlrToListOfUndefinedVariables();
+        AntlrToListOfUndefinedVariablesFortran undefinedVariablesVisitor = new AntlrToListOfUndefinedVariablesFortran();
         undefinedVariableDeclaration.setVariables(undefinedVariablesVisitor.visit(ctx.variables()));
 
         visit(ctx.declarations()).add(undefinedVariableDeclaration);
@@ -29,7 +29,7 @@ public class AntlrToListOfDeclarations extends SimpleFortran2BaseVisitor<List<De
     public List<DeclarationFortran> visitCommonDeclaration(SimpleFortran2Parser.CommonDeclarationContext ctx) {
         CommonDeclarationFortran commonDeclaration = new CommonDeclarationFortran();
 
-        AntlrToListOfCBlocks cBlocksVisitor = new AntlrToListOfCBlocks();
+        AntlrToListOfCBlocksFortran cBlocksVisitor = new AntlrToListOfCBlocksFortran();
         commonDeclaration.setCBlocks(cBlocksVisitor.visit(ctx.cblock_list()));
 
         visit(ctx.declarations()).add(commonDeclaration);
@@ -40,7 +40,7 @@ public class AntlrToListOfDeclarations extends SimpleFortran2BaseVisitor<List<De
     public List<DeclarationFortran> visitDataDeclaration(SimpleFortran2Parser.DataDeclarationContext ctx) {
         DataDeclarationFortran dataDeclaration = new DataDeclarationFortran();
 
-        AntlrToListOfDataValues dataValuesVisitor = new AntlrToListOfDataValues();
+        AntlrToListOfDataValuesFortran dataValuesVisitor = new AntlrToListOfDataValuesFortran();
         dataDeclaration.setDataValues(dataValuesVisitor.visit(ctx.vals()));
 
         visit(ctx.declarations()).add(dataDeclaration);

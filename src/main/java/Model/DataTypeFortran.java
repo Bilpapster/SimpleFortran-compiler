@@ -5,7 +5,13 @@ public enum DataTypeFortran {
 
     private boolean isList = false;
 
-    public void setAsList() {
+    public DataTypeFortran setAsList() {
         this.isList = true;
+        return this;
+    }
+
+    public DataTypeFortran setAsList(boolean isList) {
+        this.isList = isList;
+        return this;
     }
 }

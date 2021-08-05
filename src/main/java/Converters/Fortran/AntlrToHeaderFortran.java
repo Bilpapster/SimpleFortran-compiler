@@ -11,8 +11,9 @@ public class AntlrToHeaderFortran extends SimpleFortran2BaseVisitor<HeaderFortra
     public HeaderFortran visitNormalFunctionHeader(SimpleFortran2Parser.NormalFunctionHeaderContext ctx) {
         NormalFunctionHeaderFortran functionHeader = new NormalFunctionHeaderFortran();
 
-        AntlrToDataType dataTypeVisitor = new AntlrToDataType();
-        functionHeader.setDataType(dataTypeVisitor.visit(ctx.type()));
+        AntlrToDataTypeFortran dataTypeVisitor = new AntlrToDataTypeFortran();
+        AntlrToBooleanFortran listSpecificationVisitor = new AntlrToBooleanFortran();
+        functionHeader.setDataType(dataTypeVisitor.visit(ctx.type()).setAsList(listSpecificationVisitor.visit(ctx.listspec())));
 
         functionHeader.setIdentifier(ctx.IDENTIFIER().getText());
 

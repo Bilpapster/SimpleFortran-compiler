@@ -10,7 +10,7 @@ import Model.StringConstantFortran;
 public class AntlrToSimpleConstantFortran extends SimpleFortran2BaseVisitor<SimpleConstantFortran> {
     @Override
     public SimpleConstantFortran visitIntegerSimpleConstant(SimpleFortran2Parser.IntegerSimpleConstantContext ctx) {
-        return new AntlrToSimpleConstantFortran().visit(ctx);
+        return new AntlrToIntegerConstantFortran().visit(ctx);
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AntlrToListOfExpressions extends SimpleFortran2BaseVisitor<List<ExpressionFortran>> {
-    private AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
-    private List<ExpressionFortran> expressions = new ArrayList<>();
+    private final AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+    private final List<ExpressionFortran> expressions = new ArrayList<>();
 
     @Override
     public List<ExpressionFortran> visitListOfExpressions(SimpleFortran2Parser.ListOfExpressionsContext ctx) {

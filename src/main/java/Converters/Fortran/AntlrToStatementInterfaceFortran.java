@@ -21,7 +21,7 @@ public class AntlrToStatementInterfaceFortran extends SimpleFortran2BaseVisitor<
     }
 
     @Override
-    public StatementInterfaceFortran visitNormalStatement123456789(SimpleFortran2Parser.NormalStatement123456789Context ctx) {
+    public StatementInterfaceFortran visitNormalStatement(SimpleFortran2Parser.NormalStatementContext ctx) {
         NormalStatementFortran normalStatement = new NormalStatementFortran();
 
         AntlrToStatementFortran statementVisitor = new AntlrToStatementFortran();

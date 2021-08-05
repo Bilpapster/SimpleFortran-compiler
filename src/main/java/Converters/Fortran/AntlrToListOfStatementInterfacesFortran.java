@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AntlrToListOfStatementInterfacesFortran extends SimpleFortran2BaseVisitor<List<StatementInterfaceFortran>> {
-    private List<StatementInterfaceFortran> statements = new ArrayList<>();
+    private final List<StatementInterfaceFortran> statements = new ArrayList<>();
     private final AntlrToStatementInterfaceFortran statementInterfaceVisitor = new AntlrToStatementInterfaceFortran();
 
     @Override

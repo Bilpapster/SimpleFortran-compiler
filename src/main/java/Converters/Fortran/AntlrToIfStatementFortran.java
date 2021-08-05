@@ -8,7 +8,7 @@ import Model.LogicalIfStatementFortran;
 
 public class AntlrToIfStatementFortran extends SimpleFortran2BaseVisitor<IfStatementFortran> {
 
-    private AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+    private final AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
 
     @Override
     public IfStatementFortran visitLogicalIfStatement(SimpleFortran2Parser.LogicalIfStatementContext ctx) {

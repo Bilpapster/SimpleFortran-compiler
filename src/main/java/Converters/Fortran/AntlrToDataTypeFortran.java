@@ -5,7 +5,7 @@ import BaseClassesFortran.SimpleFortran2Parser;
 import Model.DataTypeFortran;
 
 
-public class AntlrToDataType extends SimpleFortran2BaseVisitor<DataTypeFortran> {
+public class AntlrToDataTypeFortran extends SimpleFortran2BaseVisitor<DataTypeFortran> {
     @Override
     public DataTypeFortran visitIntegerType(SimpleFortran2Parser.IntegerTypeContext ctx) {
         return DataTypeFortran.INTEGER;

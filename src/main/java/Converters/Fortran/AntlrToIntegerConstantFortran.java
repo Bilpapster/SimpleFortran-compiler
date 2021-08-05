@@ -6,7 +6,7 @@ import Model.IntegerConstantFortran;
 
 public class AntlrToIntegerConstantFortran extends SimpleFortran2BaseVisitor<IntegerConstantFortran> {
 
-    private static int startingIndex = 2; // the index of the string that the actual number starts from (removing 0X, 0B, etc.)
+    private static final int startingIndex = 2; // the index of the string that the actual number starts from (removing 0X, 0B, etc.)
 
     @Override
     public IntegerConstantFortran visitIntegerDecimalLabel(SimpleFortran2Parser.IntegerDecimalLabelContext ctx) {

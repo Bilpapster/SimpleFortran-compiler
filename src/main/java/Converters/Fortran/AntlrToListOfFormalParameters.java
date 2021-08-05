@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AntlrToListOfFormalParameters extends SimpleFortran2BaseVisitor<List<FormalParameterFortran>> {
-    private List<FormalParameterFortran> formalParameters = new ArrayList<>();
-    private AntlrToDataType dataTypeVisitor = new AntlrToDataType();
-    private AntlrToListOfUndefinedVariables undefinedVariablesVisitor = new AntlrToListOfUndefinedVariables();
+    private final List<FormalParameterFortran> formalParameters = new ArrayList<>();
+    private final AntlrToDataTypeFortran dataTypeVisitor = new AntlrToDataTypeFortran();
+    private final AntlrToListOfUndefinedVariablesFortran undefinedVariablesVisitor = new AntlrToListOfUndefinedVariablesFortran();
 
 
     @Override

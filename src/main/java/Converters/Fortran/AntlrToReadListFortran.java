@@ -5,8 +5,8 @@ import BaseClassesFortran.SimpleFortran2Parser;
 import Model.ReadListFortran;
 
 public class AntlrToReadListFortran extends SimpleFortran2BaseVisitor<ReadListFortran> {
-    private ReadListFortran readListFortran = new ReadListFortran();
-    private AntlrToReadItemFortran readItemVisitor = new AntlrToReadItemFortran();
+    private final ReadListFortran readListFortran = new ReadListFortran();
+    private final AntlrToReadItemFortran readItemVisitor = new AntlrToReadItemFortran();
 
     @Override
     public ReadListFortran visitListOfReadItems(SimpleFortran2Parser.ListOfReadItemsContext ctx) {

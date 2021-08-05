@@ -14,4 +14,7 @@ public class NormalFunctionHeaderFortran extends HeaderFortran{
         this.formalParameters = formalParameters;
     }
 
+    public DataTypeFortran getDataType() {
+        return dataType;
+    }
 }
