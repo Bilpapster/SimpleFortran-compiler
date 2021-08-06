@@ -12,7 +12,7 @@ public class AntlrToDimensionFortran extends SimpleFortran2BaseVisitor<Dimension
 
         AntlrToIntegerConstantFortran integerConstantVisitor = new AntlrToIntegerConstantFortran();
         IntegerConstantFortran dimensionConstant = integerConstantVisitor.visit(ctx.label());
-        dimension.setDimensionSize(dimensionConstant.getActualValue());
+        dimension.setIntegerValue(dimensionConstant.getActualValue());
 
         return dimension;
     }
@@ -20,10 +20,7 @@ public class AntlrToDimensionFortran extends SimpleFortran2BaseVisitor<Dimension
     @Override
     public DimensionFortran visitIdentifierDimension(SimpleFortran2Parser.IdentifierDimensionContext ctx) {
         DimensionFortran dimension = new DimensionFortran();
-
-        dimension.setDimensionSize(1);
-        // todo deal with the case when an (already declared) id is used as dimension (symbol table)
-
+        dimension.setIdentifier(ctx.IDENTIFIER().getText());
         return dimension;
     }
 }

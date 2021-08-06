@@ -145,14 +145,7 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
 
     @Override
     public ExpressionFortran visitParenthesizedOperation(SimpleFortran2Parser.ParenthesizedOperationContext ctx) {
-        // todo merge parenthesized operation into normal expressions by returning visit(ctx.expression), creating an instance of ParenthesizedOperation class
-
-        NewOperationFortran newOperation = new NewOperationFortran();
-
-        AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
-        newOperation.setExpression(expressionVisitor.visit(ctx.expression()));
-
-        return newOperation;
+        return visit(ctx.expression());
     }
 
     @Override
@@ -178,8 +171,12 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
 
     @Override
     public ExpressionFortran visitEmptyStep(SimpleFortran2Parser.EmptyStepContext ctx) {
-        // todo make default step equal to an expression that is 1
+        IntegerConstantFortran integerConstant = new IntegerConstantFortran();
+        integerConstant.setActualValue(1);
 
-        return super.visitEmptyStep(ctx);
+        SimpleConstantOperationFortran simpleConstantOperation = new SimpleConstantOperationFortran();
+        simpleConstantOperation.setSimpleConstant(integerConstant);
+
+        return simpleConstantOperation;
     }
 }

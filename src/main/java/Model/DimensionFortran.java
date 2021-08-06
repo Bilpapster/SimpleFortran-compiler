@@ -1,9 +1,25 @@
 package Model;
 
 public class DimensionFortran {
-    private int dimensionSize;
+    private int integerValue;
+    private String identifier;
+    private boolean isIdentifier;
 
-    public void setDimensionSize(int dimensionSize) {
-        this.dimensionSize = dimensionSize;
+    public void setIntegerValue(int integerValue) {
+        this.integerValue = integerValue;
+        this.isIdentifier = false;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+        this.isIdentifier = true;
+    }
+
+    public int getIntegerValue() {
+        return integerValue;
+    }
+
+    public String getIdentifier() {
+        return identifier;
     }
 }

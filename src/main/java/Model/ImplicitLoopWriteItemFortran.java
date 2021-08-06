@@ -16,6 +16,4 @@ public class ImplicitLoopWriteItemFortran implements WriteItemFortran{
     public void setIterationSpace(IterationSpaceFortran iterationSpace) {
         this.iterationSpace = iterationSpace;
     }
-
-    //todo setters
 }
