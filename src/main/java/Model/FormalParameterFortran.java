@@ -13,4 +13,18 @@ public class FormalParameterFortran {
     public void setVariables(List<UndefinedVariableFortran> variables) {
         this.variables = variables;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringRepresentation = new StringBuilder(this.dataType.toString())
+                .append(" ")
+                .append(variables.get(0));
+
+        for (int index = 1; index < variables.size(); index++) {
+            stringRepresentation.append(", ").append(variables.get(index));
+        }
+
+        return stringRepresentation.append('\n').toString();
+
+    }
 }

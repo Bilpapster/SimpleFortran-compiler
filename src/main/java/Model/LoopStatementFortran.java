@@ -16,4 +16,16 @@ public class LoopStatementFortran extends CompoundStatementFortran{
     public void setBody(BodyFortran body) {
         this.body = body;
     }
+
+    @Override
+    public String toString() {
+
+        return "DO " +
+                identifier +
+                " = " +
+                iterationSpace.toString() +
+                '\n' +
+                body.toString() +
+                "\nENDDO\n";
+    }
 }

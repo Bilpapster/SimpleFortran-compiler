@@ -17,4 +17,21 @@ public class NormalFunctionHeaderFortran extends HeaderFortran{
     public DataTypeFortran getDataType() {
         return dataType;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringRepresentation = new StringBuilder();
+
+        stringRepresentation.append(dataType.toString())
+                .append(" ")
+                .append("FUNCTION ")
+                .append(identifier)
+                .append("(")
+                .append(formalParameters.get(0));
+
+        for (int index = 1; index < formalParameters.size(); index++) {
+            stringRepresentation.append(", ").append(formalParameters.get(index));
+        }
+        return stringRepresentation.append(")\n").toString();
+    }
 }

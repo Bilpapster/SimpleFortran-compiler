@@ -1,6 +1,6 @@
 package Model;
 
-public class ImplicitLoopWriteItemFortran implements WriteItemFortran{
+public class ImplicitLoopWriteItemFortran implements WriteItemFortran {
     private WriteListFortran writeList;
     private String identifier;
     private IterationSpaceFortran iterationSpace;
@@ -15,5 +15,16 @@ public class ImplicitLoopWriteItemFortran implements WriteItemFortran{
 
     public void setIterationSpace(IterationSpaceFortran iterationSpace) {
         this.iterationSpace = iterationSpace;
+    }
+
+    @Override
+    public String toString() {
+        return "(" +
+                writeList.toString() +
+                ", " +
+                identifier +
+                " = " +
+                iterationSpace.toString() +
+                ")";
     }
 }

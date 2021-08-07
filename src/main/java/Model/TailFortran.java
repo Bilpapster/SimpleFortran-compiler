@@ -8,4 +8,12 @@ public class TailFortran {
         this.body = body;
         this.hasBody = true;
     }
+
+    @Override
+    public String toString() {
+        if (hasBody) {
+            return "ELSE\n" + body.toString() + "ENDIF\n";
+        }
+        return "ENDIF\n";
+    }
 }

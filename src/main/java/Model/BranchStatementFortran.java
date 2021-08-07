@@ -16,4 +16,14 @@ public class BranchStatementFortran extends CompoundStatementFortran{
     public void setTail(TailFortran tail) {
         this.tail = tail;
     }
+
+    @Override
+    public String toString() {
+        return "IF(" +
+                expression.toString() +
+                ") THEN" +
+                body.toString() + '\n' +
+                tail.toString();
+
+    }
 }

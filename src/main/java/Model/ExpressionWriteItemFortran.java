@@ -6,4 +6,9 @@ public class ExpressionWriteItemFortran implements WriteItemFortran {
     public void setExpression(ExpressionFortran expression) {
         this.expression = expression;
     }
+
+    @Override
+    public String toString() {
+        return expression.toString();
+    }
 }

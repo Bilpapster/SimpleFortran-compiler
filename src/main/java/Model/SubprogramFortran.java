@@ -11,4 +11,13 @@ public class SubprogramFortran extends ProgramFortran{
     public void setBody(BodyFortran body) {
         this.body = body;
     }
+
+    @Override
+    public String toString() {
+
+        return header.toString() +
+                '\n' +
+                body.toString() +
+                "\nEND\n";
+    }
 }
