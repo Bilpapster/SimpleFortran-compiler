@@ -1,6 +1,6 @@
 package Model;
 
-public class ArithmeticIfStatementFortran extends IfStatementFortran{
+public class ArithmeticIfStatementFortran extends IfStatementFortran {
     private ExpressionFortran expression;
     private SimpleStatementFortran simpleStatement;
 
@@ -10,5 +10,10 @@ public class ArithmeticIfStatementFortran extends IfStatementFortran{
 
     public void setSimpleStatement(SimpleStatementFortran simpleStatement) {
         this.simpleStatement = simpleStatement;
+    }
+
+    @Override
+    public String toString() {
+        return "IF (" + expression + ") " + simpleStatement + '\n';
     }
 }

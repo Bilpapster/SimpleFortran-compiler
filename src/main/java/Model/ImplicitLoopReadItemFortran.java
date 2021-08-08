@@ -16,4 +16,15 @@ public class ImplicitLoopReadItemFortran implements ReadItemFortran{
     public void setIterationSpace(IterationSpaceFortran iterationSpace) {
         this.iterationSpace = iterationSpace;
     }
+
+    @Override
+    public String toString() {
+        return "(" +
+                readList.toString() +
+                ", " +
+                identifier +
+                " = " +
+                iterationSpace.toString() +
+                ")";
+    }
 }

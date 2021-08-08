@@ -21,4 +21,9 @@ public class LogicalIfStatementFortran extends IfStatementFortran{
     public void setLabelRight(IntegerConstantFortran labelRight) {
         this.labelRight = labelRight;
     }
+
+    @Override
+    public String toString() {
+        return "IF (" + expression + ") " + labelLeft + ", " + labelMiddle + ", " + labelRight + '\n';
+    }
 }

@@ -18,4 +18,13 @@ public class IterationSpaceFortran {
     public void setStep(ExpressionFortran step) {
         this.step = step;
     }
+
+    @Override
+    public String toString() {
+        return expressionRight.toString() +
+                ", " +
+                expressionLeft.toString() +
+                " " +
+                step.toString();
+    }
 }
