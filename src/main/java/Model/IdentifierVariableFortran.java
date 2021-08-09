@@ -6,4 +6,9 @@ public class IdentifierVariableFortran implements VariableFortran {
     public void setIdentifier(String identifier) {
         this.identifier = identifier;
     }
+
+    @Override
+    public String toString() {
+        return identifier;
+    }
 }

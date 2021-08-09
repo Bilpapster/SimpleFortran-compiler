@@ -13,4 +13,9 @@ public class ListFunctionVariableFortran implements VariableFortran {
     public void setExpressions(List<ExpressionFortran> expressions) {
         this.expressions = expressions;
     }
+
+    @Override
+    public String toString() {
+        return listFunction + "(" + expressions.get(0) + ")";
+    }
 }

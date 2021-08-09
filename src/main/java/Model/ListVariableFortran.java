@@ -13,4 +13,16 @@ public class ListVariableFortran implements VariableFortran {
     public void setExpressions(List<ExpressionFortran> expressions) {
         this.expressions = expressions;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringRepresentation = new StringBuilder(identifier + "(");
+
+        stringRepresentation.append(expressions.get(0));
+
+        for (int index = 1; index < expressions.size(); index++) {
+            stringRepresentation.append(", ").append(expressions.get(index));
+        }
+        return stringRepresentation.toString();
+    }
 }
