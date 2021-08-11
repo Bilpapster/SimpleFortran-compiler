@@ -1,6 +1,6 @@
 package Model;
 
-public class ComplexConstantFortran extends ConstantFortran{
+public class ComplexConstantFortran extends ConstantFortran {
     private FloatConstantFortran left;
     private FloatConstantFortran right;
     private String rightPartSign;
@@ -15,5 +15,10 @@ public class ComplexConstantFortran extends ConstantFortran{
 
     public void setRightPartSign(String rightPartSign) {
         this.rightPartSign = rightPartSign;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + left + " : " + rightPartSign + right + ")";
     }
 }

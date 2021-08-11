@@ -1,6 +1,6 @@
 package Model;
 
-public class IntegerConstantFortran extends ArithmeticConstantFortran{
+public class IntegerConstantFortran extends ArithmeticConstantFortran {
     private int actualValue;
 
     public void setActualValue(int actualValue) {
@@ -9,5 +9,10 @@ public class IntegerConstantFortran extends ArithmeticConstantFortran{
 
     public int getActualValue() {
         return actualValue;
+    }
+
+    @Override
+    public String toString() {
+        return Integer.toString(actualValue);
     }
 }

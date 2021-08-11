@@ -10,4 +10,9 @@ public class LogicalConstantFortran extends SimpleConstantFortran{
     public void setActualValue(boolean actualValue) {
         this.actualValue = actualValue;
     }
+
+    @Override
+    public String toString() {
+        return Boolean.toString(actualValue);
+    }
 }

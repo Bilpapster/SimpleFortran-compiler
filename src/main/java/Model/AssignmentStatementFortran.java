@@ -1,6 +1,6 @@
 package Model;
 
-public class AssignmentStatementFortran extends SimpleStatementFortran{
+public class AssignmentStatementFortran extends SimpleStatementFortran {
     private VariableFortran variable;
     private ExpressionFortran expression;
 
@@ -10,5 +10,10 @@ public class AssignmentStatementFortran extends SimpleStatementFortran{
 
     public void setExpression(ExpressionFortran expression) {
         this.expression = expression;
+    }
+
+    @Override
+    public String toString() {
+        return variable + " = " + expression + '\n';
     }
 }

@@ -10,4 +10,9 @@ public class StringConstantFortran extends SimpleConstantFortran{
     public void setActualValue(String actualValue) {
         this.actualValue = actualValue;
     }
+
+    @Override
+    public String toString() {
+        return actualValue;
+    }
 }
