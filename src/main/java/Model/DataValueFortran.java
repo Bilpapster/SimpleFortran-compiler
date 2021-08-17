@@ -13,4 +13,14 @@ public class DataValueFortran {
     public void setValues(List<ValueFortran> values) {
         this.values = values;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringRepresentation = new StringBuilder(identifier + " / " + values.get(0));
+
+        for (int index = 1; index < values.size(); index++) {
+            stringRepresentation.append(", ").append(values.get(index));
+        }
+        return stringRepresentation.append(" / ").toString();
+    }
 }

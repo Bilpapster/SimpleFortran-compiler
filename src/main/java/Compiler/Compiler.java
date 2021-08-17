@@ -1,5 +1,6 @@
 package Compiler;
 
+import Model.DataTypeFortran;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -21,6 +22,12 @@ public class Compiler {
                     + "the input file path");
             return;
         }
+
+        DataTypeFortran dataTypeFortran = DataTypeFortran.COMPLEX;
+        dataTypeFortran.setAsList(true);
+        System.out.println(dataTypeFortran);
+        System.out.println();
+        System.out.println();
 
 //        float number = Float.parseFloat("123.456E-3");
 //        System.out.println(number);

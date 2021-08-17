@@ -11,4 +11,9 @@ public class RepeatValueFortran extends NormalValueFortran{
     public void setSign(String sign) {
         this.sign = sign;
     }
+
+    @Override
+    public String toString() {
+        return repeat + " " + sign + constant;
+    }
 }

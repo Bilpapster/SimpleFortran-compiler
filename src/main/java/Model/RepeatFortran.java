@@ -15,4 +15,12 @@ public class RepeatFortran {
         this.integerConstant = integerConstant;
         this.hasConstant = true;
     }
+
+    @Override
+    public String toString() {
+        if (!hasConstant) {
+            return "*";
+        }
+        return integerConstant + "*";
+    }
 }

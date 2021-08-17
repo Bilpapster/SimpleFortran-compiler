@@ -6,4 +6,9 @@ public class NormalValueFortran implements ValueFortran{
     public void setConstant(ConstantFortran constant) {
         this.constant = constant;
     }
+
+    @Override
+    public String toString() {
+        return this.constant.toString();
+    }
 }

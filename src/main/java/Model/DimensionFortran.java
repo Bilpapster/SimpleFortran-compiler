@@ -22,4 +22,10 @@ public class DimensionFortran {
     public String getIdentifier() {
         return identifier;
     }
+
+    @Override
+    public String toString() {
+        if (isIdentifier) return identifier;
+        return Integer.toString(integerValue);
+    }
 }

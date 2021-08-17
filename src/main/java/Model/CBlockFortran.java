@@ -13,4 +13,15 @@ public class CBlockFortran {
     public void setIdentifiers(List<String> identifiers) {
         this.identifiers = identifiers;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringRepresentation = new StringBuilder("/ " + name + identifiers.get(0));
+
+        for (int index = 1; index < identifiers.size(); index++) {
+            stringRepresentation.append(", ").append(identifiers.get(index));
+        }
+
+        return stringRepresentation.toString();
+    }
 }

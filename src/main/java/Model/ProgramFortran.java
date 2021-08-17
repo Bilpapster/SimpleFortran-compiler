@@ -23,4 +23,9 @@ public class ProgramFortran {
     public void addSubprogram(SubprogramFortran subprogram) {
         this.subprograms.add(subprogram);
     }
+
+    @Override
+    public String toString() {
+        return body + "\nEND\n" + subprograms;
+    }
 }

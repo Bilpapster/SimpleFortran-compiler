@@ -14,4 +14,11 @@ public enum DataTypeFortran {
         this.isList = isList;
         return this;
     }
+
+
+    @Override
+    public String toString() {
+        if (isList) return this.name() + " LIST";
+        return this.name() + " ";
+    }
 }
