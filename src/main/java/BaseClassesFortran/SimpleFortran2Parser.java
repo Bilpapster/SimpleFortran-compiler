@@ -3278,12 +3278,12 @@ public class SimpleFortran2Parser extends Parser {
 						break;
 					case 4:
 						{
-						_localctx = new AdditionOperationContext(new ExpressionContext(_parentctx, _parentState));
+						_localctx = new PowerOperationContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(377);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
 						setState(378);
-						match(ADDOP);
+						match(POWEROP);
 						setState(379);
 						expression(14);
 						}
@@ -3314,12 +3314,12 @@ public class SimpleFortran2Parser extends Parser {
 						break;
 					case 7:
 						{
-						_localctx = new PowerOperationContext(new ExpressionContext(_parentctx, _parentState));
+						_localctx = new AdditionOperationContext(new ExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_expression);
 						setState(386);
 						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
 						setState(387);
-						match(POWEROP);
+						match(ADDOP);
 						setState(388);
 						expression(11);
 						}
@@ -5250,9 +5250,9 @@ public class SimpleFortran2Parser extends Parser {
 		"\u0173\f\22\2\2\u0173\u0174\7\17\2\2\u0174\u0188\5> \23\u0175\u0176\f"+
 		"\21\2\2\u0176\u0177\7\20\2\2\u0177\u0188\5> \22\u0178\u0179\f\20\2\2\u0179"+
 		"\u017a\7\22\2\2\u017a\u0188\5> \21\u017b\u017c\f\17\2\2\u017c\u017d\7"+
-		"\n\2\2\u017d\u0188\5> \20\u017e\u017f\f\16\2\2\u017f\u0180\7\f\2\2\u0180"+
+		"\16\2\2\u017d\u0188\5> \20\u017e\u017f\f\16\2\2\u017f\u0180\7\f\2\2\u0180"+
 		"\u0188\5> \17\u0181\u0182\f\r\2\2\u0182\u0183\7\r\2\2\u0183\u0188\5> "+
-		"\16\u0184\u0185\f\f\2\2\u0185\u0186\7\16\2\2\u0186\u0188\5> \r\u0187\u0172"+
+		"\16\u0184\u0185\f\f\2\2\u0185\u0186\7\n\2\2\u0186\u0188\5> \r\u0187\u0172"+
 		"\3\2\2\2\u0187\u0175\3\2\2\2\u0187\u0178\3\2\2\2\u0187\u017b\3\2\2\2\u0187"+
 		"\u017e\3\2\2\2\u0187\u0181\3\2\2\2\u0187\u0184\3\2\2\2\u0188\u018b\3\2"+
 		"\2\2\u0189\u0187\3\2\2\2\u0189\u018a\3\2\2\2\u018a?\3\2\2\2\u018b\u0189"+

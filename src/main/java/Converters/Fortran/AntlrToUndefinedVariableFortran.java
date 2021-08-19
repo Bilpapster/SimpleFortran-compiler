@@ -12,6 +12,10 @@ public class AntlrToUndefinedVariableFortran extends SimpleFortran2BaseVisitor<U
     public UndefinedVariableFortran visitListUndefinedVariable(SimpleFortran2Parser.ListUndefinedVariableContext ctx) {
         ListUndefinedVariableFortran listUndefinedVariable = new ListUndefinedVariableFortran();
 
+        AntlrToBooleanFortran listSpecificationVisitor = new AntlrToBooleanFortran();
+        listUndefinedVariable.setIsList(listSpecificationVisitor.visit(ctx.listspec()));
+
+
         listUndefinedVariable.setName(ctx.IDENTIFIER().getText());
 
         AntlrToListOfDimensionsFortran dimensionsVisitor = new AntlrToListOfDimensionsFortran();
@@ -23,7 +27,12 @@ public class AntlrToUndefinedVariableFortran extends SimpleFortran2BaseVisitor<U
     @Override
     public UndefinedVariableFortran visitNormalUndefinedVariable(SimpleFortran2Parser.NormalUndefinedVariableContext ctx) {
         NormalUndefinedVariableFortran normalUndefinedVariable = new NormalUndefinedVariableFortran();
+
+        AntlrToBooleanFortran listSpecificationVisitor = new AntlrToBooleanFortran();
+        normalUndefinedVariable.setIsList(listSpecificationVisitor.visit(ctx.listspec()));
+
         normalUndefinedVariable.setName(ctx.IDENTIFIER().getText());
+
         return normalUndefinedVariable;
     }
 }

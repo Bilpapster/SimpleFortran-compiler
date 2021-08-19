@@ -141,10 +141,10 @@ expressions             : expressions COMMA expression                          
 expression              : expression OROP expression                                      # OrOperation
                         | expression ANDOP expression                                     # AndOperation
                         | expression RELOP expression                                     # RelativeOperation
-                        | expression ADDOP expression                                     # AdditionOperation
+                        | expression POWEROP expression                                   # PowerOperation
                         | expression MULOP expression                                     # MultiplicationOperation
                         | expression DIVOP expression                                     # DivisionOperation
-                        | expression POWEROP expression                                   # PowerOperation
+                        | expression ADDOP expression                                     # AdditionOperation
                         | NOTOP expression                                                # NotOperation
                         | ADDOP expression                                                # SignedOperation
                         | variable                                                        # VariableOperation

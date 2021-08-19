@@ -1,0 +1,30 @@
+$ This program will take 5 integers from the user and it will sort them.
+
+integer arr(5), i
+
+write "Please enter 5 integers: \n"
+do i=0, 5
+    write "Enter the integer (", i+1, "): "
+    read arr(i)
+enddo
+
+call bubbleSort(arr, 5)
+
+write (arr(i), ", ", i=0, 4), arr(4), "\n"
+
+end
+
+
+subroutine bubbleSort(integer arr(n), integer n)
+    integer i, j, temp
+
+    do i=0, n
+        do j=0, n-1
+            if (arr(j+1) .lt. arr(j)) then
+                temp = arr(j)
+                arr(j) = arr(j+1)
+                arr(j+1) = temp
+            endif
+        enddo
+    enddo
+end
