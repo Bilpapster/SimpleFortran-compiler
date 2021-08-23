@@ -565,19 +565,19 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAdditionOperation(SimpleFortran2Parser.AdditionOperationContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code RelativeOperation}
-	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRelativeOperation(SimpleFortran2Parser.RelativeOperationContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code ParenthesizedOperation}
 	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitParenthesizedOperation(SimpleFortran2Parser.ParenthesizedOperationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code RelationalOperation}
+	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelationalOperation(SimpleFortran2Parser.RelationalOperationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code NotOperation}
 	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
@@ -642,12 +642,26 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitColonizedOperation(SimpleFortran2Parser.ColonizedOperationContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code SubtractionOperation}
+	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubtractionOperation(SimpleFortran2Parser.SubtractionOperationContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ListOperation}
 	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitListOperation(SimpleFortran2Parser.ListOperationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MinusSignedOperation}
+	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinusSignedOperation(SimpleFortran2Parser.MinusSignedOperationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MultiplicationOperation}
 	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
@@ -656,12 +670,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMultiplicationOperation(SimpleFortran2Parser.MultiplicationOperationContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ListExpression}
+	 * Visit a parse tree produced by the {@code ListExpressionTest}
 	 * labeled alternative in {@link SimpleFortran2Parser#listexpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListExpression(SimpleFortran2Parser.ListExpressionContext ctx);
+	T visitListExpressionTest(SimpleFortran2Parser.ListExpressionTestContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code EmptyListExpression}
 	 * labeled alternative in {@link SimpleFortran2Parser#listexpression}.
@@ -796,19 +810,19 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWriteItemEndCondition(SimpleFortran2Parser.WriteItemEndConditionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ExpressionWriteItem}
-	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code ImplicitLoopWriteItem}
 	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitImplicitLoopWriteItem(SimpleFortran2Parser.ImplicitLoopWriteItemContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ExpressionWriteItem}
+	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code BranchStatement}
 	 * labeled alternative in {@link SimpleFortran2Parser#compound_statement}.

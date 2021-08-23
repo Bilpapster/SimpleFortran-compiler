@@ -140,13 +140,15 @@ expressions             : expressions COMMA expression                          
 
 expression              : expression OROP expression                                      # OrOperation
                         | expression ANDOP expression                                     # AndOperation
-                        | expression RELOP expression                                     # RelativeOperation
+                        | expression RELOP expression                                     # RelationalOperation
                         | expression POWEROP expression                                   # PowerOperation
                         | expression MULOP expression                                     # MultiplicationOperation
                         | expression DIVOP expression                                     # DivisionOperation
                         | expression ADDOP expression                                     # AdditionOperation
+                        | expression SUBOP expression                                     # SubtractionOperation
                         | NOTOP expression                                                # NotOperation
                         | ADDOP expression                                                # SignedOperation
+                        | SUBOP expression                                                # MinusSignedOperation
                         | variable                                                        # VariableOperation
                         | simple_constant                                                 # SimpleConstantOperation
                         | LENGTH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS            # LengthOperation
@@ -156,7 +158,7 @@ expression              : expression OROP expression                            
                         | listexpression                                                  # ListOperation
                         ;
 
-listexpression          : LBRACK expressions RBRACK                                       # ListExpression
+listexpression          : LBRACK expressions RBRACK                                       # ListExpressionTest
                         | LBRACK RBRACK                                                   # EmptyListExpression
                         ;
 
@@ -280,6 +282,9 @@ fragment UPPERCASE      : [A-Z];
 fragment LETTER         : [A-Za-z];
 fragment DIGIT          : [0-9];
 fragment NON_ZERO_DIGIT : [1-9];
+fragment STRING_TEXT    : (~[\n\f\t\r\b"\\] | ESCAPE_SEQUENCE)+;
+fragment ESCAPE_SEQUENCE: '\\'[nftrb"\\];
+fragment END_OF_LINE    : '\\' ('\r\n' | '\n' | '\r');
 
 COMMA                   : ',';
 LEFT_PARENTHESIS        : '(';
@@ -380,7 +385,7 @@ FLOAT_BIN_CONSTANT      : BIN_INDICATOR
 
 CCONST                  : APOSTROPHE ( ~[\\] | BACKSLASH 'v')+  APOSTROPHE;
 
-SCONST                  : QUOTATION_MARK  (~[(] | '(')*  QUOTATION_MARK;
+SCONST                  : QUOTATION_MARK  (STRING_TEXT | END_OF_LINE)*  QUOTATION_MARK;
 
 IDENTIFIER              : (LETTER)+ ((LETTER | DIGIT)* | (UNDERSCORE? ((LETTER | DIGIT)+ UNDERSCORE)*));
 
