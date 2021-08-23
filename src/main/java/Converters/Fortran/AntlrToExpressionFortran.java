@@ -29,14 +29,15 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
     }
 
     @Override
-    public ExpressionFortran visitRelativeOperation(SimpleFortran2Parser.RelativeOperationContext ctx) {
-        RelativeOperationFortran relativeOperation = new RelativeOperationFortran();
+    public ExpressionFortran visitRelationalOperation(SimpleFortran2Parser.RelationalOperationContext ctx) {
+        RelationalOperationFortran relationalOperation = new RelationalOperationFortran();
 
         AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
-        relativeOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
-        relativeOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
+        relationalOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
+        relationalOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
+        relationalOperation.setRelationalOperand(ctx.RELOP().getText());
 
-        return relativeOperation;
+        return relationalOperation;
     }
 
     @Override
@@ -48,6 +49,17 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
         additionOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
 
         return additionOperation;
+    }
+
+    @Override
+    public ExpressionFortran visitSubtractionOperation(SimpleFortran2Parser.SubtractionOperationContext ctx) {
+        SubtractionOperationFortran subtractionOperation = new SubtractionOperationFortran();
+
+        AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+        subtractionOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
+        subtractionOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
+
+        return subtractionOperation;
     }
 
     @Override
@@ -91,6 +103,16 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
         notOperation.setExpression(expressionVisitor.visit(ctx.expression()));
 
         return notOperation;
+    }
+
+    @Override
+    public ExpressionFortran visitMinusSignedOperation(SimpleFortran2Parser.MinusSignedOperationContext ctx) {
+        MinusSignedOperationFortran minusSignedOperation = new MinusSignedOperationFortran();
+
+        AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+        minusSignedOperation.setExpression(expressionVisitor.visit(ctx.expression()));
+        
+        return minusSignedOperation;
     }
 
     @Override

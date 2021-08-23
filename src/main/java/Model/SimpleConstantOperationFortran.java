@@ -6,4 +6,9 @@ public class SimpleConstantOperationFortran implements ExpressionFortran{
     public void setSimpleConstant(SimpleConstantFortran simpleConstant) {
         this.simpleConstant = simpleConstant;
     }
+
+    @Override
+    public String toString() {
+        return simpleConstant.toString();
+    }
 }

@@ -16,15 +16,13 @@ public class FormalParameterFortran {
 
     @Override
     public String toString() {
-        StringBuilder stringRepresentation = new StringBuilder(this.dataType.toString())
-                .append(" ")
-                .append(variables.get(0));
+        StringBuilder stringRepresentation = new StringBuilder(this.dataType.toString()).append(variables.get(0));
 
         for (int index = 1; index < variables.size(); index++) {
             stringRepresentation.append(", ").append(variables.get(index));
         }
 
-        return stringRepresentation.append('\n').toString();
+        return stringRepresentation.toString();
 
     }
 }

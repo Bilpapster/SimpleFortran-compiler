@@ -9,6 +9,6 @@ public class WriteStatementFortran extends IOStatementFortran {
 
     @Override
     public String toString() {
-        return "WRITE " + writeList.toString() + '\n';
+        return "WRITE " + writeList.toString();
     }
 }

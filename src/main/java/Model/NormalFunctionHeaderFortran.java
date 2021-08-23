@@ -22,16 +22,12 @@ public class NormalFunctionHeaderFortran extends HeaderFortran{
     public String toString() {
         StringBuilder stringRepresentation = new StringBuilder();
 
-        stringRepresentation.append(dataType.toString())
-                .append(" ")
-                .append("FUNCTION ")
-                .append(identifier)
-                .append("(")
-                .append(formalParameters.get(0));
+        stringRepresentation.append(dataType.toString()).append("FUNCTION ")
+                .append(identifier).append("(").append(formalParameters.get(0));
 
         for (int index = 1; index < formalParameters.size(); index++) {
-            stringRepresentation.append(", ").append(formalParameters.get(index));
+            stringRepresentation.append(", ").append(formalParameters.get(index).toString());
         }
-        return stringRepresentation.append(")\n").toString();
+        return stringRepresentation.append(")").toString();
     }
 }

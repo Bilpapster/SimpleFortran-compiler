@@ -14,6 +14,6 @@ public class AssignmentStatementFortran extends SimpleStatementFortran {
 
     @Override
     public String toString() {
-        return variable + " = " + expression + '\n';
+        return variable + " = " + expression;
     }
 }

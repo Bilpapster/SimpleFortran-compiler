@@ -26,6 +26,12 @@ public class ProgramFortran {
 
     @Override
     public String toString() {
-        return body + "\nEND\n" + subprograms;
+        if (subprograms.isEmpty()) return body + "END\n";
+
+        StringBuilder stringRepresentation = new StringBuilder(body.toString() + "END\n");
+        for (SubprogramFortran subprogram : subprograms) {
+            stringRepresentation.append(subprogram).append('\n');
+        }
+        return stringRepresentation.toString();
     }
 }

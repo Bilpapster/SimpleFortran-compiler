@@ -9,6 +9,6 @@ public class ReadStatementFortran extends IOStatementFortran {
 
     @Override
     public String toString() {
-        return "READ " + readList.toString() + '\n';
+        return "READ " + readList.toString();
     }
 }

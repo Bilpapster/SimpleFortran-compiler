@@ -1,4 +1,4 @@
 package Model;
 
-public abstract class StatementFortran {
+public interface StatementFortran {
 }

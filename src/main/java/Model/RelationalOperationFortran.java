@@ -1,6 +1,6 @@
 package Model;
 
-public class RelativeOperationFortran extends BinaryOperationFortran {
+public class RelationalOperationFortran extends BinaryOperationFortran {
     private String relationalOperand;
 
     @Override

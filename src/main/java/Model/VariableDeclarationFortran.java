@@ -22,6 +22,6 @@ public class VariableDeclarationFortran implements DeclarationFortran {
             stringRepresentation.append(", ").append(variables.get(index));
         }
 
-        return stringRepresentation.append('\n').toString();
+        return stringRepresentation.toString();
     }
 }

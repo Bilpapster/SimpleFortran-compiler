@@ -18,6 +18,6 @@ public class SubprogramFortran extends ProgramFortran{
         return header.toString() +
                 '\n' +
                 body.toString() +
-                "\nEND\n";
+                "END";
     }
 }

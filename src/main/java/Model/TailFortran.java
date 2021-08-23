@@ -12,8 +12,8 @@ public class TailFortran {
     @Override
     public String toString() {
         if (hasBody) {
-            return "ELSE\n" + body.toString() + "ENDIF\n";
+            return "ELSE\n" + body.toString() + "ENDIF";
         }
-        return "ENDIF\n";
+        return "ENDIF";
     }
 }

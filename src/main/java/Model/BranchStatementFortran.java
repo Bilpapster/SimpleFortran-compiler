@@ -19,11 +19,7 @@ public class BranchStatementFortran extends CompoundStatementFortran{
 
     @Override
     public String toString() {
-        return "IF(" +
-                expression.toString() +
-                ") THEN" +
-                body.toString() + '\n' +
-                tail.toString();
+        return "IF(" + expression.toString() + ") THEN\n" +  body.toString() + '\n' + tail.toString();
 
     }
 }

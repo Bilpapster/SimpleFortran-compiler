@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class AntlrToListExpressionFortran extends SimpleFortran2BaseVisitor<ListOperationFortran> {
 
     @Override
-    public ListOperationFortran visitListExpression(SimpleFortran2Parser.ListExpressionContext ctx) {
+    public ListOperationFortran visitListExpressionTest(SimpleFortran2Parser.ListExpressionTestContext ctx) {
         ListOperationFortran listOperation = new ListOperationFortran();
 
         AntlrToListOfExpressions expressionsVisitor = new AntlrToListOfExpressions();

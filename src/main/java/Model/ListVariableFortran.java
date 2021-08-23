@@ -23,6 +23,6 @@ public class ListVariableFortran implements VariableFortran {
         for (int index = 1; index < expressions.size(); index++) {
             stringRepresentation.append(", ").append(expressions.get(index));
         }
-        return stringRepresentation.toString();
+        return stringRepresentation.append(")").toString();
     }
 }

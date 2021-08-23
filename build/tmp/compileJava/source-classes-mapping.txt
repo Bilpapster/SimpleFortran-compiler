@@ -1,5 +1,5 @@
-Model/CBlockFortran.java
- Model.CBlockFortran
+Converters/Fortran/AntlrToSubprogramFortran.java
+ Converters.Fortran.AntlrToSubprogramFortran
 Converters/Fortran/AntlrToSimpleConstantFortran.java
  Converters.Fortran.AntlrToSimpleConstantFortran
 Model/ImplicitLoopWriteItemFortran.java
@@ -20,16 +20,16 @@ Model/Constants/RealConstants/RealConstant.java
  Model.Constants.RealConstants.RealConstant
 Model/CompoundStatementFortran.java
  Model.CompoundStatementFortran
-Model/NormalStatementFortran.java
- Model.NormalStatementFortran
 BaseClasses/SimpleFortranLexer.java
  BaseClasses.SimpleFortranLexer
-Model/Expressions/BinaryOperations/Subtraction.java
- Model.Expressions.BinaryOperations.Subtraction
+Converters/Fortran/AntlrToListOfDeclarations.java
+ Converters.Fortran.AntlrToListOfDeclarations
 Model/HeaderFortran.java
  Model.HeaderFortran
 Converters/Fortran/AntlrToIfStatementFortran.java
  Converters.Fortran.AntlrToIfStatementFortran
+Compiler/CompilerFortran.java
+ Compiler.CompilerFortran
 Model/SimpleStatementFortran.java
  Model.SimpleStatementFortran
 Model/MultiplicationOperationFortran.java
@@ -46,12 +46,14 @@ Model/Program.java
  Model.Program
 Model/ASTNode.java
  Model.ASTNode
+Converters/Fortran/AntlrToStatementFortranFinal.java
+ Converters.Fortran.AntlrToStatementFortranFinal
 Converters/AntlrToExpression.java
  Converters.AntlrToExpression
 Converters/Fortran/AntlrToConstantFortran.java
  Converters.Fortran.AntlrToConstantFortran
-Converters/Fortran/AntlrToBooleanFortran.java
- Converters.Fortran.AntlrToBooleanFortran
+Model/SubprogramFortran.java
+ Model.SubprogramFortran
 Model/ColonizedOperationFortran.java
  Model.ColonizedOperationFortran
 Converters/Fortran/AntlrToWriteListFortran.java
@@ -96,8 +98,8 @@ Model/DeclarationFortran.java
  Model.DeclarationFortran
 Model/ListFunctionHeaderFortran.java
  Model.ListFunctionHeaderFortran
-Model/RelativeOperationFortran.java
- Model.RelativeOperationFortran
+Model/MinusSignedOperationFortran.java
+ Model.MinusSignedOperationFortran
 Model/ComplexConstantFortran.java
  Model.ComplexConstantFortran
 Converters/Fortran/AntlrToGoToStatementFortran.java
@@ -108,8 +110,6 @@ Converters/Fortran/AntlrToListOfUndefinedVariablesFortran.java
  Converters.Fortran.AntlrToListOfUndefinedVariablesFortran
 Model/ValueFortran.java
  Model.ValueFortran
-Converters/Fortran/AntlrToListOfStatementInterfacesFortran.java
- Converters.Fortran.AntlrToListOfStatementInterfacesFortran
 Model/SignedOperationFortran.java
  Model.SignedOperationFortran
 BaseClassesFortran/SimpleFortran2Lexer.java
@@ -153,16 +153,16 @@ Model/SimpleConstantOperationFortran.java
  Model.SimpleConstantOperationFortran
 Converters/Fortran/AntlrToListExpressionFortran.java
  Converters.Fortran.AntlrToListExpressionFortran
-Model/ListFunctionVariableFortran.java
- Model.ListFunctionVariableFortran
+Converters/Fortran/AntlrToTailFortran.java
+ Converters.Fortran.AntlrToTailFortran
 Model/DivisionOperationFortran.java
  Model.DivisionOperationFortran
 Model/AbstractUndefinedVariableFortran.java
  Model.AbstractUndefinedVariableFortran
 Model/DataValueFortran.java
  Model.DataValueFortran
-Converters/Fortran/AntlrToListOfValuesFortran.java
- Converters.Fortran.AntlrToListOfValuesFortran
+Model/TailFortran.java
+ Model.TailFortran
 Model/ReadListFortran.java
  Model.ReadListFortran
 Model/ExpressionWriteItemFortran.java
@@ -175,18 +175,8 @@ Converters/Fortran/AntlrToVariableFortran.java
  Converters.Fortran.AntlrToVariableFortran
 Model/NormalValueFortran.java
  Model.NormalValueFortran
-BaseClasses/SimpleFortranParser.java
- BaseClasses.SimpleFortranParser
- BaseClasses.SimpleFortranParser$AdditionOrSubtractionContext
- BaseClasses.SimpleFortranParser$Bool_keywordContext
- BaseClasses.SimpleFortranParser$DeclarationContext
- BaseClasses.SimpleFortranParser$ExpressionContext
- BaseClasses.SimpleFortranParser$MultiplicationOrDivisionContext
- BaseClasses.SimpleFortranParser$NumberContext
- BaseClasses.SimpleFortranParser$ProgramContext
- BaseClasses.SimpleFortranParser$TypeContext
- BaseClasses.SimpleFortranParser$VariableContext
- BaseClasses.SimpleFortranParser$VariableDeclarationContext
+Model/CommonDeclarationFortran.java
+ Model.CommonDeclarationFortran
 Model/NewOperationFortran.java
  Model.NewOperationFortran
 Converters/Fortran/AntlrToRepeatFortran.java
@@ -197,8 +187,8 @@ Model/RepeatFortran.java
  Model.RepeatFortran
 Converters/Fortran/AntlrToSubroutineCallStatementFortran.java
  Converters.Fortran.AntlrToSubroutineCallStatementFortran
-Converters/Fortran/AntlrToReadItemFortran.java
- Converters.Fortran.AntlrToReadItemFortran
+Converters/Fortran/AntlrToBranchStatementFortran.java
+ Converters.Fortran.AntlrToBranchStatementFortran
 BaseClassesFortran/SimpleFortran2Visitor.java
  BaseClassesFortran.SimpleFortran2Visitor
 Model/FloatConstantFortran.java
@@ -215,8 +205,8 @@ Model/Constants/IntegerConstants/DecimalIntegerConstant.java
  Model.Constants.IntegerConstants.DecimalIntegerConstant
 Converters/Fortran/AntlrToWriteItem.java
  Converters.Fortran.AntlrToWriteItem
-Converters/Fortran/AntlrToCompoundStatementFortran.java
- Converters.Fortran.AntlrToCompoundStatementFortran
+Model/LoopStatementFortran.java
+ Model.LoopStatementFortran
 Model/Expressions/UnaryOperations/Variable.java
  Model.Expressions.UnaryOperations.Variable
 Model/LengthOperationFortran.java
@@ -303,7 +293,7 @@ BaseClassesFortran/SimpleFortran2Parser.java
  BaseClassesFortran.SimpleFortran2Parser$Labeled_statementContext
  BaseClassesFortran.SimpleFortran2Parser$LabelsContext
  BaseClassesFortran.SimpleFortran2Parser$LengthOperationContext
- BaseClassesFortran.SimpleFortran2Parser$ListExpressionContext
+ BaseClassesFortran.SimpleFortran2Parser$ListExpressionTestContext
  BaseClassesFortran.SimpleFortran2Parser$ListFunctionVariableContext
  BaseClassesFortran.SimpleFortran2Parser$ListKeywordContext
  BaseClassesFortran.SimpleFortran2Parser$ListOfCBlocksContext
@@ -330,6 +320,7 @@ BaseClassesFortran/SimpleFortran2Parser.java
  BaseClassesFortran.SimpleFortran2Parser$LoopStatementContext
  BaseClassesFortran.SimpleFortran2Parser$Loop_statementContext
  BaseClassesFortran.SimpleFortran2Parser$MinusSignContext
+ BaseClassesFortran.SimpleFortran2Parser$MinusSignedOperationContext
  BaseClassesFortran.SimpleFortran2Parser$MultipleGoToStatementContext
  BaseClassesFortran.SimpleFortran2Parser$MultiplicationOperationContext
  BaseClassesFortran.SimpleFortran2Parser$NewOperationContext
@@ -354,7 +345,7 @@ BaseClassesFortran/SimpleFortran2Parser.java
  BaseClassesFortran.SimpleFortran2Parser$Read_itemContext
  BaseClassesFortran.SimpleFortran2Parser$Read_listContext
  BaseClassesFortran.SimpleFortran2Parser$RealTypeContext
- BaseClassesFortran.SimpleFortran2Parser$RelativeOperationContext
+ BaseClassesFortran.SimpleFortran2Parser$RelationalOperationContext
  BaseClassesFortran.SimpleFortran2Parser$RepeatContext
  BaseClassesFortran.SimpleFortran2Parser$RepeatValueContext
  BaseClassesFortran.SimpleFortran2Parser$ReturnStatementContext
@@ -378,6 +369,7 @@ BaseClassesFortran/SimpleFortran2Parser.java
  BaseClassesFortran.SimpleFortran2Parser$SubroutineCallContext
  BaseClassesFortran.SimpleFortran2Parser$SubroutineStatementContext
  BaseClassesFortran.SimpleFortran2Parser$Subroutine_callContext
+ BaseClassesFortran.SimpleFortran2Parser$SubtractionOperationContext
  BaseClassesFortran.SimpleFortran2Parser$TailContext
  BaseClassesFortran.SimpleFortran2Parser$TrueKeywordConstantContext
  BaseClassesFortran.SimpleFortran2Parser$TypeContext
@@ -396,8 +388,8 @@ BaseClassesFortran/SimpleFortran2Parser.java
  BaseClassesFortran.SimpleFortran2Parser$WriteStatementContext
  BaseClassesFortran.SimpleFortran2Parser$Write_itemContext
  BaseClassesFortran.SimpleFortran2Parser$Write_listContext
-ErrorHandling/SemanticErrorsHandler.java
- ErrorHandling.SemanticErrorsHandler
+Converters/Fortran/AntlrToLoopStatementFortran.java
+ Converters.Fortran.AntlrToLoopStatementFortran
 BaseClasses/SimpleFortranVisitor.java
  BaseClasses.SimpleFortranVisitor
 Converters/Fortran/AntlrToIntegerConstantFortran.java
@@ -406,6 +398,8 @@ Model/UnaryOperationFortran.java
  Model.UnaryOperationFortran
 Model/LogicalConstantFortran.java
  Model.LogicalConstantFortran
+Model/RelationalOperationFortran.java
+ Model.RelationalOperationFortran
 Compiler/Compiler.java
  Compiler.Compiler
 Converters/Fortran/AntlrToStatementFortran.java
@@ -422,8 +416,6 @@ Converters/Fortran/AntlrToSimpleStatementFortran.java
  Converters.Fortran.AntlrToSimpleStatementFortran
 Converters/Fortran/AntlrToListOfIntegerConstantsFortran.java
  Converters.Fortran.AntlrToListOfIntegerConstantsFortran
-Converters/Fortran/AntlrToStatementInterfaceFortran.java
- Converters.Fortran.AntlrToStatementInterfaceFortran
 Model/WriteStatementFortran.java
  Model.WriteStatementFortran
 Model/IOStatementFortran.java
@@ -440,14 +432,16 @@ Model/Constants/IntegerConstants/HexadecimalIntegerConstant.java
  Model.Constants.IntegerConstants.HexadecimalIntegerConstant
 Model/Declarations/Declaration.java
  Model.Declarations.Declaration
-Model/Constants/IntegerConstants/OctalIntegerConstant.java
- Model.Constants.IntegerConstants.OctalIntegerConstant
+Model/BranchStatementFortran.java
+ Model.BranchStatementFortran
 Model/ListUndefinedVariableFortran.java
  Model.ListUndefinedVariableFortran
-Model/LabeledStatementFortran.java
- Model.LabeledStatementFortran
-Model/UndefinedVariableFortran.java
- Model.UndefinedVariableFortran
+Model/VariableDeclarationFortran.java
+ Model.VariableDeclarationFortran
+Model/SubtractionOperationFortran.java
+ Model.SubtractionOperationFortran
+Model/DataDeclarationFortran.java
+ Model.DataDeclarationFortran
 Model/ListOperationFortran.java
  Model.ListOperationFortran
 Model/Expressions/BinaryOperations/Multiplication.java
@@ -486,45 +480,57 @@ Model/Constants/IntegerConstants/IntegerConstant.java
  Model.Constants.IntegerConstants.IntegerConstant
 Model/StringConstantFortran.java
  Model.StringConstantFortran
-Model/PowerOperationFortran.java
- Model.PowerOperationFortran
+Model/ProgramFortran.java
+ Model.ProgramFortran
 Model/DataType.java
  Model.DataType
 Model/AssignmentStatementFortran.java
  Model.AssignmentStatementFortran
 Model/Declarations/VariableDeclarationOld.java
  Model.Declarations.VariableDeclarationOld
+Converters/Fortran/AntlrToBooleanFortran.java
+ Converters.Fortran.AntlrToBooleanFortran
+Converters/Fortran/AntlrToReadItemFortran.java
+ Converters.Fortran.AntlrToReadItemFortran
+Model/UndefinedVariableFortran.java
+ Model.UndefinedVariableFortran
 Converters/Fortran/AntlrToBodyFortran.java
  Converters.Fortran.AntlrToBodyFortran
-Converters/Fortran/AntlrToSubprogramFortran.java
- Converters.Fortran.AntlrToSubprogramFortran
-Converters/Fortran/AntlrToTailFortran.java
- Converters.Fortran.AntlrToTailFortran
-Model/LoopStatementFortran.java
- Model.LoopStatementFortran
-Model/TailFortran.java
- Model.TailFortran
-Converters/Fortran/AntlrToListOfDeclarations.java
- Converters.Fortran.AntlrToListOfDeclarations
+Model/LabeledStatementFortran.java
+ Model.LabeledStatementFortran
+Model/PowerOperationFortran.java
+ Model.PowerOperationFortran
+Model/Constants/IntegerConstants/OctalIntegerConstant.java
+ Model.Constants.IntegerConstants.OctalIntegerConstant
 Model/BodyFortran.java
  Model.BodyFortran
-Model/SubprogramFortran.java
- Model.SubprogramFortran
-Model/CommonDeclarationFortran.java
- Model.CommonDeclarationFortran
-Converters/Fortran/AntlrToLoopStatementFortran.java
- Converters.Fortran.AntlrToLoopStatementFortran
-Model/BranchStatementFortran.java
- Model.BranchStatementFortran
-Model/ProgramFortran.java
- Model.ProgramFortran
-Model/VariableDeclarationFortran.java
- Model.VariableDeclarationFortran
+BaseClasses/SimpleFortranParser.java
+ BaseClasses.SimpleFortranParser
+ BaseClasses.SimpleFortranParser$AdditionOrSubtractionContext
+ BaseClasses.SimpleFortranParser$Bool_keywordContext
+ BaseClasses.SimpleFortranParser$DeclarationContext
+ BaseClasses.SimpleFortranParser$ExpressionContext
+ BaseClasses.SimpleFortranParser$MultiplicationOrDivisionContext
+ BaseClasses.SimpleFortranParser$NumberContext
+ BaseClasses.SimpleFortranParser$ProgramContext
+ BaseClasses.SimpleFortranParser$TypeContext
+ BaseClasses.SimpleFortranParser$VariableContext
+ BaseClasses.SimpleFortranParser$VariableDeclarationContext
+Converters/Fortran/AntlrToListOfLabeledStatementsFortran.java
+ Converters.Fortran.AntlrToListOfLabeledStatementsFortran
+ErrorHandling/SemanticErrorsHandler.java
+ ErrorHandling.SemanticErrorsHandler
+Model/Expressions/BinaryOperations/Subtraction.java
+ Model.Expressions.BinaryOperations.Subtraction
+Converters/Fortran/AntlrToLabeledStatementFortranFinal.java
+ Converters.Fortran.AntlrToLabeledStatementFortranFinal
 Converters/Fortran/AntlrToProgramFortran.java
  Converters.Fortran.AntlrToProgramFortran
-Model/DataDeclarationFortran.java
- Model.DataDeclarationFortran
-Converters/Fortran/AntlrToBranchStatementFortran.java
- Converters.Fortran.AntlrToBranchStatementFortran
-Compiler/CompilerFortran.java
- Compiler.CompilerFortran
+Converters/Fortran/AntlrToCompoundStatementFortran.java
+ Converters.Fortran.AntlrToCompoundStatementFortran
+Model/ListFunctionVariableFortran.java
+ Model.ListFunctionVariableFortran
+Model/CBlockFortran.java
+ Model.CBlockFortran
+Converters/Fortran/AntlrToListOfValuesFortran.java
+ Converters.Fortran.AntlrToListOfValuesFortran

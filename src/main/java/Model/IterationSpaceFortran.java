@@ -21,10 +21,6 @@ public class IterationSpaceFortran {
 
     @Override
     public String toString() {
-        return expressionRight.toString() +
-                ", " +
-                expressionLeft.toString() +
-                " " +
-                step.toString();
+        return expressionLeft.toString() + " up to " + expressionRight.toString() + " with step " + step.toString();
     }
 }

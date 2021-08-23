@@ -20,12 +20,6 @@ public class LoopStatementFortran extends CompoundStatementFortran{
     @Override
     public String toString() {
 
-        return "DO " +
-                identifier +
-                " = " +
-                iterationSpace.toString() +
-                '\n' +
-                body.toString() +
-                "\nENDDO\n";
+        return "DO " + identifier + " = " + iterationSpace.toString() + '\n' + body.toString() + "ENDDO";
     }
 }

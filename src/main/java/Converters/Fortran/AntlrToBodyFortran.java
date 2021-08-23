@@ -12,7 +12,7 @@ public class AntlrToBodyFortran extends SimpleFortran2BaseVisitor<BodyFortran> {
         AntlrToListOfDeclarations declarationsVisitor = new AntlrToListOfDeclarations();
         body.setDeclarations(declarationsVisitor.visit(ctx.declarations()));
 
-        AntlrToListOfStatementInterfacesFortran statementsVisitor = new AntlrToListOfStatementInterfacesFortran();
+        AntlrToListOfLabeledStatementsFortran statementsVisitor = new AntlrToListOfLabeledStatementsFortran();
         body.setStatements(statementsVisitor.visit(ctx.statements()));
 
         return body;

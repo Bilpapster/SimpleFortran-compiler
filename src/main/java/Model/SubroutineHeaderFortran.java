@@ -16,21 +16,19 @@ public class SubroutineHeaderFortran extends HeaderFortran {
 
         StringBuilder stringRepresentation = new StringBuilder();
 
-        stringRepresentation.append("SUBROUTINE ")
-                .append(this.identifier);
+        stringRepresentation.append("SUBROUTINE ").append(this.identifier);
 
         if (!hasFormalParameters) {
             return stringRepresentation.toString();
         }
 
-        stringRepresentation.append("(")
-                .append(formalParameters.get(0));
+        stringRepresentation.append("(").append(formalParameters.get(0));
 
         for (int index = 1; index < formalParameters.size(); index++) {
             stringRepresentation.append(", ").append(formalParameters.get(index));
         }
 
-        return stringRepresentation.append(")\n").toString();
+        return stringRepresentation.append(")").toString();
 
     }
 }

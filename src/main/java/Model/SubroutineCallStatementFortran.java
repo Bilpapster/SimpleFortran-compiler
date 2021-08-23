@@ -9,6 +9,6 @@ public class SubroutineCallStatementFortran extends SimpleStatementFortran {
 
     @Override
     public String toString() {
-        return "CALL " + variable.toString() + '\n';
+        return "CALL " + variable.toString();
     }
 }
