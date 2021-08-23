@@ -1,0 +1,33 @@
+$ This program calculates the sum and product of an integer array
+
+integer arr(5), i
+
+do i=0, 5
+    arr(i) = i ** 2 + i + 1
+enddo
+
+write "The sum of i ** 2 + i + 1 for integer i in [0, 4] is: ", sum(arr, 5), "\n"
+write "The product of i ** 2 + i + 1 for integer i in [0, 4] is: ", prod(arr, 5), "\n"
+
+end
+
+
+integer function sum(integer arr(n), n)
+    integer i
+    sum = 0
+
+    do i=0, n
+        sum = sum + arr(i)
+    enddo
+
+end
+
+integer function prod(integer arr(n), n)
+    integer i
+    prod = 1
+
+    do i=0, n
+        prod = prod * arr(i)
+    enddo
+
+end
