@@ -1,0 +1,21 @@
+$ This function calculates the value of complex function z^3 + 5z + 2
+
+real realPart, imaginaryPart
+
+write "Enter z to calculate the function: \n"
+
+write "Enter real part: "
+read realPart
+
+write "Enter imaginary_party part: "
+read imaginaryPart
+
+write "The f(z) is: ", f((realPart:imaginaryPart))
+
+end
+
+
+complex function f(complex z)
+    f = z ** 3 + 5 * z + 2
+    return
+end
