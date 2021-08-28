@@ -3,7 +3,7 @@ package Model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SymbolTable {
+public class SymbolTableOld {
     private static Map<String, Integer> values = new HashMap<>();
 
     public static boolean containsVariable(String variableName) {

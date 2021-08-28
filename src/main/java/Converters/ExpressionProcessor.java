@@ -2,7 +2,7 @@ package Converters;
 
 import Model.Declarations.VariableDeclarationOld;
 import Model.Expressions.Expression;
-import Model.SymbolTable;
+import Model.SymbolTableOld;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ExpressionProcessor {
         for (Expression expression : expressions) {
             if (expression instanceof VariableDeclarationOld) {
                 VariableDeclarationOld declaration = (VariableDeclarationOld) expression;
-                SymbolTable.putVariable(declaration.toString(), declaration.evaluate());
+                SymbolTableOld.putVariable(declaration.toString(), declaration.evaluate());
             }
             evaluations.add(expression.toString() + " = " + expression.evaluate());
         }

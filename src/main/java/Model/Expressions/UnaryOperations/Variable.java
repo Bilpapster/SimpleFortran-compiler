@@ -2,7 +2,7 @@ package Model.Expressions.UnaryOperations;
 
 import Model.DataType;
 import Model.Expressions.Expression;
-import Model.SymbolTable;
+import Model.SymbolTableOld;
 
 public class Variable implements Expression {
     private String name;
@@ -23,6 +23,6 @@ public class Variable implements Expression {
 
     @Override
     public int evaluate() {
-        return SymbolTable.getValueOfVariable(this.name);
+        return SymbolTableOld.getValueOfVariable(this.name);
     }
 }
