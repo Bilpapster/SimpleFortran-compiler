@@ -5,4 +5,9 @@ public class ReturnStatementFortran extends SimpleStatementFortran {
     public String toString() {
         return "RETURN";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class ListOperationFortran implements ExpressionFortran {
+public class ListOperationFortran extends ExpressionFortran {
     private List<ExpressionFortran> expressions;
 
     public void setExpressions(List<ExpressionFortran> expressions) {
@@ -24,5 +24,10 @@ public class ListOperationFortran implements ExpressionFortran {
         }
 
         return stringRepresentation.append('\n').toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

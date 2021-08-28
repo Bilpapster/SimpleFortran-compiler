@@ -1,6 +1,6 @@
 package Model;
 
-public class LabeledStatementFortran {
+public class LabeledStatementFortran extends ASTNodeFortran {
     private IntegerConstantFortran label;
     private boolean hasLabel = false;
     private StatementFortran statement;
@@ -30,5 +30,10 @@ public class LabeledStatementFortran {
     public String toString() {
         if (hasLabel) return label + " " + statement;
         return statement.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

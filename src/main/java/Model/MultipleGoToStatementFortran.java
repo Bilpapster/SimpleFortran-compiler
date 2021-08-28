@@ -25,4 +25,9 @@ public class MultipleGoToStatementFortran extends GoToStatementFortran {
 
         return stringRepresentation.append(")\n").toString();
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

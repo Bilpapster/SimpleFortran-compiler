@@ -1,6 +1,6 @@
 package Model;
 
-public class IdentifierVariableFortran implements VariableFortran {
+public class IdentifierVariableFortran extends VariableFortran {
     private String identifier;
 
     public void setIdentifier(String identifier) {
@@ -10,5 +10,10 @@ public class IdentifierVariableFortran implements VariableFortran {
     @Override
     public String toString() {
         return identifier;
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

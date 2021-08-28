@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class BodyFortran {
+public class BodyFortran extends ASTNodeFortran{
     private List<DeclarationFortran> declarations;
     private List<LabeledStatementFortran> statements;
 
@@ -27,5 +27,10 @@ public class BodyFortran {
         }
 
         return stringRepresentation.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

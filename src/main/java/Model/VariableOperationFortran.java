@@ -1,6 +1,6 @@
 package Model;
 
-public class VariableOperationFortran implements ExpressionFortran{
+public class VariableOperationFortran extends ExpressionFortran {
     private VariableFortran variable;
 
     public void setVariable(VariableFortran variable) {
@@ -10,5 +10,10 @@ public class VariableOperationFortran implements ExpressionFortran{
     @Override
     public String toString() {
         return variable.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

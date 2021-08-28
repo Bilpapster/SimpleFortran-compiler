@@ -1,5 +1,5 @@
 package Model;
 
-public abstract class ConstantFortran {
+public abstract class ConstantFortran extends ASTNodeFortran {
     private String valueAsString;
 }

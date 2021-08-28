@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class DataValueFortran {
+public class DataValueFortran extends ASTNodeFortran{
     private String identifier;
     private List<ValueFortran> values;
 
@@ -22,5 +22,10 @@ public class DataValueFortran {
             stringRepresentation.append(", ").append(values.get(index));
         }
         return stringRepresentation.append(" / ").toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

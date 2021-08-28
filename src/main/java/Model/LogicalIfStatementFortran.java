@@ -26,4 +26,9 @@ public class LogicalIfStatementFortran extends IfStatementFortran{
     public String toString() {
         return "IF (" + expression + ") " + labelLeft + ", " + labelMiddle + ", " + labelRight + '\n';
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

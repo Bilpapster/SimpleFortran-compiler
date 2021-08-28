@@ -16,4 +16,9 @@ public class RelationalOperationFortran extends BinaryOperationFortran {
     public String toString() {
         return expressionLeft + " " + relationalOperand + " " + expressionRight;
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

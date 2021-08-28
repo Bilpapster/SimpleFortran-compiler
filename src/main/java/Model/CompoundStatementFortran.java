@@ -1,5 +1,5 @@
 package Model;
 
-public abstract class CompoundStatementFortran implements StatementFortran {
+public abstract class CompoundStatementFortran extends StatementFortran {
 
 }

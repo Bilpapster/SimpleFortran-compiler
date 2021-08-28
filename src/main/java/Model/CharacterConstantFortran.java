@@ -15,4 +15,9 @@ public class CharacterConstantFortran extends SimpleConstantFortran{
     public String toString() {
         return Character.toString(actualValue);
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

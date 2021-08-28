@@ -21,4 +21,9 @@ public class ComplexConstantFortran extends ConstantFortran {
     public String toString() {
         return "(" + left + " : " + rightPartSign + right + ")";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

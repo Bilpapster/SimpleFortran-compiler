@@ -1,4 +1,4 @@
 package Model;
 
-public interface StatementFortran {
+public abstract class StatementFortran extends ASTNodeFortran {
 }

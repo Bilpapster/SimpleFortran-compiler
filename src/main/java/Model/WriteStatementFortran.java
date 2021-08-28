@@ -11,4 +11,9 @@ public class WriteStatementFortran extends IOStatementFortran {
     public String toString() {
         return "WRITE " + writeList.toString();
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

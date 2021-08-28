@@ -11,4 +11,9 @@ public class SubroutineCallStatementFortran extends SimpleStatementFortran {
     public String toString() {
         return "CALL " + variable.toString();
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

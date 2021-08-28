@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadListFortran {
+public class ReadListFortran extends ASTNodeFortran {
     private List<ReadItemFortran> readItems = new ArrayList<>();
 
     public void addReadItem(ReadItemFortran readItem) {
@@ -19,5 +19,10 @@ public class ReadListFortran {
         }
 
         return stringRepresentation.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

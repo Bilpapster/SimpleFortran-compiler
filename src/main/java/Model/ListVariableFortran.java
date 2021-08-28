@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class ListVariableFortran implements VariableFortran {
+public class ListVariableFortran extends VariableFortran {
     private String identifier;
     private List<ExpressionFortran> expressions;
 
@@ -24,5 +24,10 @@ public class ListVariableFortran implements VariableFortran {
             stringRepresentation.append(", ").append(expressions.get(index));
         }
         return stringRepresentation.append(")").toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

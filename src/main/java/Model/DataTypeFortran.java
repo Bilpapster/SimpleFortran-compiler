@@ -15,7 +15,6 @@ public enum DataTypeFortran {
         return this;
     }
 
-
     @Override
     public String toString() {
         if (isList) return this.name() + " LIST";

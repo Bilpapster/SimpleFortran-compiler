@@ -11,4 +11,9 @@ public class NormalGoToStatementFortran extends GoToStatementFortran {
     public String toString() {
         return "GOTO " + label + '\n';
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

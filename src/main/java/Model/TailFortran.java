@@ -1,6 +1,6 @@
 package Model;
 
-public class TailFortran {
+public class TailFortran extends ASTNodeFortran {
     private BodyFortran body = null;
     private boolean hasBody = false;
 
@@ -15,5 +15,10 @@ public class TailFortran {
             return "ELSE\n" + body.toString() + "ENDIF";
         }
         return "ENDIF";
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

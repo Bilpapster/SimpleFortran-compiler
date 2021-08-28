@@ -15,4 +15,9 @@ public class StringConstantFortran extends SimpleConstantFortran{
     public String toString() {
         return actualValue;
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

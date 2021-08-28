@@ -1,6 +1,6 @@
 package Model;
 
-public abstract class BinaryOperationFortran implements ExpressionFortran{
+public abstract class BinaryOperationFortran extends ExpressionFortran{
     protected ExpressionFortran expressionLeft;
     protected ExpressionFortran expressionRight;
     protected char operand;

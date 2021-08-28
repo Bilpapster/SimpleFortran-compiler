@@ -5,4 +5,9 @@ public class LengthOperationFortran extends UnaryOperationFortran{
     public void setOperand() {
         this.operand = "LENGTH";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

@@ -15,4 +15,9 @@ public class LogicalConstantFortran extends SimpleConstantFortran{
     public String toString() {
         return Boolean.toString(actualValue);
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

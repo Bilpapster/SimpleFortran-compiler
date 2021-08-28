@@ -5,4 +5,9 @@ public class NotOperationFortran extends UnaryOperationFortran{
     public void setOperand() {
         this.operand = "NOT";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

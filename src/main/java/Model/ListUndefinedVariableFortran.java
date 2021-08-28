@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class ListUndefinedVariableFortran extends AbstractUndefinedVariableFortran {
+public class ListUndefinedVariableFortran extends UndefinedVariableFortran {
     private List<DimensionFortran> dimensions;
 
     public void setDimensions(List<DimensionFortran> dimensions) {
@@ -22,5 +22,10 @@ public class ListUndefinedVariableFortran extends AbstractUndefinedVariableFortr
         }
         return stringRepresentation.append(")").toString();
 
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

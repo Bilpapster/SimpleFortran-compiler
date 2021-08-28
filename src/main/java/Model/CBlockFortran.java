@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class CBlockFortran {
+public class CBlockFortran extends ASTNodeFortran {
     private String name;
     private List<String> identifiers;
 
@@ -23,5 +23,10 @@ public class CBlockFortran {
         }
 
         return stringRepresentation.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

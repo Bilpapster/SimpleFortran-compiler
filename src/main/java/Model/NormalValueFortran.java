@@ -1,6 +1,6 @@
 package Model;
 
-public class NormalValueFortran implements ValueFortran{
+public class NormalValueFortran extends  ValueFortran{
     protected ConstantFortran constant;
 
     public void setConstant(ConstantFortran constant) {
@@ -10,5 +10,10 @@ public class NormalValueFortran implements ValueFortran{
     @Override
     public String toString() {
         return this.constant.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

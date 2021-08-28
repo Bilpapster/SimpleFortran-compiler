@@ -3,7 +3,6 @@ package Converters.Fortran;
 import BaseClassesFortran.SimpleFortran2BaseVisitor;
 import BaseClassesFortran.SimpleFortran2Parser;
 import Model.LabeledStatementFortran;
-import Model.StatementInterfaceFortran;
 
 import java.util.ArrayList;
 import java.util.List;

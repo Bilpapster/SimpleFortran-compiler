@@ -30,4 +30,9 @@ public class NormalFunctionHeaderFortran extends HeaderFortran{
         }
         return stringRepresentation.append(")").toString();
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

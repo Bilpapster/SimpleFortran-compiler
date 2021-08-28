@@ -15,4 +15,9 @@ public class IntegerConstantFortran extends ArithmeticConstantFortran {
     public String toString() {
         return Integer.toString(actualValue);
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

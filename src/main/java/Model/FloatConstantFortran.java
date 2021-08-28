@@ -12,4 +12,9 @@ public class FloatConstantFortran extends ArithmeticConstantFortran {
     public String toString() {
         return Float.toString(actualValue);
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

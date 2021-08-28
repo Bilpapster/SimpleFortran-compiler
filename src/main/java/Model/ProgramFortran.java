@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgramFortran {
+public class ProgramFortran extends ASTNodeFortran{
     protected BodyFortran body;
     private List<SubprogramFortran> subprograms;
 
@@ -33,5 +33,10 @@ public class ProgramFortran {
             stringRepresentation.append(subprogram).append('\n');
         }
         return stringRepresentation.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

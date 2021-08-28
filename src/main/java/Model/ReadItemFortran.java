@@ -1,4 +1,4 @@
 package Model;
 
-public interface ReadItemFortran {
+public abstract class ReadItemFortran extends ASTNodeFortran {
 }

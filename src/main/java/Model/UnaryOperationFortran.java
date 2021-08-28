@@ -1,6 +1,6 @@
 package Model;
 
-public abstract class UnaryOperationFortran implements ExpressionFortran {
+public abstract class UnaryOperationFortran extends ExpressionFortran {
     protected ExpressionFortran expression;
     protected String operand;
 

@@ -16,4 +16,9 @@ public class AssignmentStatementFortran extends SimpleStatementFortran {
     public String toString() {
         return variable + " = " + expression;
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

@@ -5,4 +5,9 @@ public class OrOperationFortran extends BinaryOperationFortran{
     public void setOperand() {
         this.operand = '|';
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

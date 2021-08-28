@@ -1,6 +1,6 @@
 package Model;
 
-public class ImplicitLoopReadItemFortran implements ReadItemFortran{
+public class ImplicitLoopReadItemFortran extends ReadItemFortran{
     private ReadListFortran readList;
     private String identifier;
     private IterationSpaceFortran iterationSpace;
@@ -26,5 +26,10 @@ public class ImplicitLoopReadItemFortran implements ReadItemFortran{
                 " = " +
                 iterationSpace.toString() +
                 ")";
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

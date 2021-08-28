@@ -1,6 +1,6 @@
 package Model;
 
-public class ExpressionWriteItemFortran implements WriteItemFortran {
+public class ExpressionWriteItemFortran extends WriteItemFortran {
     private ExpressionFortran expression;
 
     public void setExpression(ExpressionFortran expression) {
@@ -10,5 +10,10 @@ public class ExpressionWriteItemFortran implements WriteItemFortran {
     @Override
     public String toString() {
         return expression.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

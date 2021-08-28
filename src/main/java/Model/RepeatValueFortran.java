@@ -16,4 +16,9 @@ public class RepeatValueFortran extends NormalValueFortran{
     public String toString() {
         return repeat + " " + sign + constant;
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

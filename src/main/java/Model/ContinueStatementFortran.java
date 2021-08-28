@@ -5,4 +5,9 @@ public class ContinueStatementFortran extends SimpleStatementFortran{
     public String toString() {
         return "CONTINUE\n";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

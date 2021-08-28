@@ -5,4 +5,9 @@ public class NewOperationFortran extends UnaryOperationFortran{
     public void setOperand() {
         this.operand = "NEW";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

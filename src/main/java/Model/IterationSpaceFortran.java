@@ -1,6 +1,6 @@
 package Model;
 
-public class IterationSpaceFortran {
+public class IterationSpaceFortran extends ASTNodeFortran {
     private ExpressionFortran expressionLeft;
     private ExpressionFortran expressionRight;
     private ExpressionFortran step;
@@ -22,5 +22,10 @@ public class IterationSpaceFortran {
     @Override
     public String toString() {
         return expressionLeft.toString() + " up to " + expressionRight.toString() + " with step " + step.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

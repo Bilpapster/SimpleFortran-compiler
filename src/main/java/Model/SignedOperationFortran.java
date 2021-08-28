@@ -5,4 +5,9 @@ public class SignedOperationFortran extends UnaryOperationFortran{
     public void setOperand() {
         this.operand = "SIGN (+)";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+
+    }
 }

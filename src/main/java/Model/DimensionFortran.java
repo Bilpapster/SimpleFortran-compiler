@@ -1,6 +1,6 @@
 package Model;
 
-public class DimensionFortran {
+public class DimensionFortran extends ASTNodeFortran {
     private int integerValue;
     private String identifier;
     private boolean isIdentifier;
@@ -27,5 +27,10 @@ public class DimensionFortran {
     public String toString() {
         if (isIdentifier) return identifier;
         return Integer.toString(integerValue);
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo remove it
     }
 }

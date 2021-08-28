@@ -1,6 +1,6 @@
 package Model;
 
-public class VariableReadItemFortran implements ReadItemFortran{
+public class VariableReadItemFortran extends ReadItemFortran {
     private VariableFortran variable;
 
     public void setVariable(VariableFortran variable) {
@@ -10,5 +10,10 @@ public class VariableReadItemFortran implements ReadItemFortran{
     @Override
     public String toString() {
         return variable.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

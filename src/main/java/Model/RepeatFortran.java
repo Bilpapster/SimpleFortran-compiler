@@ -1,6 +1,6 @@
 package Model;
 
-public class RepeatFortran {
+public class RepeatFortran extends ASTNodeFortran {
     private IntegerConstantFortran integerConstant;
     private boolean hasConstant = false;
 
@@ -22,5 +22,10 @@ public class RepeatFortran {
             return "*";
         }
         return integerConstant + "*";
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

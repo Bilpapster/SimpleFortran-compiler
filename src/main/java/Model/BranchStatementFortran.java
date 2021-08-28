@@ -22,4 +22,9 @@ public class BranchStatementFortran extends CompoundStatementFortran{
         return "IF(" + expression.toString() + ") THEN\n" +  body.toString() + '\n' + tail.toString();
 
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

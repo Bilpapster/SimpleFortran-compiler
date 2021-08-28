@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class DataDeclarationFortran implements DeclarationFortran{
+public class DataDeclarationFortran extends DeclarationFortran{
     private List<DataValueFortran> dataValuesFortran;
 
     public void setDataValues(List<Model.DataValueFortran> dataValueFortran) {
@@ -18,6 +18,11 @@ public class DataDeclarationFortran implements DeclarationFortran{
         }
 
         return stringRepresentation.append('\n').toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }
 

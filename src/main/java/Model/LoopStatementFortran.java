@@ -22,4 +22,9 @@ public class LoopStatementFortran extends CompoundStatementFortran{
 
         return "DO " + identifier + " = " + iterationSpace.toString() + '\n' + body.toString() + "ENDDO";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

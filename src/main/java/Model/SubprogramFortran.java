@@ -20,4 +20,9 @@ public class SubprogramFortran extends ProgramFortran{
                 body.toString() +
                 "END";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

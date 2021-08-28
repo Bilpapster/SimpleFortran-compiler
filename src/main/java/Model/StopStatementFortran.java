@@ -5,4 +5,9 @@ public class StopStatementFortran extends SimpleStatementFortran {
     public String toString() {
         return "STOP\n";
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

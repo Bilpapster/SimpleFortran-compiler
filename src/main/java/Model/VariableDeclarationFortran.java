@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class VariableDeclarationFortran implements DeclarationFortran {
+public class VariableDeclarationFortran extends DeclarationFortran {
     private DataTypeFortran dataType;
     private List<UndefinedVariableFortran> variables;
 
@@ -23,5 +23,10 @@ public class VariableDeclarationFortran implements DeclarationFortran {
         }
 
         return stringRepresentation.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

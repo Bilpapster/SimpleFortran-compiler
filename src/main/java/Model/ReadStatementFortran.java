@@ -11,4 +11,9 @@ public class ReadStatementFortran extends IOStatementFortran {
     public String toString() {
         return "READ " + readList.toString();
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }

@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class FormalParameterFortran {
+public class FormalParameterFortran extends ASTNodeFortran {
     private DataTypeFortran dataType;
     private List<UndefinedVariableFortran> variables;
 
@@ -24,5 +24,10 @@ public class FormalParameterFortran {
 
         return stringRepresentation.toString();
 
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

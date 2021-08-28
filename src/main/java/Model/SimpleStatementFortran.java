@@ -1,4 +1,4 @@
 package Model;
 
-public abstract class SimpleStatementFortran implements StatementFortran{
+public abstract class SimpleStatementFortran extends StatementFortran{
 }

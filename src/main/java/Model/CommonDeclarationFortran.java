@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class CommonDeclarationFortran implements DeclarationFortran {
+public class CommonDeclarationFortran extends DeclarationFortran {
     private List<CBlockFortran> cBlocks;
 
     public void setCBlocks(List<CBlockFortran> cBlocks) {
@@ -18,5 +18,10 @@ public class CommonDeclarationFortran implements DeclarationFortran {
         }
 
         return stringRepresentation.append('\n').toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

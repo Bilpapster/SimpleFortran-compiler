@@ -3,7 +3,7 @@ package Model;
 import java.util.List;
 import java.util.ArrayList;
 
-public class WriteListFortran {
+public class WriteListFortran extends ASTNodeFortran {
     private List<WriteItemFortran> writeItems = new ArrayList<>();
 
     public void addWriteItem(WriteItemFortran writeItem) {
@@ -19,5 +19,10 @@ public class WriteListFortran {
         }
 
         return stringRepresentation.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

@@ -1,6 +1,6 @@
 package Model;
 
-public class SimpleConstantOperationFortran implements ExpressionFortran{
+public class SimpleConstantOperationFortran extends ExpressionFortran{
     private SimpleConstantFortran simpleConstant;
 
     public void setSimpleConstant(SimpleConstantFortran simpleConstant) {
@@ -10,5 +10,10 @@ public class SimpleConstantOperationFortran implements ExpressionFortran{
     @Override
     public String toString() {
         return simpleConstant.toString();
+    }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
     }
 }

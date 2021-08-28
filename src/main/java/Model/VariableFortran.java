@@ -1,4 +1,4 @@
 package Model;
 
-public interface VariableFortran {
+public abstract class VariableFortran extends ASTNodeFortran {
 }

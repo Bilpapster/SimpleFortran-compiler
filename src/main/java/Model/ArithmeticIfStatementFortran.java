@@ -16,4 +16,9 @@ public class ArithmeticIfStatementFortran extends IfStatementFortran {
     public String toString() {
         return "IF (" + expression + ") " + simpleStatement + '\n';
     }
+
+    @Override
+    protected void performSemanticAnalysis() {
+        //todo
+    }
 }
