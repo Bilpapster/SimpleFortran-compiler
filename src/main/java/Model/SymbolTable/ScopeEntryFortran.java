@@ -6,6 +6,11 @@ public class ScopeEntryFortran {
     private DataTypeFortran dataType;
     private ScopeFortran previousDefinition;
 
+    public ScopeEntryFortran(DataTypeFortran dataType, ScopeFortran previousDefinition) {
+        this.dataType = dataType;
+        this.previousDefinition = previousDefinition;
+    }
+
     public DataTypeFortran getDataType() {
         return dataType;
     }
