@@ -13,7 +13,7 @@ public class NormalGoToStatementFortran extends GoToStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

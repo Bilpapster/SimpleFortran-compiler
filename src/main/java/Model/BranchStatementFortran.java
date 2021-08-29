@@ -24,7 +24,7 @@ public class BranchStatementFortran extends CompoundStatementFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

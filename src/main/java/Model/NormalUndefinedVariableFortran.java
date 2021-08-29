@@ -8,7 +8,7 @@ public class NormalUndefinedVariableFortran extends UndefinedVariableFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

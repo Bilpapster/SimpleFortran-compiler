@@ -27,7 +27,7 @@ public class MultipleGoToStatementFortran extends GoToStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

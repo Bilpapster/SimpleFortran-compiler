@@ -21,7 +21,7 @@ public class DataDeclarationFortran extends DeclarationFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

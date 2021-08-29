@@ -7,7 +7,7 @@ public class MinusSignedOperationFortran extends UnaryOperationFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 import java.util.List;
 
 public class VariableDeclarationFortran extends DeclarationFortran {
@@ -26,7 +28,10 @@ public class VariableDeclarationFortran extends DeclarationFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
-        //todo
+    public void performSemanticAnalysis() {
+        SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
+        for (UndefinedVariableFortran undefinedVariable : variables) {
+            symbolTable.insert(undefinedVariable.getName(), dataType);
+        }
     }
 }

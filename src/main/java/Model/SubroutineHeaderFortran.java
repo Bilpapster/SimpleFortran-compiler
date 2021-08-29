@@ -33,7 +33,7 @@ public class SubroutineHeaderFortran extends HeaderFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

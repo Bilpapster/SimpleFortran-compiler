@@ -30,7 +30,9 @@ public class BodyFortran extends ASTNodeFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
-        //todo
+    public void performSemanticAnalysis() {
+        for (DeclarationFortran declaration : declarations) {
+            declaration.performSemanticAnalysis();
+        }
     }
 }

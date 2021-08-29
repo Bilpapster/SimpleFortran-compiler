@@ -13,7 +13,7 @@ public class VariableOperationFortran extends ExpressionFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

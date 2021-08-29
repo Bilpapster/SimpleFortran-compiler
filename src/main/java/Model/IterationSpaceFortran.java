@@ -25,7 +25,7 @@ public class IterationSpaceFortran extends ASTNodeFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

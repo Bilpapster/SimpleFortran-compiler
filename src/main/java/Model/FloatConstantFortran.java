@@ -14,7 +14,7 @@ public class FloatConstantFortran extends ArithmeticConstantFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

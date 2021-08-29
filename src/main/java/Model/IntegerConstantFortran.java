@@ -17,7 +17,7 @@ public class IntegerConstantFortran extends ArithmeticConstantFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

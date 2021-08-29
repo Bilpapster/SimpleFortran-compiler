@@ -30,7 +30,7 @@ public class DimensionFortran extends ASTNodeFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo remove it
     }
 }

@@ -13,7 +13,7 @@ public class WriteStatementFortran extends IOStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

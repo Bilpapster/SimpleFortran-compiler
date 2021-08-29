@@ -13,7 +13,7 @@ public class NormalValueFortran extends  ValueFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

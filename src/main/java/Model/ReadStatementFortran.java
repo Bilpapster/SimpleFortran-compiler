@@ -13,7 +13,7 @@ public class ReadStatementFortran extends IOStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

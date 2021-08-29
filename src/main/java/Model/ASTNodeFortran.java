@@ -1,5 +1,5 @@
 package Model;
 
 public abstract class ASTNodeFortran{
-    protected abstract void performSemanticAnalysis();
+    public abstract void performSemanticAnalysis();
 }

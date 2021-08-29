@@ -29,7 +29,7 @@ public class ImplicitLoopReadItemFortran extends ReadItemFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

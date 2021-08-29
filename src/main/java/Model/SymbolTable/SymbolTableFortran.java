@@ -28,17 +28,19 @@ public class SymbolTableFortran {
         if (!activeIdentifiers.containsKey(identifier)) {
             activeIdentifiers.put(identifier, activeScopesStack.peek());
             activeScopesStack.peek().insert(identifier, dataType, null);
+            System.out.println("Successfully added undeclared variable: " + identifier);
             return;
         }
 
         if (activeIdentifiers.get(identifier).equals(activeScopesStack.peek())) {
-            System.err.println("Variable redefinition"); //  todo create separate class for errors and warnings
+            System.err.println("Variable redefinition: " + identifier); //  todo create separate class for errors and warnings
+            return;
         }
 
         ScopeFortran previousDefinition = activeIdentifiers.get(identifier);
         activeScopesStack.peek().insert(identifier, dataType, previousDefinition);
         activeIdentifiers.replace(identifier, activeScopesStack.peek());
-
+        System.out.println("Successfully added shadowing definition of variable: " + identifier);
     }
 
     public void enter() {

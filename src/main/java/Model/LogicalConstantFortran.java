@@ -17,7 +17,7 @@ public class LogicalConstantFortran extends SimpleConstantFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

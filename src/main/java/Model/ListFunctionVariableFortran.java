@@ -20,7 +20,7 @@ public class ListFunctionVariableFortran extends VariableFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

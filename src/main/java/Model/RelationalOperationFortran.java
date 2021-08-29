@@ -18,7 +18,7 @@ public class RelationalOperationFortran extends BinaryOperationFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

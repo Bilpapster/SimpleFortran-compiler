@@ -36,7 +36,7 @@ public class ProgramFortran extends ASTNodeFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
-        //todo
+    public void performSemanticAnalysis() {
+        body.performSemanticAnalysis();
     }
 }

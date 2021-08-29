@@ -13,7 +13,7 @@ public class SubroutineCallStatementFortran extends SimpleStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

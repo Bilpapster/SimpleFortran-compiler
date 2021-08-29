@@ -17,7 +17,7 @@ public class CharacterConstantFortran extends SimpleConstantFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

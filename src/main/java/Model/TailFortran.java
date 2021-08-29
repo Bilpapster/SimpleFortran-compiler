@@ -18,7 +18,7 @@ public class TailFortran extends ASTNodeFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

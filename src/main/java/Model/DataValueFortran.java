@@ -25,7 +25,7 @@ public class DataValueFortran extends ASTNodeFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

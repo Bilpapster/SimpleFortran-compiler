@@ -27,7 +27,7 @@ public class FormalParameterFortran extends ASTNodeFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

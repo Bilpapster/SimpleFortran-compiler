@@ -13,7 +13,7 @@ public class VariableReadItemFortran extends ReadItemFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

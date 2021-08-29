@@ -7,7 +7,7 @@ public class ReturnStatementFortran extends SimpleStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

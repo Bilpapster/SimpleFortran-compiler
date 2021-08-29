@@ -18,7 +18,7 @@ public class AssignmentStatementFortran extends SimpleStatementFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

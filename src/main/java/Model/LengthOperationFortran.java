@@ -7,7 +7,7 @@ public class LengthOperationFortran extends UnaryOperationFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

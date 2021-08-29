@@ -32,7 +32,7 @@ public class NormalFunctionHeaderFortran extends HeaderFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

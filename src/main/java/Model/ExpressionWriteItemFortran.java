@@ -13,7 +13,7 @@ public class ExpressionWriteItemFortran extends WriteItemFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

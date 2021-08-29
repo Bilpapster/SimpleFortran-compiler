@@ -28,7 +28,7 @@ public class LogicalIfStatementFortran extends IfStatementFortran{
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }

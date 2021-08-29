@@ -23,7 +23,7 @@ public class ComplexConstantFortran extends ConstantFortran {
     }
 
     @Override
-    protected void performSemanticAnalysis() {
+    public void performSemanticAnalysis() {
         //todo
     }
 }
