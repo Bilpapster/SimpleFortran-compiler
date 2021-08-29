@@ -23,7 +23,9 @@ public class CompilerFortran {
         ParseTree antlrAST = parser.program();
         AntlrToProgramFortran programVisitor = new AntlrToProgramFortran();
         ProgramFortran program = programVisitor.visit(antlrAST);
-        System.out.println(program.toString());
+//        System.out.println(program.toString());
+
+        program.performSemanticAnalysis();
     }
 
     private static SimpleFortran2Parser getParser(String fileName) {

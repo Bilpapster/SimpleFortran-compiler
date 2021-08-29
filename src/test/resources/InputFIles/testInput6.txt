@@ -1,6 +1,10 @@
 $ This function calculates the value of complex function z^3 + 5z + 2
 
 real realPart, imaginaryPart
+real realPart
+integer imaginaryPart
+integer i
+real i
 
 write "Enter z to calculate the function: \n"
 
