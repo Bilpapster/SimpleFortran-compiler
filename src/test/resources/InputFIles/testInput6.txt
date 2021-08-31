@@ -1,10 +1,12 @@
 $ This function calculates the value of complex function z^3 + 5z + 2
 
 real realPart, imaginaryPart
-real realPart
+$ real realPart
 integer imaginaryPart
 integer i
-real i
+$ real i
+$ common / commonName / i, realPart, j, k, l, i, realPart
+data i / 6 /, anotherVariable / 1234320948 /, imaginaryPart / *1 /, undeclared / 1 /
 
 write "Enter z to calculate the function: \n"
 
