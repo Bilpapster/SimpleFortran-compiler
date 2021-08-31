@@ -1,5 +1,8 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
+import java.util.HashSet;
 import java.util.List;
 
 public class CBlockFortran extends ASTNodeFortran {
@@ -27,6 +30,20 @@ public class CBlockFortran extends ASTNodeFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        HashSet<String> alreadyCheckedIdentifiers = new HashSet<>();
+
+        for (String identifier : identifiers) {
+            if (alreadyCheckedIdentifiers.contains(identifier)) {
+                System.err.println("Variable: " + identifier + " has already been declared in the same common at least once");
+                continue;
+            }
+
+            if (!SymbolTableFortran.getInstance().containsIdentifier(identifier)) {
+                System.err.println("Undefined variable: " + identifier + " is used in a common declaration.");
+                continue;
+            }
+
+            alreadyCheckedIdentifiers.add(identifier);
+        }
     }
 }

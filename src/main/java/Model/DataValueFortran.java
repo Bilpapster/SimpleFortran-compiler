@@ -1,8 +1,11 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
+import java.util.HashSet;
 import java.util.List;
 
-public class DataValueFortran extends ASTNodeFortran{
+public class DataValueFortran extends ASTNodeFortran {
     private String identifier;
     private List<ValueFortran> values;
 
@@ -26,6 +29,8 @@ public class DataValueFortran extends ASTNodeFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        if (!SymbolTableFortran.getInstance().containsIdentifier(identifier)) {
+            System.err.println("Undefined variable: " + identifier + " is used in a data declaration.");
+        }
     }
 }

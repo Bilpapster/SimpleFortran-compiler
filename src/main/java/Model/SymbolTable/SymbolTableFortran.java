@@ -3,6 +3,7 @@ package Model.SymbolTable;
 import Model.DataTypeFortran;
 
 import java.util.Stack;
+import java.util.HashSet;
 import java.util.HashMap;
 
 public class SymbolTableFortran {
@@ -15,6 +16,8 @@ public class SymbolTableFortran {
     private static int numberOfCurrentlyActiveScopes = 0;
     private static int maxNumberOfSimultaneouslyActiveScopes = 1;
 
+    private static final HashSet<String> functionNames = new HashSet<>();
+
 
     private SymbolTableFortran() {
         enter();
@@ -25,6 +28,12 @@ public class SymbolTableFortran {
     }
 
     public void insert(String identifier, DataTypeFortran dataType) {
+
+        if (functionNames.contains(identifier)) {
+            System.err.println("Variable: " + identifier + " clashes with the language keyword");
+            return;
+        }
+
         if (!activeIdentifiers.containsKey(identifier)) {
             activeIdentifiers.put(identifier, activeScopesStack.peek());
             activeScopesStack.peek().insert(identifier, dataType, null);
@@ -41,6 +50,16 @@ public class SymbolTableFortran {
         activeScopesStack.peek().insert(identifier, dataType, previousDefinition);
         activeIdentifiers.replace(identifier, activeScopesStack.peek());
         System.out.println("Successfully added shadowing definition of variable: " + identifier);
+    }
+
+    public void insertFunctionName(String identifier, DataTypeFortran dataTypeFortran) {
+        if (functionNames.contains(identifier)) {
+            System.err.println("Function redefinition: " + identifier);
+            return;
+        }
+
+        this.insert(identifier, dataTypeFortran);
+        functionNames.add(identifier);
     }
 
     public void enter() {

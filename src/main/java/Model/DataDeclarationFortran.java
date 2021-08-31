@@ -22,7 +22,9 @@ public class DataDeclarationFortran extends DeclarationFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        for (DataValueFortran dataValue : dataValuesFortran) {
+            dataValue.performSemanticAnalysis();
+        }
     }
 }
 

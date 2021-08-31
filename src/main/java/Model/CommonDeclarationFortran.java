@@ -22,6 +22,8 @@ public class CommonDeclarationFortran extends DeclarationFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        for (CBlockFortran cBlock : cBlocks) {
+            cBlock.performSemanticAnalysis();
+        }
     }
 }
