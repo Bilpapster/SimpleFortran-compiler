@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 public class LoopStatementFortran extends CompoundStatementFortran{
     private String identifier;
     private IterationSpaceFortran iterationSpace;
@@ -25,6 +27,9 @@ public class LoopStatementFortran extends CompoundStatementFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
+        symbolTable.enter();
+        body.performSemanticAnalysis();
+        symbolTable.exit();
     }
 }

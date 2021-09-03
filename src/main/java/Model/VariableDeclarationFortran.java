@@ -31,6 +31,8 @@ public class VariableDeclarationFortran extends DeclarationFortran {
     public void performSemanticAnalysis() {
         SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
         for (UndefinedVariableFortran undefinedVariable : variables) {
+            undefinedVariable.setDataType(dataType);
+            undefinedVariable.performSemanticAnalysis();
             symbolTable.insert(undefinedVariable.getName(), dataType);
         }
     }

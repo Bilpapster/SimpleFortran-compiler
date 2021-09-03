@@ -107,12 +107,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUndefinedVariablesEndCondition(SimpleFortran2Parser.UndefinedVariablesEndConditionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ListUndefinedVariable}
+	 * Visit a parse tree produced by the {@code ArrayUndefinedVariable}
 	 * labeled alternative in {@link SimpleFortran2Parser#undefined_variable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListUndefinedVariable(SimpleFortran2Parser.ListUndefinedVariableContext ctx);
+	T visitArrayUndefinedVariable(SimpleFortran2Parser.ArrayUndefinedVariableContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code NormalUndefinedVariable}
 	 * labeled alternative in {@link SimpleFortran2Parser#undefined_variable}.
@@ -810,19 +810,19 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitWriteItemEndCondition(SimpleFortran2Parser.WriteItemEndConditionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ImplicitLoopWriteItem}
-	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitImplicitLoopWriteItem(SimpleFortran2Parser.ImplicitLoopWriteItemContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code ExpressionWriteItem}
 	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ImplicitLoopWriteItem}
+	 * labeled alternative in {@link SimpleFortran2Parser#write_item}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImplicitLoopWriteItem(SimpleFortran2Parser.ImplicitLoopWriteItemContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code BranchStatement}
 	 * labeled alternative in {@link SimpleFortran2Parser#compound_statement}.

@@ -115,7 +115,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitListUndefinedVariable(SimpleFortran2Parser.ListUndefinedVariableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitArrayUndefinedVariable(SimpleFortran2Parser.ArrayUndefinedVariableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -822,14 +822,14 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitImplicitLoopWriteItem(SimpleFortran2Parser.ImplicitLoopWriteItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExpressionWriteItem(SimpleFortran2Parser.ExpressionWriteItemContext ctx) { return visitChildren(ctx); }
+	@Override public T visitImplicitLoopWriteItem(SimpleFortran2Parser.ImplicitLoopWriteItemContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

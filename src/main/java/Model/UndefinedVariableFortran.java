@@ -2,7 +2,8 @@ package Model;
 
 public abstract class UndefinedVariableFortran extends ASTNodeFortran {
     protected String name;
-    protected boolean isList;
+    private boolean isList;
+    protected DataTypeFortran dataType = null;
 
     public String getName() {
         return this.name;
@@ -12,11 +13,29 @@ public abstract class UndefinedVariableFortran extends ASTNodeFortran {
         this.name = name;
     }
 
-    public boolean getIsList() {
-        return this.isList;
+    public boolean isList() {
+        return dataType.getIsList();
     }
 
     public void setIsList(boolean isList) {
         this.isList = isList;
+        if (dataType != null) {
+            dataType.setAsList(isList);
+        }
+
+    }
+
+    public void setDataType(DataTypeFortran dataType) {
+        this.dataType = dataType;
+        dataType.setAsList(isList);
+    }
+
+    @Override
+    public void performSemanticAnalysis() {
+        if (this.dataType == DataTypeFortran.STRING) {
+            if (this.isList()) {
+                System.err.println("Variable " + name + " cannot be declared as a list of String variables.");
+            }
+        }
     }
 }

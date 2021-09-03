@@ -2,7 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class ListUndefinedVariableFortran extends UndefinedVariableFortran {
+public class ArrayUndefinedVariableFortran extends UndefinedVariableFortran {
     private List<DimensionFortran> dimensions;
 
     public void setDimensions(List<DimensionFortran> dimensions) {
@@ -13,7 +13,7 @@ public class ListUndefinedVariableFortran extends UndefinedVariableFortran {
     public String toString() {
         StringBuilder stringRepresentation = new StringBuilder();
 
-        if (isList) stringRepresentation.append("LIST ");
+        if (this.isList()) stringRepresentation.append("LIST ");
 
 
         stringRepresentation.append(name).append("(").append(dimensions.get(0));
@@ -24,8 +24,15 @@ public class ListUndefinedVariableFortran extends UndefinedVariableFortran {
 
     }
 
+    public int getNumberOfDimensions() {
+        return dimensions.size();
+    }
+
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        super.performSemanticAnalysis();
+        if (this.isList()) {
+            System.err.println("Variable " + name + " is declared as both a list and an array.");
+        }
     }
 }

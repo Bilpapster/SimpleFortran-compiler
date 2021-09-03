@@ -633,7 +633,7 @@ public class SimpleFortran2Parser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class ListUndefinedVariableContext extends Undefined_variableContext {
+	public static class ArrayUndefinedVariableContext extends Undefined_variableContext {
 		public ListspecContext listspec() {
 			return getRuleContext(ListspecContext.class,0);
 		}
@@ -643,10 +643,10 @@ public class SimpleFortran2Parser extends Parser {
 			return getRuleContext(DimsContext.class,0);
 		}
 		public TerminalNode RIGHT_PARENTHESIS() { return getToken(SimpleFortran2Parser.RIGHT_PARENTHESIS, 0); }
-		public ListUndefinedVariableContext(Undefined_variableContext ctx) { copyFrom(ctx); }
+		public ArrayUndefinedVariableContext(Undefined_variableContext ctx) { copyFrom(ctx); }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitListUndefinedVariable(this);
+			if ( visitor instanceof SimpleFortran2Visitor ) return ((SimpleFortran2Visitor<? extends T>)visitor).visitArrayUndefinedVariable(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -659,7 +659,7 @@ public class SimpleFortran2Parser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
-				_localctx = new ListUndefinedVariableContext(_localctx);
+				_localctx = new ArrayUndefinedVariableContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(145);
@@ -4364,31 +4364,31 @@ public class SimpleFortran2Parser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,37,_ctx) ) {
 			case 1:
-				_localctx = new ImplicitLoopWriteItemContext(_localctx);
+				_localctx = new ExpressionWriteItemContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(499);
-				match(LEFT_PARENTHESIS);
-				setState(500);
-				write_list(0);
-				setState(501);
-				match(COMMA);
-				setState(502);
-				match(IDENTIFIER);
-				setState(503);
-				match(ASSIGN);
-				setState(504);
-				iter_space();
-				setState(505);
-				match(RIGHT_PARENTHESIS);
+				expression(0);
 				}
 				break;
 			case 2:
-				_localctx = new ExpressionWriteItemContext(_localctx);
+				_localctx = new ImplicitLoopWriteItemContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(507);
-				expression(0);
+				setState(500);
+				match(LEFT_PARENTHESIS);
+				setState(501);
+				write_list(0);
+				setState(502);
+				match(COMMA);
+				setState(503);
+				match(IDENTIFIER);
+				setState(504);
+				match(ASSIGN);
+				setState(505);
+				iter_space();
+				setState(506);
+				match(RIGHT_PARENTHESIS);
 				}
 				break;
 			}
@@ -5339,10 +5339,10 @@ public class SimpleFortran2Parser extends Parser {
 		"\u01e7\3\2\2\2\u01e9S\3\2\2\2\u01ea\u01eb\b+\1\2\u01eb\u01ec\5V,\2\u01ec"+
 		"\u01f2\3\2\2\2\u01ed\u01ee\f\4\2\2\u01ee\u01ef\7\3\2\2\u01ef\u01f1\5V"+
 		",\2\u01f0\u01ed\3\2\2\2\u01f1\u01f4\3\2\2\2\u01f2\u01f0\3\2\2\2\u01f2"+
-		"\u01f3\3\2\2\2\u01f3U\3\2\2\2\u01f4\u01f2\3\2\2\2\u01f5\u01f6\7\4\2\2"+
-		"\u01f6\u01f7\5T+\2\u01f7\u01f8\7\3\2\2\u01f8\u01f9\7>\2\2\u01f9\u01fa"+
-		"\7\b\2\2\u01fa\u01fb\5P)\2\u01fb\u01fc\7\5\2\2\u01fc\u01ff\3\2\2\2\u01fd"+
-		"\u01ff\5> \2\u01fe\u01f5\3\2\2\2\u01fe\u01fd\3\2\2\2\u01ffW\3\2\2\2\u0200"+
+		"\u01f3\3\2\2\2\u01f3U\3\2\2\2\u01f4\u01f2\3\2\2\2\u01f5\u01ff\5> \2\u01f6"+
+		"\u01f7\7\4\2\2\u01f7\u01f8\5T+\2\u01f8\u01f9\7\3\2\2\u01f9\u01fa\7>\2"+
+		"\2\u01fa\u01fb\7\b\2\2\u01fb\u01fc\5P)\2\u01fc\u01fd\7\5\2\2\u01fd\u01ff"+
+		"\3\2\2\2\u01fe\u01f5\3\2\2\2\u01fe\u01f6\3\2\2\2\u01ffW\3\2\2\2\u0200"+
 		"\u0203\5Z.\2\u0201\u0203\5^\60\2\u0202\u0200\3\2\2\2\u0202\u0201\3\2\2"+
 		"\2\u0203Y\3\2\2\2\u0204\u0205\7\30\2\2\u0205\u0206\7\4\2\2\u0206\u0207"+
 		"\5> \2\u0207\u0208\7\5\2\2\u0208\u0209\7,\2\2\u0209\u020a\5\4\3\2\u020a"+

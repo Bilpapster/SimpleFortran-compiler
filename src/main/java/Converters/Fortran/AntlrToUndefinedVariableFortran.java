@@ -2,15 +2,15 @@ package Converters.Fortran;
 
 import BaseClassesFortran.SimpleFortran2BaseVisitor;
 import BaseClassesFortran.SimpleFortran2Parser;
-import Model.ListUndefinedVariableFortran;
+import Model.ArrayUndefinedVariableFortran;
 import Model.NormalUndefinedVariableFortran;
 import Model.UndefinedVariableFortran;
 
 public class AntlrToUndefinedVariableFortran extends SimpleFortran2BaseVisitor<UndefinedVariableFortran> {
 
     @Override
-    public UndefinedVariableFortran visitListUndefinedVariable(SimpleFortran2Parser.ListUndefinedVariableContext ctx) {
-        ListUndefinedVariableFortran listUndefinedVariable = new ListUndefinedVariableFortran();
+    public UndefinedVariableFortran visitArrayUndefinedVariable(SimpleFortran2Parser.ArrayUndefinedVariableContext ctx) {
+        ArrayUndefinedVariableFortran listUndefinedVariable = new ArrayUndefinedVariableFortran();
 
         AntlrToBooleanFortran listSpecificationVisitor = new AntlrToBooleanFortran();
         listUndefinedVariable.setIsList(listSpecificationVisitor.visit(ctx.listspec()));

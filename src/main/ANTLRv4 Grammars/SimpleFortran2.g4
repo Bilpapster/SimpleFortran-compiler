@@ -26,7 +26,7 @@ variables               : variables COMMA undefined_variable                    
                         | undefined_variable                                          # UndefinedVariablesEndCondition
                         ;
 
-undefined_variable      : listspec IDENTIFIER LEFT_PARENTHESIS dims RIGHT_PARENTHESIS # ListUndefinedVariable
+undefined_variable      : listspec IDENTIFIER LEFT_PARENTHESIS dims RIGHT_PARENTHESIS # ArrayUndefinedVariable
                         | listspec IDENTIFIER                                         # NormalUndefinedVariable
                         ;
 
