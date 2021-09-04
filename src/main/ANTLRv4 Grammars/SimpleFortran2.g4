@@ -138,24 +138,25 @@ expressions             : expressions COMMA expression                          
                         | expression                                                      # ExpressionEndCondition
                         ;
 
-expression              : expression OROP expression                                      # OrOperation
-                        | expression ANDOP expression                                     # AndOperation
-                        | expression RELOP expression                                     # RelationalOperation
-                        | expression POWEROP expression                                   # PowerOperation
+
+expression              : LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                   # ParenthesizedOperation
+                        |<assoc=right> expression POWEROP expression                      # PowerOperation
                         | expression MULOP expression                                     # MultiplicationOperation
                         | expression DIVOP expression                                     # DivisionOperation
                         | expression ADDOP expression                                     # AdditionOperation
-                        | expression SUBOP expression                                     # SubtractionOperation
-                        | NOTOP expression                                                # NotOperation
                         | ADDOP expression                                                # SignedOperation
                         | SUBOP expression                                                # MinusSignedOperation
+                        | expression SUBOP expression                                     # SubtractionOperation
+                        | expression RELOP expression                                     # RelationalOperation
+                        | NOTOP expression                                                # NotOperation
+                        | expression ANDOP expression                                     # AndOperation
+                        | expression OROP expression                                      # OrOperation
+                        | LEFT_PARENTHESIS expression COLON expression RIGHT_PARENTHESIS  # ColonizedOperation
+                        | listexpression                                                  # ListOperation
                         | variable                                                        # VariableOperation
                         | simple_constant                                                 # SimpleConstantOperation
                         | LENGTH LEFT_PARENTHESIS expression RIGHT_PARENTHESIS            # LengthOperation
                         | NEW LEFT_PARENTHESIS expression RIGHT_PARENTHESIS               # NewOperation
-                        | LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                   # ParenthesizedOperation
-                        | LEFT_PARENTHESIS expression COLON expression RIGHT_PARENTHESIS  # ColonizedOperation
-                        | listexpression                                                  # ListOperation
                         ;
 
 listexpression          : LBRACK expressions RBRACK                                       # ListExpressionTest
