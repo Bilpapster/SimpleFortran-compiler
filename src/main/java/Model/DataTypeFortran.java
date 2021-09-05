@@ -4,6 +4,7 @@ public enum DataTypeFortran {
     INTEGER, REAL, COMPLEX, LOGICAL, CHARACTER, STRING;
 
     private boolean isList = false;
+    private boolean isArray = false;
 
     public DataTypeFortran setAsList() {
         this.isList = true;
@@ -15,8 +16,22 @@ public enum DataTypeFortran {
         return this;
     }
 
+    public DataTypeFortran setAsArray() {
+        this.isArray = true;
+        return this;
+    }
+
+    public DataTypeFortran setAsArray(boolean isArray) {
+        this.isArray = isArray;
+        return this;
+    }
+
     public boolean getIsList() {
         return isList;
+    }
+
+    public boolean getIsArray() {
+        return isArray;
     }
 
     @Override
