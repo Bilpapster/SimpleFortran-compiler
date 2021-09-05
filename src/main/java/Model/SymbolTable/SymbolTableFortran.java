@@ -1,6 +1,7 @@
 package Model.SymbolTable;
 
 import Model.DataTypeFortran;
+import Model.FunctionSpecificationFortran;
 
 import java.util.Stack;
 import java.util.HashSet;
@@ -17,6 +18,10 @@ public class SymbolTableFortran {
     private static int maxNumberOfSimultaneouslyActiveScopes = 1;
 
     private static final HashSet<String> functionNames = new HashSet<>();
+
+    private static final HashMap<String, FunctionSpecificationFortran> functions = new HashMap<>();
+
+    private static final HashMap<String, FunctionSpecificationFortran> pendingFunctionCalls = new HashMap<>();
 
 
     private SymbolTableFortran() {
@@ -52,7 +57,7 @@ public class SymbolTableFortran {
         System.out.println("Successfully added shadowing definition of variable: " + identifier);
     }
 
-    public void insertFunctionName(String identifier, DataTypeFortran dataTypeFortran) {
+    public void insertFunctionNameOld(String identifier, DataTypeFortran dataTypeFortran) {
         if (functionNames.contains(identifier)) {
             System.err.println("Function redefinition: " + identifier);
             return;
@@ -60,6 +65,19 @@ public class SymbolTableFortran {
 
         this.insert(identifier, dataTypeFortran);
         functionNames.add(identifier);
+    }
+
+    public void insertFunction(String functionName, FunctionSpecificationFortran functionSpecification) {
+        if (functions.containsKey(functionName)) {
+            System.err.println("A function with name: " + functionName + " has already been declared.");
+            return;
+        }
+        functions.put(functionName, functionSpecification);
+    }
+
+
+    public void addPendingFunctionCall(String functionName, FunctionSpecificationFortran functionSpecification) {
+        pendingFunctionCalls.put(functionName, functionSpecification);
     }
 
     public void enter() {
@@ -93,6 +111,13 @@ public class SymbolTableFortran {
 
     public boolean containsIdentifier(String identifier) {
         return activeIdentifiers.containsKey(identifier);
+    }
+
+    public void clear() {
+        activeScopesStack.clear();
+        activeIdentifiers.clear();
+        numberOfCurrentlyActiveScopes = 0;
+        enter();
     }
 
     public String getReport() {
