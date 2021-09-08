@@ -11,18 +11,19 @@ public class SymbolTableFortran {
 
     private static final SymbolTableFortran SINGLE_INSTANCE = new SymbolTableFortran();
 
+    // identifiers
     private final HashMap<String, ScopeFortran> activeIdentifiers = new HashMap<>();
     private final Stack<ScopeFortran> activeScopesStack = new Stack<>();
 
-    private static int numberOfCurrentlyActiveScopes = 0;
-    private static int maxNumberOfSimultaneouslyActiveScopes = 1;
-
-    private static final HashSet<String> functionNames = new HashSet<>();
-
+    // functions
     private static final HashMap<String, FunctionSpecificationFortran> functions = new HashMap<>();
-
     private static final HashMap<String, FunctionSpecificationFortran> pendingFunctionCalls = new HashMap<>();
 
+    // common blocks
+    private static final HashMap<String, HashSet<String>> commonBlocks = new HashMap<>();
+
+    private static int numberOfCurrentlyActiveScopes = 0;
+    private static int maxNumberOfSimultaneouslyActiveScopes = 1;
 
     private SymbolTableFortran() {
         enter();
@@ -34,8 +35,8 @@ public class SymbolTableFortran {
 
     public void insert(String identifier, DataTypeFortran dataType) {
 
-        if (functionNames.contains(identifier)) {
-            System.err.println("Variable: " + identifier + " clashes with the language keyword");
+        if (functions.containsKey(identifier)) {
+            System.err.println("Variable: " + identifier + " clashes with a function named the same");
             return;
         }
 
@@ -57,16 +58,6 @@ public class SymbolTableFortran {
         System.out.println("Successfully added shadowing definition of variable: " + identifier);
     }
 
-    public void insertFunctionNameOld(String identifier, DataTypeFortran dataTypeFortran) {
-        if (functionNames.contains(identifier)) {
-            System.err.println("Function redefinition: " + identifier);
-            return;
-        }
-
-        this.insert(identifier, dataTypeFortran);
-        functionNames.add(identifier);
-    }
-
     public void insertFunction(String functionName, FunctionSpecificationFortran functionSpecification) {
         if (functions.containsKey(functionName)) {
             System.err.println("A function with name: " + functionName + " has already been declared.");
@@ -80,9 +71,47 @@ public class SymbolTableFortran {
         pendingFunctionCalls.put(functionName, functionSpecification);
     }
 
+    public void checkPendingFunctionCalls() {
+        for (String functionName : pendingFunctionCalls.keySet()) {
+            if (!functions.get(functionName).equals(pendingFunctionCalls.get(functionName))) {
+                System.err.println("There is no function " + functionName + " for this set of formal parameters.");
+            }
+        }
+    }
+
+    public void insertCommonBlock(String commonBlockName, HashSet<String> identifiers) {
+        if (functions.containsKey(commonBlockName)) {
+            System.err.println("Common block name " + commonBlockName + " clashes with a function named the same.");
+            return;
+        }
+
+        if (commonBlocks.containsKey(commonBlockName)) {
+            HashSet<String> alreadyDeclaredIdentifiers = commonBlocks.get(commonBlockName);
+            for (String newIdentifier : identifiers) {
+                if (alreadyDeclaredIdentifiers.contains(newIdentifier)) {
+                    System.err.println("Identifier " + newIdentifier + " is declared more than once in the common named " + commonBlockName);
+                    continue;
+                }
+                alreadyDeclaredIdentifiers.add(newIdentifier);
+            }
+            return;
+        }
+
+        commonBlocks.put(commonBlockName, identifiers);
+    }
+
+    public boolean containsCommonBlock(String commonBlockName) {
+        return commonBlocks.containsKey(commonBlockName);
+    }
+
+    public HashSet<String> getCommonBlockIdentifiers(String commonBlockName) {
+        return commonBlocks.get(commonBlockName);
+    }
+
     public void enter() {
         numberOfCurrentlyActiveScopes++;
         activeScopesStack.push(new ScopeFortran(numberOfCurrentlyActiveScopes));
+        commonBlocks.clear();
         checkPossibleMaxActiveScopes();
     }
 
@@ -118,6 +147,14 @@ public class SymbolTableFortran {
         activeIdentifiers.clear();
         numberOfCurrentlyActiveScopes = 0;
         enter();
+    }
+
+    public DataTypeFortran getTypeOf(String identifier) {
+        if (!activeIdentifiers.containsKey(identifier)) {
+            return null;
+        }
+
+        return activeIdentifiers.get(identifier).getTypeOf(identifier);
     }
 
     public String getReport() {

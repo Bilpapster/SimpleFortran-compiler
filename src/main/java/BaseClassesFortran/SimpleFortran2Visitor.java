@@ -509,12 +509,12 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAssignment(SimpleFortran2Parser.AssignmentContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code ListVariable}
+	 * Visit a parse tree produced by the {@code ArrayAccessVariable}
 	 * labeled alternative in {@link SimpleFortran2Parser#variable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitListVariable(SimpleFortran2Parser.ListVariableContext ctx);
+	T visitArrayAccessVariable(SimpleFortran2Parser.ArrayAccessVariableContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code ListFunctionVariable}
 	 * labeled alternative in {@link SimpleFortran2Parser#variable}.
@@ -593,19 +593,19 @@ public interface SimpleFortran2Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitNewOperation(SimpleFortran2Parser.NewOperationContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code AndOperation}
-	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAndOperation(SimpleFortran2Parser.AndOperationContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code PowerOperation}
 	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPowerOperation(SimpleFortran2Parser.PowerOperationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AndOperation}
+	 * labeled alternative in {@link SimpleFortran2Parser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAndOperation(SimpleFortran2Parser.AndOperationContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code LengthOperation}
 	 * labeled alternative in {@link SimpleFortran2Parser#expression}.

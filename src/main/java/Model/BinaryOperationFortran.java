@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.TypeProcessor;
+
 public abstract class BinaryOperationFortran extends ExpressionFortran{
     protected ExpressionFortran expressionLeft;
     protected ExpressionFortran expressionRight;
@@ -22,5 +24,10 @@ public abstract class BinaryOperationFortran extends ExpressionFortran{
     @Override
     public String toString() {
         return this.expressionLeft + " " + operand + " " + expressionRight;
+    }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return TypeProcessor.getResultType(expressionLeft.getDataType(), expressionRight.getDataType());
     }
 }

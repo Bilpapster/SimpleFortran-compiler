@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 public class IdentifierVariableFortran extends VariableFortran {
     private String identifier;
 
@@ -15,5 +17,10 @@ public class IdentifierVariableFortran extends VariableFortran {
     @Override
     public void performSemanticAnalysis() {
         //todo
+    }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return SymbolTableFortran.getInstance().getTypeOf(identifier);
     }
 }

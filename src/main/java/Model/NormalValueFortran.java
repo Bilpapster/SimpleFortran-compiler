@@ -16,4 +16,9 @@ public class NormalValueFortran extends  ValueFortran{
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return constant.getDataType();
+    }
 }

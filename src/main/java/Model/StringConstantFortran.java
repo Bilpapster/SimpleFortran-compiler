@@ -20,4 +20,9 @@ public class StringConstantFortran extends SimpleConstantFortran{
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return DataTypeFortran.STRING;
+    }
 }

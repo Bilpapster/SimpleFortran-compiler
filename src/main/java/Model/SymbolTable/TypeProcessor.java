@@ -4,7 +4,7 @@ import Model.DataTypeFortran;
 
 import java.util.HashMap;
 
-public class DataTypesManager {
+public class TypeProcessor {
     private static final HashMap<DataTypeFortran, Integer> uniqueIdsMapping = new HashMap<>();
     private static final HashMap<Integer, HashMap<Integer, DataTypeFortran>> resultTypes = new HashMap<>();
 

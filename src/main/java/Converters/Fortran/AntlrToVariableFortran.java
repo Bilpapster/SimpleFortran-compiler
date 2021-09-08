@@ -4,13 +4,13 @@ import BaseClassesFortran.SimpleFortran2BaseVisitor;
 import BaseClassesFortran.SimpleFortran2Parser;
 import Model.IdentifierVariableFortran;
 import Model.ListFunctionVariableFortran;
-import Model.ListVariableFortran;
+import Model.ArrayAccessVariableFortran;
 import Model.VariableFortran;
 
 public class AntlrToVariableFortran extends SimpleFortran2BaseVisitor<VariableFortran> {
     @Override
-    public VariableFortran visitListVariable(SimpleFortran2Parser.ListVariableContext ctx) {
-        ListVariableFortran listVariable = new ListVariableFortran();
+    public VariableFortran visitArrayAccessVariable(SimpleFortran2Parser.ArrayAccessVariableContext ctx) {
+        ArrayAccessVariableFortran listVariable = new ArrayAccessVariableFortran();
 
         listVariable.setIdentifier(ctx.IDENTIFIER().getText());
 

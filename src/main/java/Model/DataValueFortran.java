@@ -2,7 +2,6 @@ package Model;
 
 import Model.SymbolTable.SymbolTableFortran;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class DataValueFortran extends ASTNodeFortran {
@@ -31,6 +30,17 @@ public class DataValueFortran extends ASTNodeFortran {
     public void performSemanticAnalysis() {
         if (!SymbolTableFortran.getInstance().containsIdentifier(identifier)) {
             System.err.println("Undefined variable: " + identifier + " is used in a data declaration.");
+            return;
+        }
+
+        DataTypeFortran variableType = SymbolTableFortran.getInstance().getTypeOf(identifier);
+
+        for (ValueFortran value : values) {
+            DataTypeFortran valueType = value.getDataType();
+            if (variableType != valueType) {
+                System.err.println("Variable " + identifier + " is of type " + variableType +
+                        ", while value " + value.toString() + " is of type " + valueType);
+            }
         }
     }
 }

@@ -18,4 +18,9 @@ public abstract class UnaryOperationFortran extends ExpressionFortran {
     public String toString() {
         return operand + " " + expression;
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return expression.getDataType();
+    }
 }

@@ -23,4 +23,9 @@ public class ListFunctionVariableFortran extends VariableFortran {
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return expressions.get(0).getDataType();
+    }
 }

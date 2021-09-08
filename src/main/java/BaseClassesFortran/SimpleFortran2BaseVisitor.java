@@ -521,7 +521,7 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitListVariable(SimpleFortran2Parser.ListVariableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitArrayAccessVariable(SimpleFortran2Parser.ArrayAccessVariableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -605,14 +605,14 @@ public class SimpleFortran2BaseVisitor<T> extends AbstractParseTreeVisitor<T> im
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAndOperation(SimpleFortran2Parser.AndOperationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPowerOperation(SimpleFortran2Parser.PowerOperationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPowerOperation(SimpleFortran2Parser.PowerOperationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAndOperation(SimpleFortran2Parser.AndOperationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

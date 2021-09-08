@@ -129,7 +129,7 @@ simple_statement        : assignment                                            
 assignment              : variable ASSIGN expression
                         ;
 
-variable                : IDENTIFIER LEFT_PARENTHESIS expressions RIGHT_PARENTHESIS     # ListVariable
+variable                : IDENTIFIER LEFT_PARENTHESIS expressions RIGHT_PARENTHESIS     # ArrayAccessVariable
                         | LISTFUNC LEFT_PARENTHESIS expression RIGHT_PARENTHESIS        # ListFunctionVariable
                         | IDENTIFIER                                                    # IdentifierVariable
                         ;

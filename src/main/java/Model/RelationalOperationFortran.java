@@ -21,4 +21,9 @@ public class RelationalOperationFortran extends BinaryOperationFortran {
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return DataTypeFortran.LOGICAL;
+    }
 }

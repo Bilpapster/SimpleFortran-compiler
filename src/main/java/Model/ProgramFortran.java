@@ -1,9 +1,11 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgramFortran extends ASTNodeFortran{
+public class ProgramFortran extends ASTNodeFortran {
     protected BodyFortran body;
     private List<SubprogramFortran> subprograms;
 
@@ -38,5 +40,10 @@ public class ProgramFortran extends ASTNodeFortran{
     @Override
     public void performSemanticAnalysis() {
         body.performSemanticAnalysis();
+
+        for (SubprogramFortran subprogram : subprograms) {
+            SymbolTableFortran.getInstance().clear();
+            subprogram.performSemanticAnalysis();
+        }
     }
 }

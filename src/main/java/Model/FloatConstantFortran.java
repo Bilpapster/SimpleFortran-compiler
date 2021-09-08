@@ -17,4 +17,9 @@ public class FloatConstantFortran extends ArithmeticConstantFortran {
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return DataTypeFortran.REAL;
+    }
 }

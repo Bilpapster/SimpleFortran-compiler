@@ -45,5 +45,7 @@ public class CBlockFortran extends ASTNodeFortran {
 
             alreadyCheckedIdentifiers.add(identifier);
         }
+
+        SymbolTableFortran.getInstance().insertCommonBlock(name, alreadyCheckedIdentifiers);
     }
 }

@@ -26,4 +26,9 @@ public class ComplexConstantFortran extends ConstantFortran {
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return DataTypeFortran.COMPLEX;
+    }
 }
