@@ -33,7 +33,7 @@ public class VariableDeclarationFortran extends DeclarationFortran {
         for (UndefinedVariableFortran undefinedVariable : variables) {
             undefinedVariable.setDataType(dataType);
             undefinedVariable.performSemanticAnalysis();
-            symbolTable.insert(undefinedVariable.getName(), dataType);
+            symbolTable.insertIdentifier(undefinedVariable.getName(), dataType);
         }
     }
 }

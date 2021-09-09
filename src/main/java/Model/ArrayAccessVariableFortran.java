@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 import java.util.List;
 
 public class ArrayAccessVariableFortran extends VariableFortran {
@@ -33,6 +35,15 @@ public class ArrayAccessVariableFortran extends VariableFortran {
 
     @Override
     public DataTypeFortran getDataType() {
-        return expressions.get(0).getDataType();
+        SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
+        if (symbolTable.existsFunctionWithName(identifier)) {
+            return symbolTable.getReturnTypeOfFunction(identifier);
+        }
+
+        if (symbolTable.containsIdentifier(identifier)) {
+            return symbolTable.getTypeOf(identifier);
+        }
+
+        return null;
     }
 }

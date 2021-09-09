@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 import java.util.List;
 
 public class NormalFunctionHeaderFortran extends HeaderFortran{
@@ -33,6 +35,22 @@ public class NormalFunctionHeaderFortran extends HeaderFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
+        FunctionSpecificationFortran functionSpecification = new FunctionSpecificationFortran(this.dataType);
+
+        for (FormalParameterFortran formalParameter : formalParameters) {
+            formalParameter.performSemanticAnalysis();
+            DataTypeFortran parameterType = formalParameter.getDataType();
+            for (int variableCounter = 0; variableCounter < formalParameter.getNumberOfParameters(); variableCounter++) {
+                functionSpecification.addParameter(parameterType);
+            }
+        }
+
+        symbolTable.insertFunction(this.identifier, functionSpecification);
+    }
+
+    @Override
+    public void performSmartLookAhead() {
+        SymbolTableFortran.getInstance().insertLookedAheadFunction(identifier, dataType);
     }
 }

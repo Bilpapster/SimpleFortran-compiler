@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 public class VariableOperationFortran extends ExpressionFortran {
     private VariableFortran variable;
 
@@ -15,5 +17,10 @@ public class VariableOperationFortran extends ExpressionFortran {
     @Override
     public void performSemanticAnalysis() {
         //todo
+    }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return variable.getDataType();
     }
 }

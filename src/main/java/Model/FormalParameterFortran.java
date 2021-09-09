@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 import java.util.List;
 
 public class FormalParameterFortran extends ASTNodeFortran {
@@ -8,6 +10,10 @@ public class FormalParameterFortran extends ASTNodeFortran {
 
     public void setDataType(DataTypeFortran dataType) {
         this.dataType = dataType;
+    }
+
+    public DataTypeFortran getDataType() {
+        return this.dataType;
     }
 
     public void setVariables(List<UndefinedVariableFortran> variables) {
@@ -28,6 +34,13 @@ public class FormalParameterFortran extends ASTNodeFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        for (UndefinedVariableFortran variable : variables) {
+            variable.performSemanticAnalysis();
+            SymbolTableFortran.getInstance().insertIdentifier(variable.getName(), dataType);
+        }
+    }
+
+    public int getNumberOfParameters() {
+        return variables.size();
     }
 }

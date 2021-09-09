@@ -4,6 +4,7 @@ import BaseClassesFortran.SimpleFortran2Lexer;
 import BaseClassesFortran.SimpleFortran2Parser;
 import Converters.Fortran.AntlrToProgramFortran;
 import Model.ProgramFortran;
+import Model.SymbolTable.SemanticErrorsManager;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class CompilerFortran {
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.err.println("You are making bullshit, please put only ONE main argument");
+            System.err.println("Unacceptable number of main arguments through command line. Please put just ONE and try again");
             return;
         }
 
@@ -26,6 +27,12 @@ public class CompilerFortran {
 //        System.out.println(program.toString());
 
         program.performSemanticAnalysis();
+
+        if (SemanticErrorsManager.hasSemanticErrors()) {
+            SemanticErrorsManager.printSemanticErrors();
+            return;
+        }
+        System.out.println("Program compiles successfully");
     }
 
     private static SimpleFortran2Parser getParser(String fileName) {

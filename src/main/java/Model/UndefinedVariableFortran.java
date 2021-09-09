@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SemanticErrorsManager;
+
 public abstract class UndefinedVariableFortran extends ASTNodeFortran {
     protected String name;
     private boolean isList;
@@ -30,11 +32,15 @@ public abstract class UndefinedVariableFortran extends ASTNodeFortran {
         dataType.setAsList(isList);
     }
 
+    public DataTypeFortran getDataType() {
+        return dataType;
+    }
+
     @Override
     public void performSemanticAnalysis() {
         if (this.dataType == DataTypeFortran.STRING) {
             if (this.isList()) {
-                System.err.println("Variable " + name + " cannot be declared as a list of String variables.");
+                SemanticErrorsManager.addSemanticError("Variable " + name + " cannot be declared as a list of String variables.");
             }
         }
     }

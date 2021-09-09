@@ -39,11 +39,16 @@ public class ProgramFortran extends ASTNodeFortran {
 
     @Override
     public void performSemanticAnalysis() {
+        for (SubprogramFortran subprogram : subprograms) {
+            subprogram.performSmartLookAhead();
+        }
+
         body.performSemanticAnalysis();
 
         for (SubprogramFortran subprogram : subprograms) {
-            SymbolTableFortran.getInstance().clear();
             subprogram.performSemanticAnalysis();
         }
+
+        SymbolTableFortran.getInstance().checkPendingFunctionCalls();
     }
 }

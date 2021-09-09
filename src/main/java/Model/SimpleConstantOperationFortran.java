@@ -16,4 +16,9 @@ public class SimpleConstantOperationFortran extends ExpressionFortran{
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return simpleConstant.getDataType();
+    }
 }

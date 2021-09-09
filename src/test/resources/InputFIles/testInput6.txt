@@ -2,11 +2,13 @@ $ This function calculates the value of complex function z^3 + 5z + 2
 
 real realPart, imaginaryPart, list testing, list papapa(3, 4, 5, 6, 7, 8, 9)
 strIng tasos, list papsteringo
-$ real realPart
+real realPart
 integer imaginaryPart
 integer i
-$ real i
-$ common / commonName / i, realPart, j, k, l, i, realPart
+real i
+integer l
+common / commonName / i, realPart, j, k, l, i, realPart
+common / commonName / fkjsalfj, jfklsdfjas, l
 data i / 6 /, anotherVariable / 1234320948 /, imaginaryPart / *1 /, undeclared / 1 /
 
 write "Enter z to calculate the function: \n"
@@ -18,11 +20,13 @@ write "Enter imaginary_party part: "
 read imaginaryPart
 
 write "The f(z) is: ", f((realPart:imaginaryPart))
+write "The f(z) is: ", fib((realPart:imaginaryPart))
 
 end
 
 
 complex function f(complex z)
     f = z ** 3 + 5 * z + 2
+    radukanu = z ** 5
     return
 end

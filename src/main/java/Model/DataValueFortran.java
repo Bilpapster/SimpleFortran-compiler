@@ -1,5 +1,6 @@
 package Model;
 
+import Model.SymbolTable.SemanticErrorsManager;
 import Model.SymbolTable.SymbolTableFortran;
 
 import java.util.List;
@@ -29,7 +30,7 @@ public class DataValueFortran extends ASTNodeFortran {
     @Override
     public void performSemanticAnalysis() {
         if (!SymbolTableFortran.getInstance().containsIdentifier(identifier)) {
-            System.err.println("Undefined variable: " + identifier + " is used in a data declaration.");
+            SemanticErrorsManager.addSemanticError("Undefined variable: " + identifier + " is used in a data declaration.");
             return;
         }
 
@@ -38,7 +39,7 @@ public class DataValueFortran extends ASTNodeFortran {
         for (ValueFortran value : values) {
             DataTypeFortran valueType = value.getDataType();
             if (variableType != valueType) {
-                System.err.println("Variable " + identifier + " is of type " + variableType +
+                SemanticErrorsManager.addSemanticError("Variable " + identifier + " is of type " + variableType +
                         ", while value " + value.toString() + " is of type " + valueType);
             }
         }

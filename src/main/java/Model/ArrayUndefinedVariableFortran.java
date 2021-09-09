@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SemanticErrorsManager;
+
 import java.util.List;
 
 public class ArrayUndefinedVariableFortran extends UndefinedVariableFortran {
@@ -32,7 +34,7 @@ public class ArrayUndefinedVariableFortran extends UndefinedVariableFortran {
     public void performSemanticAnalysis() {
         super.performSemanticAnalysis();
         if (this.isList()) {
-            System.err.println("Variable " + name + " is declared as both a list and an array.");
+            SemanticErrorsManager.addSemanticError("Variable " + name + " is declared as both a list and an array.");
         }
     }
 }

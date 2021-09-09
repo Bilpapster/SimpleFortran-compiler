@@ -19,6 +19,10 @@ public class AssignmentStatementFortran extends SimpleStatementFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        variable.performSemanticAnalysis(); // todo
+
+
+
+
     }
 }

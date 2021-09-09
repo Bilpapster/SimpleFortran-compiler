@@ -30,4 +30,9 @@ public class ListOperationFortran extends ExpressionFortran {
     public void performSemanticAnalysis() {
         //todo
     }
+
+    @Override
+    public DataTypeFortran getDataType() {
+        return expressions.get(0).getDataType().setAsList(true);
+    }
 }

@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SymbolTableFortran;
+
 public class SubprogramFortran extends ProgramFortran{
     private HeaderFortran header;
     private BodyFortran body;
@@ -23,6 +25,12 @@ public class SubprogramFortran extends ProgramFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        SymbolTableFortran.getInstance().clear();
+        header.performSemanticAnalysis();
+        body.performSemanticAnalysis();
+    }
+
+    public void performSmartLookAhead() {
+        header.performSmartLookAhead();
     }
 }
