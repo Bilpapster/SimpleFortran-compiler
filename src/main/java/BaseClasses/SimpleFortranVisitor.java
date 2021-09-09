@@ -37,28 +37,28 @@ public interface SimpleFortranVisitor<T> extends ParseTreeVisitor<T> {
 	T visitType(SimpleFortranParser.TypeContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Variable}
-	 * labeled alternative in {@link SimpleFortranParser#expression}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariable(SimpleFortranParser.VariableContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code Number}
-	 * labeled alternative in {@link SimpleFortranParser#expression}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitNumber(SimpleFortranParser.NumberContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code AdditionOrSubtraction}
-	 * labeled alternative in {@link SimpleFortranParser#expression}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAdditionOrSubtraction(SimpleFortranParser.AdditionOrSubtractionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code MultiplicationOrDivision}
-	 * labeled alternative in {@link SimpleFortranParser#expression}.
+	 * labeled alternative in .
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
