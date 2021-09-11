@@ -41,18 +41,20 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
     }
 
     @Override
-    public ExpressionFortran visitAdditionOperation(SimpleFortran2Parser.AdditionOperationContext ctx) {
-        AdditionOperationFortran additionOperation = new AdditionOperationFortran();
+    public ExpressionFortran visitAdditionOrSubtractionOperation(SimpleFortran2Parser.AdditionOrSubtractionOperationContext ctx) {
 
-        AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
-        additionOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
-        additionOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
+        if (ctx.getChild(1).getText().equals(ConstantsManagerFortran.PLUS_SIGN)) {
+            // we have addition
+            AdditionOperationFortran additionOperation = new AdditionOperationFortran();
 
-        return additionOperation;
-    }
+            AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+            additionOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
+            additionOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
 
-    @Override
-    public ExpressionFortran visitSubtractionOperation(SimpleFortran2Parser.SubtractionOperationContext ctx) {
+            return additionOperation;
+        }
+
+        // else, we have subtraction
         SubtractionOperationFortran subtractionOperation = new SubtractionOperationFortran();
 
         AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
@@ -63,18 +65,20 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
     }
 
     @Override
-    public ExpressionFortran visitMultiplicationOperation(SimpleFortran2Parser.MultiplicationOperationContext ctx) {
-        MultiplicationOperationFortran multiplicationOperation = new MultiplicationOperationFortran();
+    public ExpressionFortran visitMultiplicationOrDivisionOperation(SimpleFortran2Parser.MultiplicationOrDivisionOperationContext ctx) {
 
-        AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
-        multiplicationOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
-        multiplicationOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
+        if (ctx.getChild(1).getText().equals(ConstantsManagerFortran.STAR_SIGN)) {
+            // we have multiplication
+            MultiplicationOperationFortran multiplicationOperation = new MultiplicationOperationFortran();
 
-        return multiplicationOperation;
-    }
+            AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+            multiplicationOperation.setExpressionLeft(expressionVisitor.visit(ctx.expression(0)));
+            multiplicationOperation.setExpressionRight(expressionVisitor.visit(ctx.expression(1)));
 
-    @Override
-    public ExpressionFortran visitDivisionOperation(SimpleFortran2Parser.DivisionOperationContext ctx) {
+            return multiplicationOperation;
+        }
+
+        // else, we have division
         DivisionOperationFortran divisionOperation = new DivisionOperationFortran();
 
         AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
@@ -106,23 +110,26 @@ public class AntlrToExpressionFortran extends SimpleFortran2BaseVisitor<Expressi
     }
 
     @Override
-    public ExpressionFortran visitMinusSignedOperation(SimpleFortran2Parser.MinusSignedOperationContext ctx) {
+    public ExpressionFortran visitSignedOperation(SimpleFortran2Parser.SignedOperationContext ctx) {
+
+        if (ctx.getChild(1).getText().equals(ConstantsManagerFortran.PLUS_SIGN)) {
+            // the expression is positively signed (+)
+            SignedOperationFortran signedOperation = new SignedOperationFortran();
+
+            AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
+            signedOperation.setExpression(expressionVisitor.visit(ctx.expression()));
+
+            return signedOperation;
+        }
+
+        // else, the expression is negatively signed (-)
         MinusSignedOperationFortran minusSignedOperation = new MinusSignedOperationFortran();
 
         AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
         minusSignedOperation.setExpression(expressionVisitor.visit(ctx.expression()));
-        
+
         return minusSignedOperation;
-    }
 
-    @Override
-    public ExpressionFortran visitSignedOperation(SimpleFortran2Parser.SignedOperationContext ctx) {
-        SignedOperationFortran signedOperation = new SignedOperationFortran();
-
-        AntlrToExpressionFortran expressionVisitor = new AntlrToExpressionFortran();
-        signedOperation.setExpression(expressionVisitor.visit(ctx.expression()));
-
-        return signedOperation;
     }
 
     @Override

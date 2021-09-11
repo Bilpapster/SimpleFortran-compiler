@@ -141,12 +141,9 @@ expressions             : expressions COMMA expression                          
 
 expression              : LEFT_PARENTHESIS expression RIGHT_PARENTHESIS                   # ParenthesizedOperation
                         |<assoc=right> expression POWEROP expression                      # PowerOperation
-                        | expression MULOP expression                                     # MultiplicationOperation
-                        | expression DIVOP expression                                     # DivisionOperation
-                        | expression ADDOP expression                                     # AdditionOperation
-                        | ADDOP expression                                                # SignedOperation
-                        | SUBOP expression                                                # MinusSignedOperation
-                        | expression SUBOP expression                                     # SubtractionOperation
+                        | expression (MULOP | DIVOP) expression                           # MultiplicationOrDivisionOperation
+                        | expression (ADDOP | SUBOP) expression                           # AdditionOrSubtractionOperation
+                        | (ADDOP | SUBOP) expression                                      # SignedOperation
                         | expression RELOP expression                                     # RelationalOperation
                         | NOTOP expression                                                # NotOperation
                         | expression ANDOP expression                                     # AndOperation
