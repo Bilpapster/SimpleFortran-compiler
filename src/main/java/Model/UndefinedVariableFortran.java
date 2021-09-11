@@ -16,7 +16,7 @@ public abstract class UndefinedVariableFortran extends ASTNodeFortran {
     }
 
     public boolean isList() {
-        return dataType.getIsList();
+        return dataType.isList();
     }
 
     public void setIsList(boolean isList) {

@@ -21,6 +21,6 @@ public class IdentifierVariableFortran extends VariableFortran {
 
     @Override
     public DataTypeFortran getDataType() {
-        return SymbolTableFortran.getInstance().getTypeOf(identifier);
+        return SymbolTableFortran.getInstance().getTypeOfIdentifier(identifier);
     }
 }

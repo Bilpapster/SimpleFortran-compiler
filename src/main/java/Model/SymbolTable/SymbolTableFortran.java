@@ -92,7 +92,8 @@ public class SymbolTableFortran {
     public void checkPendingFunctionCalls() {
         for (String functionName : pendingFunctionCalls.keySet()) {
             if (!functions.get(functionName).equals(pendingFunctionCalls.get(functionName))) {
-                SemanticErrorsManager.addSemanticError("There is no function " + functionName + " for this set of formal parameters.");
+                SemanticErrorsManager.addSemanticError("There is no function " + functionName + " for this set of formal parameters." +
+                        " The closest function definition is with parameter types: " + functions.get(functionName).toString());
             }
         }
     }
@@ -171,7 +172,7 @@ public class SymbolTableFortran {
         enter();
     }
 
-    public DataTypeFortran getTypeOf(String identifier) {
+    public DataTypeFortran getTypeOfIdentifier(String identifier) {
         if (!activeIdentifiers.containsKey(identifier)) {
             return null;
         }

@@ -17,6 +17,10 @@ public class RepeatValueFortran extends NormalValueFortran{
         return repeat + " " + sign + constant;
     }
 
+    public boolean hasRepeatFactor() {
+        return repeat.hasRepeatFactor();
+    }
+
     @Override
     public void performSemanticAnalysis() {
         //todo

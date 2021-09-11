@@ -50,4 +50,9 @@ public class FunctionSpecificationFortran {
 
         return true;
     }
+
+    @Override
+    public String toString() {
+        return parameters.toString();
+    }
 }

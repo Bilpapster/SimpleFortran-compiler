@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SemanticErrorsManager;
+
 import java.util.List;
 
 public class ListOperationFortran extends ExpressionFortran {
@@ -28,7 +30,26 @@ public class ListOperationFortran extends ExpressionFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        if (expressions.isEmpty()) {
+            return;
+        }
+
+        DataTypeFortran dataTypeOfFirstElement = expressions.get(0).getDataType();
+        if (dataTypeOfFirstElement.isArray()) {
+            SemanticErrorsManager.addSemanticError("The first element ('" +
+                    expressions.get(0).toString() + " of the list expression is an array, which is not allowed.");
+            return;
+        }
+
+        for (int expressionCounter = 1; expressionCounter < expressions.size(); expressionCounter++) {
+            if (!expressions.get(expressionCounter).getDataType().equals(dataTypeOfFirstElement)) {
+                SemanticErrorsManager.addSemanticError("The data type of the list element '" +
+                        expressions.get(expressionCounter).toString() + "' (" +
+                        expressions.get(expressionCounter).getDataType().toString() +
+                        ") clashes with the data type of the first element of the list (" +
+                        dataTypeOfFirstElement + "). All elements in a list have to be of the same type.");
+            }
+        }
     }
 
     @Override

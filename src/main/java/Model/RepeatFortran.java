@@ -16,6 +16,10 @@ public class RepeatFortran extends ASTNodeFortran {
         this.hasConstant = true;
     }
 
+    public boolean hasRepeatFactor() {
+        return hasConstant;
+    }
+
     @Override
     public String toString() {
         if (!hasConstant) {

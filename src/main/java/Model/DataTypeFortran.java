@@ -26,11 +26,11 @@ public enum DataTypeFortran {
         return this;
     }
 
-    public boolean getIsList() {
+    public boolean isList() {
         return isList;
     }
 
-    public boolean getIsArray() {
+    public boolean isArray() {
         return isArray;
     }
 

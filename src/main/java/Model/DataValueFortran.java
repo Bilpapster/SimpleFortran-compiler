@@ -34,14 +34,43 @@ public class DataValueFortran extends ASTNodeFortran {
             return;
         }
 
-        DataTypeFortran variableType = SymbolTableFortran.getInstance().getTypeOf(identifier);
+        DataTypeFortran variableType = SymbolTableFortran.getInstance().getTypeOfIdentifier(identifier);
 
-        for (ValueFortran value : values) {
+        if (!variableType.isArray()) {
+            if (values.size() > 1) {
+                SemanticErrorsManager.addSemanticError("Variable " + identifier + " is not declared as array but " +
+                        "initialized as so (initialized as an array of )" + values.size() + " elements");
+                return;
+            }
+            ValueFortran value = values.get(0);
             DataTypeFortran valueType = value.getDataType();
             if (variableType != valueType) {
                 SemanticErrorsManager.addSemanticError("Variable " + identifier + " is of type " + variableType +
                         ", while value " + value.toString() + " is of type " + valueType);
             }
+        }
+
+        int emptyRepeatFactorCounter = 0;
+        variableType.setAsArray(false);
+        for (ValueFortran value : values) {
+            DataTypeFortran valueType = value.getDataType();
+
+            if (variableType != valueType) {
+                SemanticErrorsManager.addSemanticError("Variable " + identifier + " is of type " + variableType +
+                        ", while value " + value.toString() + " is of type " + valueType);
+            }
+
+            if (value instanceof RepeatValueFortran) {
+                RepeatValueFortran repeatValue = (RepeatValueFortran) value;
+                if (!repeatValue.hasRepeatFactor()) {
+                    emptyRepeatFactorCounter++;
+                }
+            }
+        }
+
+        if (emptyRepeatFactorCounter > 1) {
+            SemanticErrorsManager.addSemanticError("Variable " + identifier + " is initialized using more than one (" +
+                    emptyRepeatFactorCounter + ") repeat values with no repeat factor.");
         }
     }
 }
