@@ -1,6 +1,6 @@
 package Model;
 
-public class DivisionOperationFortran extends BinaryOperationFortran{
+public class DivisionOperationFortran extends BinaryOperationFortran {
     @Override
     public void setOperand() {
         this.operand = '/';
@@ -8,6 +8,6 @@ public class DivisionOperationFortran extends BinaryOperationFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        performSemanticAnalysisOfArithmeticExpressionExceptForAdditionAndPowerOperation("division");
     }
 }

@@ -1,6 +1,8 @@
 package Model;
 
-public class MinusSignedOperationFortran extends UnaryOperationFortran{
+import Model.SymbolTable.SemanticErrorsManager;
+
+public class MinusSignedOperationFortran extends UnaryOperationFortran {
     @Override
     public void setOperand() {
         this.operand = "-";
@@ -8,6 +10,12 @@ public class MinusSignedOperationFortran extends UnaryOperationFortran{
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        if (this.expression.getDataType().isArithmeticType()) {
+            return;
+        }
+
+        SemanticErrorsManager.addSemanticError("Expression '" + expression.toString() +
+                "' is used in a signed operation but is of type " + this.getDataType() +
+                " (expected arithmetic type).");
     }
 }

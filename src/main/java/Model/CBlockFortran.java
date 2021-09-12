@@ -31,7 +31,16 @@ public class CBlockFortran extends ASTNodeFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        HashSet<String> alreadyCheckedIdentifiers = new HashSet<>();
+
+        SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
+        HashSet<String> alreadyCheckedIdentifiers;
+
+        if (symbolTable.containsCommonBlock(name)) {
+            alreadyCheckedIdentifiers = symbolTable.getCommonBlockIdentifiers(name);
+        } else {
+            alreadyCheckedIdentifiers = new HashSet<>();
+        }
+
 
         for (String identifier : identifiers) {
             if (alreadyCheckedIdentifiers.contains(identifier)) {

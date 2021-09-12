@@ -36,7 +36,7 @@ public class DataValueFortran extends ASTNodeFortran {
 
         DataTypeFortran variableType = SymbolTableFortran.getInstance().getTypeOfIdentifier(identifier);
 
-        if (!variableType.isArray()) {
+        if (!variableType.isArray() && !variableType.isList()) {
             if (values.size() > 1) {
                 SemanticErrorsManager.addSemanticError("Variable " + identifier + " is not declared as array but " +
                         "initialized as so (initialized as an array of )" + values.size() + " elements");
@@ -48,10 +48,13 @@ public class DataValueFortran extends ASTNodeFortran {
                 SemanticErrorsManager.addSemanticError("Variable " + identifier + " is of type " + variableType +
                         ", while value " + value.toString() + " is of type " + valueType);
             }
+            return;
         }
 
         int emptyRepeatFactorCounter = 0;
         variableType.setAsArray(false);
+        variableType.setAsList(false);
+
         for (ValueFortran value : values) {
             DataTypeFortran valueType = value.getDataType();
 

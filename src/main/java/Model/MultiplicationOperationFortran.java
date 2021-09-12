@@ -1,5 +1,7 @@
 package Model;
 
+import Model.SymbolTable.SemanticErrorsManager;
+
 public class MultiplicationOperationFortran extends BinaryOperationFortran{
     @Override
     public void setOperand() {
@@ -7,7 +9,12 @@ public class MultiplicationOperationFortran extends BinaryOperationFortran{
     }
 
     @Override
+    public DataTypeFortran getDataType() {
+        return getDataTypeOfArithmeticExpressionExceptForAdditionAndPowerOperation();
+    }
+
+    @Override
     public void performSemanticAnalysis() {
-        //todo
+        performSemanticAnalysisOfArithmeticExpressionExceptForAdditionAndPowerOperation("multiplication");
     }
 }
