@@ -19,6 +19,10 @@ public class TailFortran extends ASTNodeFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        if (!hasBody) {
+            return;
+        }
+
+        body.performSemanticAnalysis();
     }
 }

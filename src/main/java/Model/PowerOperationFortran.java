@@ -17,6 +17,16 @@ public class PowerOperationFortran extends BinaryOperationFortran {
                 + expressionRight.getDataType()
                 + ". This combination of data types is not acceptable by the language reference.";
 
+        if (!expressionLeft.getDataType().isArithmeticType()) {
+            SemanticErrorsManager.addSemanticError(errorMessage);
+            return;
+        }
+
+        if (!expressionRight.getDataType().isArithmeticType()) {
+            SemanticErrorsManager.addSemanticError(errorMessage);
+            return;
+        }
+
         if (expressionRight.getDataType() == DataTypeFortran.COMPLEX) {
             SemanticErrorsManager.addSemanticError(errorMessage);
             return;

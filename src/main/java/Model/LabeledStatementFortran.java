@@ -34,6 +34,6 @@ public class LabeledStatementFortran extends ASTNodeFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        statement.performSemanticAnalysis();
     }
 }

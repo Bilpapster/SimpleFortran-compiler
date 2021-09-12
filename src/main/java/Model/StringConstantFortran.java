@@ -1,5 +1,7 @@
 package Model;
 
+import javax.xml.crypto.Data;
+
 public class StringConstantFortran extends SimpleConstantFortran{
     private String actualValue;
 
@@ -23,6 +25,9 @@ public class StringConstantFortran extends SimpleConstantFortran{
 
     @Override
     public DataTypeFortran getDataType() {
-        return DataTypeFortran.STRING;
+        DataTypeFortran returnType = DataTypeFortran.STRING;
+        returnType.setAsList(false);
+        returnType.setAsArray(false);
+        return returnType;
     }
 }

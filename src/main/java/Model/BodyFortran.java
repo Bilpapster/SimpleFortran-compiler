@@ -34,5 +34,9 @@ public class BodyFortran extends ASTNodeFortran{
         for (DeclarationFortran declaration : declarations) {
             declaration.performSemanticAnalysis();
         }
+
+        for (LabeledStatementFortran statement : statements) {
+            statement.performSemanticAnalysis();
+        }
     }
 }

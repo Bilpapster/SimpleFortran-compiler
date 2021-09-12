@@ -1,5 +1,6 @@
 package Model;
 
+import Model.SymbolTable.SemanticErrorsManager;
 import Model.SymbolTable.SymbolTableFortran;
 
 public class IdentifierVariableFortran extends VariableFortran {
@@ -16,7 +17,15 @@ public class IdentifierVariableFortran extends VariableFortran {
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        if (SymbolTableFortran.getInstance().containsIdentifier(identifier)) {
+            return;
+        }
+
+        if (SymbolTableFortran.getInstance().existsFunctionWithName(identifier)) {
+            return;
+        }
+
+        SemanticErrorsManager.addSemanticError("Undefined reference to identifier " + identifier);
     }
 
     @Override

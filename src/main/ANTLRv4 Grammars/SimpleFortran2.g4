@@ -353,7 +353,7 @@ INTEGER_HEX_CONSTANT    : HEX_INDICATOR VALID_HEX_NUM;
 INTEGER_OCT_CONSTANT    : OCT_INDICATOR VALID_OCT_NUM;
 INTEGER_BIN_CONSTANT    : BIN_INDICATOR VALID_BIN_NUM;
 
-FLOAT_DEC_CONSTANT      : (
+FLOAT_DEC_CONSTANT      : SIGN (
                                 (NON_ZERO_DIGIT DIGIT* | ZERO)? DOT DIGIT* NON_ZERO_DIGIT DIGIT*         // ensures decimal part
                               | (NON_ZERO_DIGIT DIGIT* | ZERO) (DOT (DIGIT* NON_ZERO_DIGIT DIGIT*)?)?    // ensures int part
                           )

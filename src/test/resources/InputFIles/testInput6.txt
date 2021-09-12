@@ -5,11 +5,11 @@ strIng tasos, list papsteringo
 real realPart
 integer imaginaryPart
 integer i
-real i
 integer l
 common / commonName / i, realPart, j, k, l, i, realPart
-common / commonName / fkjsalfj, jfklsdfjas, l
-data i / 6 /, anotherVariable / 1234320948 /, imaginaryPart / *1 /, undeclared / 1 /
+data i / 6 /, anotherVariable / 1234320948 /, imaginaryPart / 1 /, undeclared / 1 /
+
+i = "this should not be accepted"
 
 write "Enter z to calculate the function: \n"
 
@@ -27,6 +27,5 @@ end
 
 complex function f(complex z)
     f = z ** 3 + 5 * z + 2
-    radukanu = z ** 5
     return
 end

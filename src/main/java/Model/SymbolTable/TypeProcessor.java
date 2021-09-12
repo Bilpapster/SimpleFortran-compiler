@@ -60,8 +60,18 @@ public class TypeProcessor {
     }
 
     public static DataTypeFortran getResultType(DataTypeFortran leftOperand, DataTypeFortran rightOperand) {
+
+        if (!uniqueIdsMapping.containsKey(leftOperand)) return null;
         int leftOperandId = uniqueIdsMapping.get(leftOperand);
+
+        if (!uniqueIdsMapping.containsKey(rightOperand)) return null;
         int rightOperandId = uniqueIdsMapping.get(rightOperand);
-        return resultTypes.get(leftOperandId).get(rightOperandId);
+
+        if (resultTypes.containsKey(leftOperandId)) {
+            if (resultTypes.get(leftOperandId).containsKey(rightOperandId)) {
+                return resultTypes.get(leftOperandId).get(rightOperandId);
+            }
+        }
+        return null;
     }
 }

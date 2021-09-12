@@ -19,7 +19,7 @@ public class SemanticErrorsManager {
             return;
         }
 
-        System.err.println("The program could not compile due to the following semantic errors: \n");
+        System.err.println("The program could not compile due to the following semantic error(s): \n");
         int semanticErrorsCounter = 0;
         for (String semanticError : semanticErrors) {
             System.err.println(++semanticErrorsCounter + ". " + semanticError);

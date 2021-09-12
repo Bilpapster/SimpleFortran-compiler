@@ -46,8 +46,8 @@ public enum DataTypeFortran {
 
     @Override
     public String toString() {
-        if (isList) return this.name() + " LIST";
-        if (isArray) return this.name() + " ARRAY";
+        if (isList()) return this.name() + " LIST";
+        if (isArray()) return this.name() + " ARRAY";
         return this.name() + " ";
     }
 

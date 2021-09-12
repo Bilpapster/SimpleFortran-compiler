@@ -1,14 +1,9 @@
 package Model;
 
 public class LogicalIfStatementFortran extends IfStatementFortran{
-    private ExpressionFortran expression;
     private IntegerConstantFortran labelLeft;
     private IntegerConstantFortran labelMiddle;
     private IntegerConstantFortran labelRight;
-
-    public void setExpression(ExpressionFortran expression) {
-        this.expression = expression;
-    }
 
     public void setLabelLeft(IntegerConstantFortran labelLeft) {
         this.labelLeft = labelLeft;
@@ -25,10 +20,5 @@ public class LogicalIfStatementFortran extends IfStatementFortran{
     @Override
     public String toString() {
         return "IF (" + expression + ") " + labelLeft + ", " + labelMiddle + ", " + labelRight + '\n';
-    }
-
-    @Override
-    public void performSemanticAnalysis() {
-        //todo
     }
 }

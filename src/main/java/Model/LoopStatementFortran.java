@@ -2,7 +2,7 @@ package Model;
 
 import Model.SymbolTable.SymbolTableFortran;
 
-public class LoopStatementFortran extends CompoundStatementFortran{
+public class LoopStatementFortran extends CompoundStatementFortran {
     private String identifier;
     private IterationSpaceFortran iterationSpace;
     private BodyFortran body;
@@ -21,7 +21,6 @@ public class LoopStatementFortran extends CompoundStatementFortran{
 
     @Override
     public String toString() {
-
         return "DO " + identifier + " = " + iterationSpace.toString() + '\n' + body.toString() + "ENDDO";
     }
 
@@ -29,6 +28,12 @@ public class LoopStatementFortran extends CompoundStatementFortran{
     public void performSemanticAnalysis() {
         SymbolTableFortran symbolTable = SymbolTableFortran.getInstance();
         symbolTable.enter();
+
+        DataTypeFortran dataType = DataTypeFortran.INTEGER;
+        dataType.setAsList(false);
+        dataType.setAsArray(false);
+        symbolTable.insertIdentifier(identifier, dataType);
+
         body.performSemanticAnalysis();
         symbolTable.exit();
     }

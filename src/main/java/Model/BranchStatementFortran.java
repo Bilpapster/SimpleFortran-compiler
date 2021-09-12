@@ -1,6 +1,9 @@
 package Model;
 
-public class BranchStatementFortran extends CompoundStatementFortran{
+import Model.SymbolTable.SemanticErrorsManager;
+import Model.SymbolTable.SymbolTableFortran;
+
+public class BranchStatementFortran extends CompoundStatementFortran {
     private ExpressionFortran expression;
     private BodyFortran body;
     private TailFortran tail;
@@ -19,12 +22,23 @@ public class BranchStatementFortran extends CompoundStatementFortran{
 
     @Override
     public String toString() {
-        return "IF(" + expression.toString() + ") THEN\n" +  body.toString() + '\n' + tail.toString();
+        return "IF(" + expression.toString() + ") THEN\n" + body.toString() + '\n' + tail.toString();
 
     }
 
     @Override
     public void performSemanticAnalysis() {
-        //todo
+        if (expression.getDataType() != DataTypeFortran.LOGICAL) {
+            SemanticErrorsManager.addSemanticError("Incompatible type in a branch statement ('" + this.toString() +
+                    "'). The expression used is of type " + expression.getDataType() + " (expected LOGICAL)");
+        }
+
+        SymbolTableFortran.getInstance().enter();
+        body.performSemanticAnalysis();
+        SymbolTableFortran.getInstance().exit();
+
+        SymbolTableFortran.getInstance().enter();
+        tail.performSemanticAnalysis();
+        SymbolTableFortran.getInstance().exit();
     }
 }
